@@ -1,81 +1,21 @@
 ﻿/**
-* Author : Daniel Masci - 200299037
+* Authors : Emma Hilborn (200282755),
+            Alex Friesen (200302342),
+            Dan Masci (200299037)
 * Class : Enterprise Computing
 * Semester : 4
 * Professor : Tom Tsiliopolous
-* Purpose : Assignment 2 - ASP.NET Portfolio
-* Website Name : Comp2007_Project2.azurewebsites.net
+* Purpose : Final Team Project - E-Commerce Store
+* Website Name : Comp2007-Project2.azurewebsites.net
 */
 
 /**
 * The following file is the "MASTER" Javascript file that encompasses JQuery. It includes
-* all my custom jQuery functionality that is used across my application.
+* our Landing Page Rotator and any other custom jQuery functionality that is used across 
+* our application.
 */
 
 jQuery(document).ready(function ($) {
-
-    /*************************************************
-	*					MOBILE MENU
-	*************************************************/
-    $('nav#header-nav').moby({
-        mobyTrigger: $('#moby-button'), // Button that will trigger the Moby menu to open
-    });
-
-     $('#top-nav').moby({
-     	//insertBefore: "<div class='logo'><img src='/Assets/images/logo.png' alt='MasciApps'></a></div>",
-     });
-
-    /*************************************************
-	*				CONTENT CHOOSER
-	*************************************************/
-    if ($('.options').length > 0) {
-        //Determine necessary variables
-        var numOfTabs = $('.option').length;
-        var tabNum = 1;
-
-        /**
-		* 	Change Content Function
-		*/
-        function changeContent(e) {
-            var optionID = $(this).attr('id');
-
-            $('.option').removeClass('active');
-            $('.option-content').removeClass('active').fadeOut(300);
-            $('#' + optionID).addClass('active');
-            $('.' + optionID + '-content').addClass('active').fadeIn(300);
-        }
-        $('.option').on('click', changeContent);
-    }
-    /*************************************************
-	*				CONTENT ACCORDIAN
-	*************************************************/
-    if ($('.trigger').length > 0) {
-        $('.trigger-content').removeClass('active').hide();
-
-        function showContent(e) {
-            var triggerID = $(this).attr('id');
-
-            if ($('.' + triggerID + '-content').hasClass('active')) {
-                $('.' + triggerID + '-content').removeClass('active').slideUp(600);
-                $('#' + triggerID + ' span').text('+');
-            }
-            else {
-                $('.' + triggerID + '-content').addClass('active').slideDown(600);
-                $('#' + triggerID + ' span').text('-');
-                //Scroll to top of the selected container
-                $('html, body').animate(
-				{
-				    scrollTop: $('#' + triggerID).offset().top
-				}, 600);
-            }
-        }
-        $('.trigger').on('click', showContent);
-    }
-
-    /*************************************************
-	*				CONTENT TRIGGERS
-	*************************************************/
-
     /*************************************************
 	*					ROTATOR
 	*************************************************/

@@ -1,6 +1,6 @@
 /**
 * See style.less comments
-* NOT MY CODE
+* NOT OUR CODE
 * Taken from : https://github.com/joshsanger/moby.js
 */
 
