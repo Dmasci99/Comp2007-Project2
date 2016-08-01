@@ -1,0 +1,80 @@
+﻿<!-- 
+/**
+* Author : Daniel Masci - 200299037
+* Class : Enterprise Computing
+* Semester : 4
+* Professor : Tom Tsiliopolous
+* Purpose : Assignment 2 - ASP.NET Portfolio
+* Website Name : Comp2007_Project2.azurewebsites.net
+*
+* Layout file for views. Includes Navigation and Interior Header
+* for all pages that don't have "Index" as their ViewBag.Title.
+*/
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title | MasciApps</title>
+    <!-- CSS / Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    @Styles.Render("~/Content/css")
+
+</head>
+<body>
+    <!-- Nav Header -->
+    <header class="header">
+        <div class="container">
+            <!-- Mobile Menu -->
+            <span id="moby-button"><i class="fa fa-bars"></i></span>
+            <div class="clear-float"></div><!-- clear-float -->
+            <!-- Main Menu -->
+            <nav id="header-nav">
+                <ul class="menu">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Menu", "Index", "Menu")</li>
+                    <div class="clear-float"></div><!--clear-float-->
+                </ul>
+            </nav><!--.header-nav-->
+
+            <div class="clear-float"></div><!--clear-float-->
+        </div>
+    </header>
+
+    @if (ViewBag.Title != "Home")
+    {
+        <!-- Interior Header -->
+        <div class="interior-header">
+            <div class="container">
+                <h1>@ViewBag.Title</h1>
+            </div>
+        </div>
+    }
+
+    <!-- Content -->
+    @RenderBody()
+
+    <!-- Footer -->
+    <div class="clear-float"></div>
+    <footer class="section">
+        <div class="container">
+
+        </div><!-- container -->
+
+        <div class="copyright">
+            <div class="container">
+                <p class="" id="copyright">MasciApps 2016</p>
+                <p class="" id="author">Website by Dan Masci</p>
+            </div><!-- container -->
+        </div><!--div.copyright-->
+    </footer>
+
+    <!-- JS -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

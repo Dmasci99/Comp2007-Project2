@@ -1,0 +1,231 @@
+/**
+* Author : Daniel Masci - 200299037
+* Class : Enterprise Computing
+* Semester : 4
+* Professor : Tom Tsiliopolous
+* Purpose : Assignment 2 - ASP.NET Portfolio
+* Website Name : MasciApps-Ass2.azurewebsites.net
+*
+* This is a partial LESS file that has all styles that are
+* to do with the Menu and Detail pages (includes responsive).
+*/
+
+/***********************************									
+*			 Menu Global			
+***********************************/
+.menu-page {
+    .image {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding: 2px;
+        img {
+            max-width: 100%;
+        }
+        .label {
+            position: absolute;
+            width: 100px;
+            top: 30px;
+            left: 30px;
+            .translateAll(1, -50%, -50%, -45deg);
+            color: @silver;
+            font-size: 12px;
+            text-align: center;
+            background: @blueGrey;
+            padding: 2px 6px;
+        }
+    }//.image
+}//.menu-page
+/***********************************									
+*	       Menu List Page 				
+***********************************/
+#menu-page {
+    padding: 0;
+    .items {
+        width: 100%;
+        text-align: center;
+        .row {
+            width: 100%;
+            padding: 40px 0;
+            .box-shadow(0, 0, 10px, @grey);
+            h2 {
+                position: relative;
+                font-size: 28px;
+                text-transform: uppercase;  
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    .translateX;
+                    width: 50px;
+                    height: 2px;
+                    background: @lightBlue;
+                }
+            }
+            .container {
+                display: inline-block;
+            }            
+            &:nth-child(even) {
+                background: @offWhite;
+            }            
+            &:nth-child(odd) {
+                background: lighten(@offWhite, 2%);
+            }
+            a {                
+                color: @darkerBlue;
+                &:hover {
+                    .image {
+                        .fa {
+                            font-size: 22px;
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
+                }
+            }
+        }//.row
+        .item {
+            position: relative;
+            display: inline-block;
+            width: 30%;
+            margin: 10px 1%;
+            vertical-align: top;
+            .image {
+                .fa {
+                    opacity: 0;
+                    visibility: hidden;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    .translateBoth;
+                    color: @silver;
+                    font-size: 2px;
+                    .trans(all,0.3s);
+                }
+            }//.image
+            .name {
+                font-weight: bold;
+                font-variant: small-caps;
+                font-size: 20px;
+                padding: 5px 10px;
+                .price {
+                    font-weight: normal;
+                    font-size: 14px;
+                }
+            }//.name
+            .desc {
+                padding: 0 10px;
+                p {
+
+                }
+            }//.desc
+        }//.item
+    }//.items
+}//#menu-page
+/***********************************									
+*	      Menu Details Page 				
+***********************************/
+#details-page {
+    padding-top: 20px;
+    .button {
+        text-align: center;
+        display: block;
+        margin-bottom: 20px;
+        a {
+            font-size: 12px;
+            color: @white;
+            padding: 5px 10px;
+            background: @blueGrey;
+            .round(3px);
+            .trans(all,0.3s);
+            &:hover {
+                background: lighten(@blueGrey, 10%);
+            }
+        }
+    }
+    .right {
+        float: right;
+        width: 40%;
+        .info {
+            font-size: 16px;
+            color: @darkerBlue;
+            line-height: 1.4em;
+            padding-left: 30px;
+            > div {
+                display: block;
+            }
+            .name {
+                position: relative;
+                font-size: 26px;
+                font-variant: small-caps;
+            }
+            .price {
+                margin-bottom: 10px;
+            }
+            .desc {
+            }
+        }
+    }
+    .left {
+        float: left;
+        width: 60%;
+    }
+}//#details-page
+
+/********************************************************
+*														*
+*	    			   RESPONSIVE
+*   													*
+********************************************************/
+ @media screen and (max-width: 850px) {
+    /***********************************									
+    *	      Menu Details Page 				
+    ***********************************/
+    #details-page {
+        .right {
+            float: none;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            .info {
+                font-size: 18px;
+                color: @darkerBlue;
+                line-height: 1.4em;
+                padding: 0;
+                .price {
+                    margin: 5px 0;;
+                }
+            }
+        }
+        .left {
+            float: none;
+            width: 100%;
+            text-align: center;
+        }
+    }//#details-page
+}//850px
+@media screen and (max-width: 750px) {
+    /***********************************									
+    *	       Menu List Page 				
+    ***********************************/
+    #menu-page {
+        .items {
+            .row {
+                padding: 25px 0;
+                h2 {
+                    margin-bottom: 10px;
+                    padding-bottom: 10px;
+                }
+            }//.row
+            .item {
+                display: block;
+                width: 100%;
+                max-width: 350px;
+                margin: 10px auto 30px auto;
+            }//.item
+        }//.items
+    }//#menu-page
+}//750px
