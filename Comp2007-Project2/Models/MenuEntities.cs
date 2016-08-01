@@ -10,7 +10,7 @@ namespace Comp2007_Project2.Models
         public MenuEntities()
             : base("name=MenuConnection")
         {
-        }
+        } 
 
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<ItemType> ItemTypes { get; set; }
