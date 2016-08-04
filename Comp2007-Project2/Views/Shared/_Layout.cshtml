@@ -19,7 +19,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewBag.Title | MasciApps</title>
+    <title>@ViewBag.Title | EZGames</title>
     <!-- CSS / Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
     @Styles.Render("~/Content/css")
@@ -36,8 +36,10 @@
             <nav id="header-nav">
                 <ul class="menu">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Menu", "Index", "Menu")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                    <li>@Html.ActionLink("Register", "Register", "Account")</li>
                     <div class="clear-float"></div><!--clear-float-->
                 </ul>
             </nav><!--.header-nav-->
@@ -68,7 +70,7 @@
 
         <div class="copyright">
             <div class="container">
-                <p class="" id="copyright">MasciApps 2016</p>
+                <p class="" id="copyright">EZGames 2016</p>
                 <p class="" id="author">Website by Dan Masci</p>
             </div><!-- container -->
         </div><!--div.copyright-->

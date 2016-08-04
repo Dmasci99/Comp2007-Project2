@@ -1,0 +1,47 @@
+﻿@*
+    /**
+    * Authors : Emma Hilborn (200282755),
+                Alex Friesen (200302342),
+                Dan Masci (200299037)
+    * Class : Enterprise Computing
+    * Semester : 4
+    * Professor : Tom Tsiliopolous
+    * Purpose : Final Team Project - E-Commerce Store
+    * Website Name : Comp2007-Project2.azurewebsites.net/Menu/Details
+    *
+    * This is the Details Page for our Menu App. It provides more details
+    * about a specific item that has been clicked.
+    */
+*@
+
+@model Comp2007_Project2.Models.Game
+
+@{
+    ViewBag.Title = "Details";
+
+}
+
+<div class="interior-page menu-page" id="details-page">
+    <div class="container">
+        <div class="button"><a href="/Menu#item@(Model.ItemId)"><i class="fa fa-arrow-circle-left"></i> Go Back</a></div>
+        <div class="right">
+            <div class="info">
+                <div class="name">@Model.Name</div>
+                <div class="price">($@(Model.Price))</div>
+                <div class="desc">@Model.LongDescription</div>
+            </div>
+        </div>
+        <div class="left">
+            <div class="image">
+                @if (Model.Label.Name != "")
+                {
+                    <div class="label">@Model.Label.Name</div>
+                }
+                <img src="@Model.ImageUrl" alt="@Model.Name" title="@Model.Name" />
+            </div>
+        </div>
+
+        <div class="clear-float"></div><!--clear-float-->
+    </div>
+</div>
+

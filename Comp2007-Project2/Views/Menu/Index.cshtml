@@ -22,14 +22,14 @@
 
 @{
     ViewBag.Title = "Menu";
-    List<ItemType> types = new MenuEntities().ItemTypes.ToList();
+    List<ItemType> types = new StoreEntities().ItemTypes.ToList();
 }
 @helper printItems(ItemType itemType)
 {
     <div class="row @itemType.Name.ToLower()">
         <h2>@(itemType.Name)s</h2>
         <div class="container">
-            @foreach (var item in Model.Where(t => t.ItemType.Name == itemType.Name))
+            @foreach (var item in Model.Where(t => t.ItemType.Name.Contains(itemType.Name)))
             {
                 <div class="item @(itemType.Name)s" id="item@(item.ItemId)">
                     <a href="/Menu/Details/@item.ItemId">

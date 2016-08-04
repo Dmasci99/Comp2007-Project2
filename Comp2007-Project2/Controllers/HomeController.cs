@@ -13,6 +13,11 @@ namespace Comp2007_Project2.Controllers
             ViewBag.Title = "Home";
             return View();
         }
+        //
+        public ActionResult About()
+        {
+            return View();
+        }
 
         public ActionResult Contact()
         {
