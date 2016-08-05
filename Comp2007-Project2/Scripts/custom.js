@@ -125,5 +125,13 @@ jQuery(document).ready(function ($) {
             }
         }, 7000);
     }//ROTATOR
+    
+    /*************************************************
+	*             FORM VALIDATOR MESSAGES
+	*************************************************/
+    //Allow user to close a Validator Error Message by clicking on it - Forms(Register/Login/Profile)
+    $('.input-container span').click(function () {
+        $(this).css('visibility', 'hidden');
+    });
 
 });

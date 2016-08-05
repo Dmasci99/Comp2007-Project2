@@ -52,10 +52,9 @@
 <div class="interior-page store-page" id="store-page">
     <div class="games">
         <!-- Manually determine order of games -->
-        @printItems(platforms.Single(p => p.Name == "Beverage"))
-        @printItems(platforms.Single(p => p.Name == "Appetizer"))
-        @printItems(platforms.Single(p => p.Name == "Main Course"))
-        @printItems(platforms.Single(p => p.Name == "Dessert"))
+        @printItems(platforms.Single(p => p.Name == "XBox One"))
+        @*@printItems(platforms.Single(p => p.Name == "PS4"))
+        @printItems(platforms.Single(p => p.Name == "PC"))*@
 
         <!-- DB determines order of games -->
         @*@foreach (var type in platforms)

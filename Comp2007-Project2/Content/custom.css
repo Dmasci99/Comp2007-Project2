@@ -1593,7 +1593,7 @@ header #moby-button:hover .fa {
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
   border-radius: 6px;
-  padding: 10px 60px;
+  padding: 10px 60px 30px 60px;
   background: #ffffff;
   -webkit-box-shadow: 0 0 16px #747474;
   -moz-box-shadow: 0 0 16px #747474;
@@ -1601,15 +1601,12 @@ header #moby-button:hover .fa {
   -o-box-shadow: 0 0 16px #747474;
   box-shadow: 0 0 16px #747474;
 }
-#login-page form .checkbox input,
-#register-page form .checkbox input {
+#login-page form .input-container,
+#register-page form .input-container {
   position: relative;
-  top: 4px;
-  width: 18px;
-  height: 18px;
 }
-#login-page form .input input,
-#register-page form .input input {
+#login-page form .input-container input,
+#register-page form .input-container input {
   padding: 5px 10px;
   margin: 5px 0;
   background: #ffffff;
@@ -1621,8 +1618,8 @@ header #moby-button:hover .fa {
   -o-border-radius: 4px;
   border-radius: 4px;
 }
-#login-page form .input textarea,
-#register-page form .input textarea {
+#login-page form .input-container textarea,
+#register-page form .input-container textarea {
   padding: 5px 10px;
   margin: 5px 0;
   background: #ffffff;
@@ -1635,6 +1632,65 @@ header #moby-button:hover .fa {
   border-radius: 4px;
   resize: none;
   height: 200px;
+}
+#login-page form .input-container > span,
+#register-page form .input-container > span {
+  color: #5a271a;
+  font-size: 12px;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  position: absolute;
+  top: 65%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 120px;
+  padding: 6px;
+  left: calc(100% - 40px);
+  border: 1px solid #5a271a;
+  background: #d4cde5;
+  -webkit-box-shadow: 0 0 5px #000000;
+  -moz-box-shadow: 0 0 5px #000000;
+  -ms-box-shadow: 0 0 5px #000000;
+  -o-box-shadow: 0 0 5px #000000;
+  box-shadow: 0 0 5px #000000;
+  z-index: 10;
+  cursor: pointer;
+}
+#login-page form .input-container > span::before,
+#register-page form .input-container > span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: -13px;
+  border: 6px solid transparent;
+  border-right-color: #5a271a;
+}
+#login-page form .input-container > span:hover::after,
+#register-page form .input-container > span:hover::after {
+  content: "x";
+  font-size: 16px;
+  position: absolute;
+  top: 0;
+  right: 5px;
+}
+#login-page form .checkbox input,
+#register-page form .checkbox input {
+  position: relative;
+  top: 4px;
+  width: 18px;
+  height: 18px;
 }
 #login-page form .submit,
 #register-page form .submit {
@@ -1720,113 +1776,6 @@ header #moby-button:hover .fa {
   padding: 15px;
   margin: 0 auto;
 }
-#login-page form .buttons,
-#register-page form .buttons {
-  text-align: center;
-  margin: 15px 0;
-}
-#login-page form .buttons a,
-#register-page form .buttons a,
-#login-page form .buttons button,
-#register-page form .buttons button,
-#login-page form .buttons span,
-#register-page form .buttons span,
-#login-page form .buttons input,
-#register-page form .buttons input {
-  color: #f1f1f1;
-  font-size: 14px;
-  background: #3f507f;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  padding: 15px 40px;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  transition: all 0.4s;
-}
-#login-page form .buttons a:hover,
-#register-page form .buttons a:hover,
-#login-page form .buttons button:hover,
-#register-page form .buttons button:hover,
-#login-page form .buttons span:hover,
-#register-page form .buttons span:hover,
-#login-page form .buttons input:hover,
-#register-page form .buttons input:hover {
-  cursor: pointer;
-  background: #5065a1;
-}
-#login-page form .buttons.color2 a,
-#register-page form .buttons.color2 a,
-#login-page form .buttons.color2 button,
-#register-page form .buttons.color2 button,
-#login-page form .buttons.color2 span,
-#register-page form .buttons.color2 span {
-  color: #f1f1f1;
-  background: #0f1f4d;
-}
-#login-page form .buttons.color2 a:hover,
-#register-page form .buttons.color2 a:hover,
-#login-page form .buttons.color2 button:hover,
-#register-page form .buttons.color2 button:hover,
-#login-page form .buttons.color2 span:hover,
-#register-page form .buttons.color2 span:hover {
-  background: #173078;
-}
-#login-page form .buttons.color3 a,
-#register-page form .buttons.color3 a,
-#login-page form .buttons.color3 button,
-#register-page form .buttons.color3 button,
-#login-page form .buttons.color3 span,
-#register-page form .buttons.color3 span {
-  color: #f1f1f1;
-  background: #5271cc;
-}
-#login-page form .buttons.color3 a:hover,
-#register-page form .buttons.color3 a:hover,
-#login-page form .buttons.color3 button:hover,
-#register-page form .buttons.color3 button:hover,
-#login-page form .buttons.color3 span:hover,
-#register-page form .buttons.color3 span:hover {
-  background: #3656b5;
-}
-#login-page form .buttons.width a,
-#register-page form .buttons.width a,
-#login-page form .buttons.width button,
-#register-page form .buttons.width button,
-#login-page form .buttons.width span,
-#register-page form .buttons.width span {
-  display: block;
-  width: 200px;
-  padding: 15px;
-  margin: 0 auto;
-}
-#login-page form .buttons a,
-#register-page form .buttons a,
-#login-page form .buttons button,
-#register-page form .buttons button,
-#login-page form .buttons span,
-#register-page form .buttons span {
-  display: block;
-  width: 200px;
-  padding: 15px;
-  margin: 0 auto;
-}
-#login-page form .buttons .update,
-#register-page form .buttons .update,
-#login-page form .buttons .delete,
-#register-page form .buttons .delete {
-  width: 100px;
-  display: inline-block;
-  margin: 5px;
-}
-#login-page form .buttons .delete:hover,
-#register-page form .buttons .delete:hover {
-  background: #5a271a;
-}
 #login-page form h2,
 #register-page form h2 {
   text-align: center;
@@ -1834,19 +1783,19 @@ header #moby-button:hover .fa {
   font-variant: small-caps;
   padding: 10px 0 20px 0;
 }
-#login-page form .exit,
-#register-page form .exit {
+#login-page form .cancel,
+#register-page form .cancel {
   position: absolute;
   top: 0;
   right: 0;
 }
-#login-page form .exit a,
-#register-page form .exit a {
+#login-page form .cancel a,
+#register-page form .cancel a {
   display: block;
   padding: 20px;
 }
-#login-page form .exit a .fa,
-#register-page form .exit a .fa {
+#login-page form .cancel a .fa,
+#register-page form .cancel a .fa {
   color: #0f1f4d;
   font-size: 26px;
   -webkit-transition: all 0.3s;
@@ -1855,10 +1804,18 @@ header #moby-button:hover .fa {
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-#login-page form .exit a:hover .fa,
-#register-page form .exit a:hover .fa {
+#login-page form .cancel a:hover .fa,
+#register-page form .cancel a:hover .fa {
   color: #5a271a;
   font-size: 32px;
+}
+#login-page form .register,
+#register-page form .register,
+#login-page form .login,
+#register-page form .login,
+#login-page form .checkbox,
+#register-page form .checkbox {
+  text-align: center;
 }
 #login-page .message,
 #register-page .message {
@@ -1878,34 +1835,6 @@ header #moby-button:hover .fa {
   color: #5a271a;
   font-size: 14px;
   font-weight: 700;
-}
-#login-page .message::before,
-#register-page .message::before {
-  content: "";
-  position: absolute;
-  left: -14px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  border: 7px solid transparent;
-  border-left-color: #5a271a;
-}
-#login-page .message::after,
-#register-page .message::after {
-  content: "";
-  position: absolute;
-  right: -14px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  border: 7px solid transparent;
-  border-right-color: #5a271a;
 }
 /****************************************************************************************************
 *																									*

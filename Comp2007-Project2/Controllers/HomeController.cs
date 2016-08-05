@@ -16,6 +16,7 @@ namespace Comp2007_Project2.Controllers
         //
         public ActionResult About()
         {
+            ViewBag.Title = "About";
             return View();
         }
 

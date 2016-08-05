@@ -1108,18 +1108,11 @@ header {
 		position: relative;
 		margin: 0 auto;
 		.round(6px);
-		padding: 10px 60px;
+		padding: 10px 60px 30px 60px;
 		background: @white;
 		.box-shadow(0, 0, 16px, @grey);
-		.checkbox {
-			input {
-				position: relative;
-				top: 4px;
-				width: 18px;
-				height: 18px;
-			}
-		}//.checkbox
-		.input {
+		.input-container {
+            position: relative;
 			input {
 				padding: 5px 10px;
 				margin: 5px 0;
@@ -1138,30 +1131,58 @@ header {
 				resize: none;
 				height: 200px;
 			}
-		}//.input
+            > span { //Validator Error Messages
+                color: @red;
+                font-size: 12px;
+                text-align: center;
+                .round(4px);
+                position: absolute;
+                top: 65%;
+                .translateY;
+                width: 120px;
+                padding: 6px;
+                left: calc(~"100% - 40px");
+                border: 1px solid @red;
+                background: @silver;
+                .box-shadow;
+                z-index: 10;
+                cursor: pointer;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    .translateY;
+                    left: -13px;
+                    border: 6px solid transparent;
+                    border-right-color: @red;
+                }
+                &:hover::after {
+                    content: "x";
+                    font-size: 16px;
+                    position: absolute;
+                    top: 0;
+                    right: 5px;
+                }
+            }//Validator Error Messages
+		}//.input-container
+		.checkbox {
+			input {
+				position: relative;
+				top: 4px;
+				width: 18px;
+				height: 18px;
+			}
+		}//.checkbox
 		.submit {
 			.button1;
 		}
-		.buttons {
-			.button1;
-			.width;
-			.update,
-			.delete {
-				width: 100px;
-				display: inline-block;
-				margin: 5px;
-			}
-			.delete:hover {
-				background: @red;
-			}
-		}//.buttons
 		h2 {
 			text-align: center;
 			font-size: 32px;
 			font-variant: small-caps;
 			padding: 10px 0 20px 0;
 		}
-		.exit {
+		.cancel {
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -1180,7 +1201,10 @@ header {
 					}
 				}
 			}
-		}//.exit
+		}//.cancel
+        .register, .login, .checkbox {
+            text-align: center;
+         }
 	}//form
 	.message {
 		position: relative;
@@ -1194,24 +1218,6 @@ header {
 			font-size: 14px;
 			.bold;
 		}//span
-		&::before {
-			content: "";
-			position: absolute;
-			left: -14px;
-			top: 50%;
-			.translateY;
-			border: 7px solid transparent;
-			border-left-color: @red;
-		}
-		&::after {
-			content: "";
-			position: absolute;
-			right: -14px;
-			top: 50%;
-			.translateY;
-			border: 7px solid transparent;
-			border-right-color: @red;
-		}
 	}//.message
 }//#login-page / #register-page 
 

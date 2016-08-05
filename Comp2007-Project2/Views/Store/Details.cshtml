@@ -21,14 +21,14 @@
 
 }
 
-<div class="interior-page menu-page" id="details-page">
+<div class="interior-page store-page" id="details-page">
     <div class="container">
-        <div class="button"><a href="/Menu#item@(Model.ItemId)"><i class="fa fa-arrow-circle-left"></i> Go Back</a></div>
+        <div class="button"><a href="/Store#game@(Model.GameId)"><i class="fa fa-arrow-circle-left"></i> Go Back</a></div>
         <div class="right">
             <div class="info">
                 <div class="name">@Model.Name</div>
                 <div class="price">($@(Model.Price))</div>
-                <div class="desc">@Model.LongDescription</div>
+                <div class="desc">@Model.Description</div>
             </div>
         </div>
         <div class="left">
@@ -37,7 +37,7 @@
                 {
                     <div class="label">@Model.Label.Name</div>
                 }
-                <img src="@Model.ImageUrl" alt="@Model.Name" title="@Model.Name" />
+                <img src="@Model.ImageFullUrl" alt="@Model.Name" title="@Model.Name" />
             </div>
         </div>
 
