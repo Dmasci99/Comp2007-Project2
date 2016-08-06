@@ -192,8 +192,8 @@
   <ItemGroup>
     <Content Include="Assets\images\contact-header.jpg" />
     <Content Include="Assets\images\dashboard.jpg" />
+    <Content Include="Assets\images\ezGamesLogo.png" />
     <Content Include="Assets\images\home-showcase.png" />
-    <Content Include="Assets\images\logo.png" />
     <Content Include="Assets\images\placeholder.gif" />
     <Content Include="Assets\images\slide1.jpg" />
     <Content Include="Assets\images\slide2.jpg" />
