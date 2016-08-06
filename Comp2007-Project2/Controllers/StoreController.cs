@@ -21,7 +21,7 @@ namespace Comp2007_Project2.Controllers
             return View(games);
         }
 
-        // GET: Store/Details/5
+        // GET: Store/Details/id
         public ActionResult Details(int? id = 0)
         {
             if (id == null)
@@ -36,7 +36,7 @@ namespace Comp2007_Project2.Controllers
             return View(game);
         }
         
-        // GET: Store/Delete/5
+        // GET: Store/Delete/id
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -51,7 +51,7 @@ namespace Comp2007_Project2.Controllers
             return View(game);
         }
 
-        // POST: Store/Delete/5
+        // POST: Store/Delete/id
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

@@ -1581,8 +1581,9 @@ header #moby-button:hover .fa {
   resize: none;
   height: 200px;
 }
-#login-page form .input-container > span,
-#register-page form .input-container > span {
+#login-page form .input-container span,
+#register-page form .input-container span {
+  display: none;
   color: #5a271a;
   font-size: 12px;
   text-align: center;
@@ -1611,8 +1612,8 @@ header #moby-button:hover .fa {
   z-index: 10;
   cursor: pointer;
 }
-#login-page form .input-container > span::before,
-#register-page form .input-container > span::before {
+#login-page form .input-container span::before,
+#register-page form .input-container span::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -1625,8 +1626,8 @@ header #moby-button:hover .fa {
   border: 6px solid transparent;
   border-right-color: #5a271a;
 }
-#login-page form .input-container > span:hover::after,
-#register-page form .input-container > span:hover::after {
+#login-page form .input-container span:hover::after,
+#register-page form .input-container span:hover::after {
   content: "x";
   font-size: 16px;
   position: absolute;
