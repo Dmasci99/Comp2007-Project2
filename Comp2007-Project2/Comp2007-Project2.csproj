@@ -194,14 +194,6 @@
     <Content Include="Assets\images\dashboard.jpg" />
     <Content Include="Assets\images\home-showcase.png" />
     <Content Include="Assets\images\logo.png" />
-    <Content Include="Assets\images\menu\burger.jpg" />
-    <Content Include="Assets\images\menu\cheesecake.jpg" />
-    <Content Include="Assets\images\menu\curry.jpg" />
-    <Content Include="Assets\images\menu\fajitas.jpg" />
-    <Content Include="Assets\images\menu\margarita.jpg" />
-    <Content Include="Assets\images\menu\messyfish.jpg" />
-    <Content Include="Assets\images\menu\nachos.jpg" />
-    <Content Include="Assets\images\menu\salmon.jpg" />
     <Content Include="Assets\images\placeholder.gif" />
     <Content Include="Assets\images\slide1.jpg" />
     <Content Include="Assets\images\slide2.jpg" />
@@ -261,9 +253,11 @@
     <Content Include="Views\Store\Delete.cshtml" />
     <Content Include="Views\Store\Details.cshtml" />
     <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\images\store\" />
     <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>

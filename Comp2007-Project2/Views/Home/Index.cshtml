@@ -7,13 +7,13 @@
     * Semester : 4
     * Professor : Tom Tsiliopolous
     * Purpose : Final Team Project - E-Commerce Store
-    * Website Name : Comp2007-Project2.azurewebsites.net
+    * Website Name : EzGames1.azurewebsites.net
     *
     * This is the Home Page for our Application. It includes a rotator that
-    * shows multiple images of our Restaurant and provides a button on the
-    * first slide to take the user to the Menu or Contact page.
+    * shows multiple images (of various games) and provides a button on the
+    * first slide to take the user to the Store page.
     *
-    * IMAGES TAKEN FROM AN EXISTING RESTAURANT CHAIN (Kelsey's).
+    * IMAGES TAKEN FROM http://eskipaper.com/games/
     */
 *@
 
@@ -23,37 +23,45 @@
     <div class="top-banner">
         <div class="rotator">
             <div class="slides">
-                <div class="slide active" id="slide1" style="background-image: url(/Assets/images/slide3.jpg);">
+                <div class="slide active" id="slide1" style="background-image: url(/Assets/images/slide1.jpg);">
                     <div class="container">
                         <div class="heading">
-                            <h2>Menu</h2>
+                            <h2>Welcome!</h2>
                         </div><!-- heading -->
                         <div class="text">
-                            <p>Our menu will make your mouth water - no matter your preferences!</p>
+                            <p>Welcome to EZ Games!
+                            <br />Dedicated to bringing you the latest and greatest games without you ever having to leave your computer!
+                            <br />Check out our "About" page for more info, or head to the store to buy your next adventure!</p>
                         </div><!-- text -->
                         <div class="button">
-                            @Html.ActionLink("Take a Look", "Index", "Menu")
+                            @Html.ActionLink("Take a Look", "Index", "Store")
                         </div>
                     </div><!-- container -->
                 </div><!-- slide1 -->
                 <div class="slide" id="slide2" style="background-image: url(/Assets/images/slide2.jpg);">
                     <div class="container">
                         <div class="heading">
-                            <h2>Dining Room</h2>
+                            <h2>Store</h2>
                         </div><!-- heading -->
                         <div class="text">
-                            <p>Enjoy and relax as you sit in our Dining Room!</p>
+                            <p>Check out our selection of games!</p>
                         </div><!-- text -->
+                        <div class="button">
+                            @Html.ActionLink("Take a Look", "Index", "Store")
+                        </div>
                     </div><!-- container -->
                 </div><!-- slide2 -->
-                <div class="slide" id="slide3" style="background-image: url(/Assets/images/slide1.jpg);">
+                <div class="slide" id="slide3" style="background-image: url(/Assets/images/slide3.jpg);">
                     <div class="container">
                         <div class="heading">
-                            <h2>Lounge</h2>
+                            <h2>About EZ Games</h2>
                         </div><!-- heading -->
                         <div class="text">
-                            <p>Or come watch a game in our Lounge!</p>
+                            <p>Who are we? What do we do? Why buy from us?</p>
                         </div><!-- text -->
+                        <div class="button">
+                            @Html.ActionLink("Find out!", "About", "Home")
+                        </div>
                     </div><!-- container -->
                 </div><!-- slide3 -->
                 <div class="slide" id="slide4" style="background-image: url(/Assets/images/slide4.jpg);">
@@ -62,10 +70,10 @@
                             <h2>Contact</h2>
                         </div><!-- heading -->
                         <div class="text">
-                            <p>We're located at the North end of Newmarket.<br/>Call us for more information!</p>
+                            <p>Got a question or concern? No problem!</p>
                         </div><!-- text -->
                         <div class="button">
-                            @Html.ActionLink("Directions", "Contact", "Home")
+                            @Html.ActionLink("Contact Us", "Contact", "Home")
                         </div>
                     </div><!-- container -->
                 </div><!-- slide4 -->

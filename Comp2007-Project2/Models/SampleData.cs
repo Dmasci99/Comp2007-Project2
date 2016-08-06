@@ -27,7 +27,7 @@ namespace Comp2007_Project2.Models
 
             new List<Game>
             {
-                new Game { Name = "Assassins Creed", Description = "Description", Price = 59.99M, ReleaseDate = DateTime.Now, ImageFullUrl ="images/blah.jpg", ImageIconUrl ="images/thumbnails/blah.jpg", Platform = platforms.Single(p => p.Name == "XBox One"), Label = labels.Single(l => l.Name == "") }
+                new Game { Name = "Assassins Creed", Description = "Description", Price = 59.99M, Rating = "M", ReleaseDate = DateTime.Now, ImageFullUrl ="images/blah.jpg", ImageIconUrl ="images/thumbnails/blah.jpg", Platform = platforms.Single(p => p.Name == "XBox One"), Label = labels.Single(l => l.Name == "") }
             }.ForEach(a => context.Games.Add(a));
 
         }

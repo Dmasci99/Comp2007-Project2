@@ -13,6 +13,7 @@ namespace Comp2007_Project2.Models
         public virtual string Name { get; set; }
         public virtual string Description { get; set; }
         public virtual decimal Price { get; set; }
+        public virtual string Rating { get; set; }
         public virtual DateTime ReleaseDate { get; set; }
         public virtual string ImageFullUrl { get; set; }
         public virtual string ImageIconUrl { get; set; }
