@@ -16,6 +16,14 @@
 */
 
 jQuery(document).ready(function ($) {
+
+    /*************************************************
+	*					MOBILE MENU
+	*************************************************/
+    $('nav#header-nav').moby({
+        mobyTrigger: $('#moby-button'), // Button that will trigger the Moby menu to open
+    });
+
     /*************************************************
 	*					ROTATOR
 	*************************************************/

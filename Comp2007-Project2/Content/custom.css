@@ -6,7 +6,7 @@
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : Comp2007-Project2.azurewebsites.net 
+* Website Name : EzGames1.azurewebsites.net 
 */
 /**
 * The follwing stylesheet is the "MASTER". It is a Less file that gets auto-compiled into
@@ -15,7 +15,7 @@
 * Summer Co-op; customized to this site. 
 *
 * moby.less/moby.js are files from Dan's coworker. It is not our creation. You can see/download 
-* it on Github here: https://github.com/joshsanger/moby.js. It controls the Mobile Menu (when 
+* it on Github here: https://github.com/joshsanger/moby.js. It controls the mobile Store page (when 
 * you get below 640px width). Customization still required.
 */
 /**
@@ -153,10 +153,10 @@
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : Comp2007-Project2.azurewebsites.net
+* Website Name : EzGames1.azurewebsites.net
 *
 * This is a partial LESS file that has all styles that are
-* to do with the Menu and Detail pages (includes responsive).
+* to do with the Store and Detail pages (includes responsive).
 */
 /***********************************									
 *			 Menu Global			
@@ -1485,99 +1485,47 @@ header #moby-button:hover .fa {
 /***********************************									
 *			About Me 				
 ***********************************/
+#about-page .left {
+  width: 35%;
+  position: absolute;
+  top: 45%;
+  left: 20px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+#about-page .left .logo {
+  width: 100%;
+}
+#about-page .left .logo img {
+  max-width: 100%;
+}
+#about-page .right {
+  width: 65%;
+  float: right;
+  padding-left: 40px;
+  text-align: center;
+}
 /***********************************									
 *			Contact Page				
 ***********************************/
 #contact-page .left {
   float: left;
-  width: 60%;
-}
-#contact-page .left .map {
-  -webkit-box-shadow: 0 0 10px #747474;
-  -moz-box-shadow: 0 0 10px #747474;
-  -ms-box-shadow: 0 0 10px #747474;
-  -o-box-shadow: 0 0 10px #747474;
-  box-shadow: 0 0 10px #747474;
-}
-#contact-page .left .map iframe {
-  width: 100%;
-  max-width: 100%;
+  width: 50%;
+  padding-right: 40px;
 }
 #contact-page .right {
   float: right;
-  width: 40%;
+  width: 50%;
+  padding-left: 40px;
 }
-#contact-page .right .info {
-  font-size: 16px;
-  color: #0f1f4d;
-  line-height: 1.4em;
-  padding-left: 30px;
-}
-#contact-page .right .info span {
-  display: block;
-}
-#contact-page .right .info .underline {
-  position: relative;
-  padding-bottom: 10px;
-  display: inline-block;
-}
-#contact-page .right .info .underline::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
+#contact-page .bottom {
   width: 100%;
-  height: 2px;
-  background: #0f1f4d;
-}
-#contact-page .right .info .name {
-  font-size: 28px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  line-height: 1em;
-}
-#contact-page .right .info .phone {
-  margin: 10px 0;
-}
-#contact-page .right .info .social {
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-#contact-page .right .info .social .fa {
-  color: #d4cde5;
-  display: inline-block;
-  background: #0f1f4d;
-  -webkit-border-radius: 9999px;
-  -moz-border-radius: 9999px;
-  -ms-border-radius: 9999px;
-  -o-border-radius: 9999px;
-  border-radius: 9999px;
-  margin: 4px;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-#contact-page .right .info .social .fa.fa-facebook {
-  padding: 7px 11px;
-  margin-left: 0;
-}
-#contact-page .right .info .social .fa.fa-twitter {
-  padding: 7px 8px;
-}
-#contact-page .right .info .social .fa.fa-instagram {
-  padding: 7px 9px;
-}
-#contact-page .right .info .social .fa:hover {
-  color: #f1f1f1;
-  background: #3d4766;
-}
-#contact-page .right .info .directions {
-  color: #000000;
-}
-#contact-page .right .info .directions span {
-  padding: 5px 0;
+  max-width: 500px;
+  margin: 20px auto;
+  text-align: center;
 }
 /***********************************									
 *         Login / Register 				
@@ -1902,7 +1850,7 @@ footer .copyright p {
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : Comp2007-Project2.azurewebsites.net
+* Website Name : EzGames1.azurewebsites.net
 */
 /**
 * The follwing stylesheet is imported into style.less. This is used specifically for responsive
@@ -1938,16 +1886,18 @@ footer .copyright p {
   #contact-page .left {
     float: none;
     width: 100%;
+    padding-right: 0;
+    text-align: center;
+    max-width: 500px;
+    margin: 10px auto;
   }
   #contact-page .right {
     float: none;
     width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-  }
-  #contact-page .right .info {
-    padding: 0 20px;
+    padding-left: 0;
     text-align: center;
+    max-width: 500px;
+    margin: 10px auto;
   }
 }
 @media screen and (max-width: 650px) {
