@@ -1011,8 +1011,7 @@ header {
 /***********************************									
 *         Login / Register 				
 ***********************************/
-#login-page,
-#register-page {
+.forms-page {
 	form {
 		width: 50%;
 		min-width: 450px;
@@ -1042,8 +1041,7 @@ header {
 				resize: none;
 				height: 200px;
 			}
-            span { //Validator Error Messages
-                display: none;
+            .field-validation-error > span { //Validator Error Messages
                 color: @red;
                 font-size: 12px;
                 text-align: center;
@@ -1052,7 +1050,7 @@ header {
                 top: 65%;
                 .translateY;
                 width: 120px;
-                padding: 6px;
+                padding: 10px;
                 left: calc(~"100% - 40px");
                 border: 1px solid @red;
                 background: @silver;
@@ -1078,6 +1076,7 @@ header {
             }//Validator Error Messages
 		}//.input-container
 		.checkbox {
+            margin: 10px 0 5px;
 			input {
 				position: relative;
 				top: 4px;
@@ -1118,20 +1117,16 @@ header {
             text-align: center;
          }
 	}//form
-	.message {
+	.error {
 		position: relative;
 		display: block;
-		padding: 5px;
+		color: @red;
+		font-size: 14px;
 		text-align: center;
-		.round(4px);
-		span {
-			position: relative;
-			color: @red;
-			font-size: 14px;
-			.bold;
-		}//span
-	}//.message
-}//#login-page / #register-page 
+		.bold;
+		padding: 5px;
+	}//.error
+}//.forms-page
 
 /****************************************************************************************************
 *																									*
