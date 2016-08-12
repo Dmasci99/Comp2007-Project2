@@ -7,12 +7,14 @@ namespace Comp2007_Project2.Models
 {
     public class OrderDetail
     {
-        public int OrderDetailId { get; set; }
-        public int OrderId { get; set; }
-        public int GameId { get; set; }
-        public int Quantity { get; set; }
-        public decimal UnitPrice { get; set; }
+        //keeps track of the quantity
+        public virtual int OrderDetailId { get; set; }
+        public virtual int Quantity { get; set; }
+        public virtual decimal UnitPrice { get; set; }
+        public virtual int GameId { get; set; }
         public virtual Game Game { get; set; }
+        public virtual int OrderId { get; set; }
         public virtual Order Order { get; set; }
+        public virtual System.DateTime DateCreated { get; set; }
     }
 }
