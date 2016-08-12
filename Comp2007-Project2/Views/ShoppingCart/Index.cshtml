@@ -1,0 +1,43 @@
+﻿@model Comp2007_Project2.ViewModels.ShoppingCartViewModel
+
+@{
+    ViewBag.Title = "Shopping Cart";
+}
+
+<h3>
+    <em>Review</em> your cart:
+</h3>
+<p class="button">
+    @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout")  <!---STILL NEED TO MAKE THE CHEKCOUT BUTTON-->
+</p>
+<div id="update-message">
+</div>
+<table>
+    <tr>
+        <th> Game </th>
+        <th> Price </th>
+        <th> Quantity </th>
+        <th></th>
+    </tr>
+    @foreach (var item in
+        Model.CartItems)
+    {
+        <tr id="row-@item.RecordId">
+            <td>
+                @Html.ActionLink(item.Game.Name,"Details", "Store", new { id = item.GameId }, null)
+            </td>
+            <td> @item.Game.Price</td>
+            <td id="item-count-@item.RecordId"> @item.Count</td>
+            <td>
+                <a href="#" class="RemoveLink" data-id="@item.RecordId"> Remove from cart</a>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td>Total</td>
+        <td></td>
+        <td></td>
+        <td id="cart-total"> @Model.CartTotal </td>
+    </tr>
+</table>
+
