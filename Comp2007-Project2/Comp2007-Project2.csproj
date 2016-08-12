@@ -256,6 +256,8 @@
     <Content Include="Assets\images\store\UnchartedIcon.jpg" />
     <Content Include="Assets\images\store\ZeroFull.JPG" />
     <Content Include="Assets\images\store\ZeroIcon.jpg" />
+    <Content Include="Assets\images\store\ZestiriaFull.JPG" />
+    <Content Include="Assets\images\store\ZestiriaIcon.jpg" />
     <Content Include="Content\custom.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="favicon.ico" />
