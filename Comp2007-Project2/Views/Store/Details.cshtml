@@ -41,6 +41,10 @@
             </div>
         </div>
         <div class="clear-float"></div><!--clear-float-->
+        <p class="button">
+            @Html.ActionLink("Add to cart", "AddToCart",
+        "ShoppingCart", new { id = Model.GameId }, "")
+        </p>
     </div>
 </div>
 
