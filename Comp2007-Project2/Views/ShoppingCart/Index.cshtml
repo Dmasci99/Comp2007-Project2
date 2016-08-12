@@ -8,7 +8,7 @@
     <em>Review</em> your cart:
 </h3>
 <p class="button">
-    @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout")  <!---STILL NEED TO MAKE THE CHEKCOUT BUTTON-->
+    @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout")  <!---STILL NEED TO MAKE THE CHECKOUT BUTTON-->
 </p>
 <div id="update-message">
 </div>
@@ -29,7 +29,7 @@
             <td> @item.Game.Price</td>
             <td id="item-count-@item.RecordId"> @item.Count</td>
             <td>
-                <a href="#" class="RemoveLink" data-id="@item.RecordId"> Remove from cart</a>
+                <a href="#" class="RemoveLink" data-id="@item.OrderItemId"> Remove from cart</a>
             </td>
         </tr>
     }
