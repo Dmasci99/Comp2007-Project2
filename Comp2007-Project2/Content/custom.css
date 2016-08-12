@@ -164,8 +164,10 @@
 .store-page .image {
   position: relative;
   width: 100%;
+  max-width: 205px;
   overflow: hidden;
-  padding: 2px;
+  padding: 1px;
+  margin: 0 auto;
 }
 .store-page .image img {
   max-width: 100%;
@@ -196,7 +198,7 @@
   width: 100%;
   text-align: center;
 }
-#store-page .games .row {
+#store-page .games .group {
   width: 100%;
   padding: 40px 0;
   -webkit-box-shadow: 0 0 10px #747474;
@@ -205,14 +207,14 @@
   -o-box-shadow: 0 0 10px #747474;
   box-shadow: 0 0 10px #747474;
 }
-#store-page .games .row h2 {
+#store-page .games .group h2 {
   position: relative;
   font-size: 28px;
   text-transform: uppercase;
   margin-bottom: 20px;
   padding-bottom: 20px;
 }
-#store-page .games .row h2::after {
+#store-page .games .group h2::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -226,19 +228,19 @@
   height: 2px;
   background: #5271cc;
 }
-#store-page .games .row .container {
+#store-page .games .group .container {
   display: inline-block;
 }
-#store-page .games .row:nth-child(even) {
+#store-page .games .group:nth-child(even) {
   background: #f1f1f1;
 }
-#store-page .games .row:nth-child(odd) {
+#store-page .games .group:nth-child(odd) {
   background: #f6f6f6;
 }
-#store-page .games .row a {
+#store-page .games .group a {
   color: #0f1f4d;
 }
-#store-page .games .row a:hover .image .fa {
+#store-page .games .group a:hover .image .fa {
   font-size: 22px;
   opacity: 1;
   visibility: visible;
@@ -247,7 +249,7 @@
   position: relative;
   display: inline-block;
   width: 30%;
-  margin: 10px 1%;
+  margin: 20px 1%;
   vertical-align: top;
 }
 #store-page .games .game .image .fa {
@@ -371,10 +373,10 @@
   /***********************************									
     *	       Menu List Page 				
     ***********************************/
-  #store-page .games .row {
+  #store-page .games .group {
     padding: 25px 0;
   }
-  #store-page .games .row h2 {
+  #store-page .games .group h2 {
     margin-bottom: 10px;
     padding-bottom: 10px;
   }
@@ -807,7 +809,7 @@ header #account-nav {
   transform: translateY(-50%);
 }
 header #account-nav .menu {
-  width: 100px;
+  width: 80px;
   background: transparent;
   text-align: center;
 }
@@ -862,7 +864,7 @@ header #account-nav .menu > li > a.logout {
   border-bottom-left-radius: 0;
   border-left: 0;
 }
-header #account-nav .menu > li > a.dashboard {
+header #account-nav .menu > li > a.cart {
   width: 50%;
   float: left;
   color: #0f1f4d;
@@ -879,59 +881,6 @@ header #account-nav .menu > li > a.active.register,
 header #account-nav .menu > li > a:hover.logout,
 header #account-nav .menu > li > a.active.logout {
   background: #0f1f4d;
-}
-header #account-nav .menu > li .sub-menu {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  top: calc(100% - 1px);
-  left: 0;
-  padding: 10px 0;
-  width: 51%;
-  background: rgba(212, 205, 229, 0.8);
-  border: 2px solid #3f507f;
-  border-top: none;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-header #account-nav .menu > li .sub-menu::before {
-  opacity: 0;
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
-  width: 0;
-  border-top: 5px solid #3f507f;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-}
-header #account-nav .menu > li .sub-menu li a {
-  color: #000000;
-  display: block;
-  padding: 10px;
-  font-size: 13px;
-  font-variant: small-caps;
-  font-weight: 400;
-}
-header #account-nav .menu > li .sub-menu li a:hover {
-  font-weight: 700;
-  background: rgba(212, 205, 229, 0.8);
-}
-header #account-nav .menu > li:hover a.dashboard {
-  border-bottom-left-radius: 0;
-  background: #c6bcdc;
-}
-header #account-nav .menu > li:hover .sub-menu {
-  opacity: 1;
-  visibility: visible;
-}
-header #account-nav .menu > li:hover .sub-menu::before {
-  opacity: 1;
 }
 header #moby-button {
   display: none;
@@ -950,6 +899,20 @@ header #moby-button .fa {
 }
 header #moby-button:hover .fa {
   color: #0f1f4d;
+}
+header #logo {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 80px;
+}
+header #logo img {
+  width: 100%;
 }
 /****************************************************************************************************
 *																									*
@@ -1866,7 +1829,9 @@ footer .copyright p {
   header #header-nav .menu {
     display: none;
   }
-  header #header-nav .menu > li#home {
+  header #header-nav .menu > li#home,
+  header #header-nav .menu > li#login,
+  header #header-nav .menu > li#register {
     display: block;
   }
   header #account-nav {
