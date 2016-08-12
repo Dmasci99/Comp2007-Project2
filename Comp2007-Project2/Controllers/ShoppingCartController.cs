@@ -68,8 +68,7 @@ namespace Comp2007_Project2.Controllers
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
             // Get the name of the game to display confirmation
-            string gameName = storeDB.Carts
-                .Single(item => item.RecordId == id).Game.Name;
+            string gameName = storeDB.Carts.Single(item => item.RecordId == id).Game.Name;
 
             // Remove from cart
             int itemCount = cart.RemoveFromCart(id);
