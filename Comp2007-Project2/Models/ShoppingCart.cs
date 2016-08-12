@@ -55,6 +55,7 @@ namespace Comp2007_Project2.Models
             // Save changes
             storeDB.SaveChanges();
         }
+
         public int RemoveFromCart(int id)
         {
             // Get the cart

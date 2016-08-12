@@ -20,7 +20,7 @@ using System.Data.Entity;
 
 namespace Comp2007_Project2.Models
 {
-    public class SampleData : DropCreateDatabaseAlways<StoreEntities>
+    public class SampleData : DropCreateDatabaseIfModelChanges<StoreEntities>
     {
         protected override void Seed(StoreEntities context)
         {
