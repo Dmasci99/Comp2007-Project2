@@ -208,6 +208,52 @@
     <Content Include="Assets\images\slide2.jpg" />
     <Content Include="Assets\images\slide3.jpg" />
     <Content Include="Assets\images\slide4.jpg" />
+    <Content Include="Assets\images\store\AotFull.JPG" />
+    <Content Include="Assets\images\store\AotIcon.jpg" />
+    <Content Include="Assets\images\store\BattlebornFull.JPG" />
+    <Content Include="Assets\images\store\BattlebornIcon.jpg" />
+    <Content Include="Assets\images\store\DisneyArtFull.JPG" />
+    <Content Include="Assets\images\store\DisneyArtIcon.jpg" />
+    <Content Include="Assets\images\store\FairyFencerFull.JPG" />
+    <Content Include="Assets\images\store\FairyFencerIcon.jpg" />
+    <Content Include="Assets\images\store\FfxvFull.JPG" />
+    <Content Include="Assets\images\store\FfxvIcon.jpg" />
+    <Content Include="Assets\images\store\Forza6Full.JPG" />
+    <Content Include="Assets\images\store\Forza6Icon.jpg" />
+    <Content Include="Assets\images\store\HaloWarsFull.jpg" />
+    <Content Include="Assets\images\store\HaloWarsIcon.jpg" />
+    <Content Include="Assets\images\store\MirrorsEdgeFull.JPG" />
+    <Content Include="Assets\images\store\MirrorsEdgeIcon.jpg" />
+    <Content Include="Assets\images\store\MonopolyFull.JPG" />
+    <Content Include="Assets\images\store\MonopolyIcon.jpg" />
+    <Content Include="Assets\images\store\MonsterHunterFull.JPG" />
+    <Content Include="Assets\images\store\MonsterHunterIcon.jpg" />
+    <Content Include="Assets\images\store\NoMansSkyFull.JPG" />
+    <Content Include="Assets\images\store\NoMansSkyIcon.jpg" />
+    <Content Include="Assets\images\store\OverwatchFull.JPG" />
+    <Content Include="Assets\images\store\OverwatchIcon.jpg" />
+    <Content Include="Assets\images\store\PkmnMoonFull.JPG" />
+    <Content Include="Assets\images\store\PkmnMoonIcon.jpg" />
+    <Content Include="Assets\images\store\PkmnSunFull.JPG" />
+    <Content Include="Assets\images\store\PkmnSunIcon.jpg" />
+    <Content Include="Assets\images\store\RecoreFull.JPG" />
+    <Content Include="Assets\images\store\RecoreIcon.jpg" />
+    <Content Include="Assets\images\store\SaoFull.JPG" />
+    <Content Include="Assets\images\store\SaoIcon.jpg" />
+    <Content Include="Assets\images\store\ShovelKnightFull.JPG" />
+    <Content Include="Assets\images\store\ShovelKnightIcon.jpg" />
+    <Content Include="Assets\images\store\StarWars3dsFull.JPG" />
+    <Content Include="Assets\images\store\StarWars3dsIcon.jpg" />
+    <Content Include="Assets\images\store\StarWarsFull.JPG" />
+    <Content Include="Assets\images\store\StarWarsIcon.jpg" />
+    <Content Include="Assets\images\store\TheDivisionFull.JPG" />
+    <Content Include="Assets\images\store\TheDivisionIcon.jpg" />
+    <Content Include="Assets\images\store\TrackmaniaFull.JPG" />
+    <Content Include="Assets\images\store\TrackmaniaIcon.jpg" />
+    <Content Include="Assets\images\store\UnchartedFull.JPG" />
+    <Content Include="Assets\images\store\UnchartedIcon.jpg" />
+    <Content Include="Assets\images\store\ZeroFull.JPG" />
+    <Content Include="Assets\images\store\ZeroIcon.jpg" />
     <Content Include="Content\custom.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="favicon.ico" />
@@ -268,7 +314,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\images\store\" />
     <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
