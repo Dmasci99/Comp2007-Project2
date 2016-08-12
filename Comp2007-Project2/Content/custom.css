@@ -164,8 +164,10 @@
 .store-page .image {
   position: relative;
   width: 100%;
+  max-width: 205px;
   overflow: hidden;
-  padding: 2px;
+  padding: 1px;
+  margin: 0 auto;
 }
 .store-page .image img {
   max-width: 100%;
@@ -196,7 +198,7 @@
   width: 100%;
   text-align: center;
 }
-#store-page .games .row {
+#store-page .games .group {
   width: 100%;
   padding: 40px 0;
   -webkit-box-shadow: 0 0 10px #747474;
@@ -205,14 +207,14 @@
   -o-box-shadow: 0 0 10px #747474;
   box-shadow: 0 0 10px #747474;
 }
-#store-page .games .row h2 {
+#store-page .games .group h2 {
   position: relative;
   font-size: 28px;
   text-transform: uppercase;
   margin-bottom: 20px;
   padding-bottom: 20px;
 }
-#store-page .games .row h2::after {
+#store-page .games .group h2::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -226,19 +228,19 @@
   height: 2px;
   background: #5271cc;
 }
-#store-page .games .row .container {
+#store-page .games .group .container {
   display: inline-block;
 }
-#store-page .games .row:nth-child(even) {
+#store-page .games .group:nth-child(even) {
   background: #f1f1f1;
 }
-#store-page .games .row:nth-child(odd) {
+#store-page .games .group:nth-child(odd) {
   background: #f6f6f6;
 }
-#store-page .games .row a {
+#store-page .games .group a {
   color: #0f1f4d;
 }
-#store-page .games .row a:hover .image .fa {
+#store-page .games .group a:hover .image .fa {
   font-size: 22px;
   opacity: 1;
   visibility: visible;
@@ -247,7 +249,7 @@
   position: relative;
   display: inline-block;
   width: 30%;
-  margin: 10px 1%;
+  margin: 20px 1%;
   vertical-align: top;
 }
 #store-page .games .game .image .fa {
@@ -371,10 +373,10 @@
   /***********************************									
     *	       Menu List Page 				
     ***********************************/
-  #store-page .games .row {
+  #store-page .games .group {
     padding: 25px 0;
   }
-  #store-page .games .row h2 {
+  #store-page .games .group h2 {
     margin-bottom: 10px;
     padding-bottom: 10px;
   }
@@ -807,7 +809,7 @@ header #account-nav {
   transform: translateY(-50%);
 }
 header #account-nav .menu {
-  width: 100px;
+  width: 80px;
   background: transparent;
   text-align: center;
 }
@@ -862,7 +864,7 @@ header #account-nav .menu > li > a.logout {
   border-bottom-left-radius: 0;
   border-left: 0;
 }
-header #account-nav .menu > li > a.dashboard {
+header #account-nav .menu > li > a.cart {
   width: 50%;
   float: left;
   color: #0f1f4d;
@@ -880,64 +882,11 @@ header #account-nav .menu > li > a:hover.logout,
 header #account-nav .menu > li > a.active.logout {
   background: #0f1f4d;
 }
-header #account-nav .menu > li .sub-menu {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  top: calc(100% - 1px);
-  left: 0;
-  padding: 10px 0;
-  width: 51%;
-  background: rgba(212, 205, 229, 0.8);
-  border: 2px solid #3f507f;
-  border-top: none;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-header #account-nav .menu > li .sub-menu::before {
-  opacity: 0;
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
-  width: 0;
-  border-top: 5px solid #3f507f;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-}
-header #account-nav .menu > li .sub-menu li a {
-  color: #000000;
-  display: block;
-  padding: 10px;
-  font-size: 13px;
-  font-variant: small-caps;
-  font-weight: 400;
-}
-header #account-nav .menu > li .sub-menu li a:hover {
-  font-weight: 700;
-  background: rgba(212, 205, 229, 0.8);
-}
-header #account-nav .menu > li:hover a.dashboard {
-  border-bottom-left-radius: 0;
-  background: #c6bcdc;
-}
-header #account-nav .menu > li:hover .sub-menu {
-  opacity: 1;
-  visibility: visible;
-}
-header #account-nav .menu > li:hover .sub-menu::before {
-  opacity: 1;
-}
 header #moby-button {
   display: none;
-  float: right;
   padding: 20px;
   cursor: pointer;
+  text-align: center;
 }
 header #moby-button .fa {
   color: #3f507f;
@@ -950,6 +899,20 @@ header #moby-button .fa {
 }
 header #moby-button:hover .fa {
   color: #0f1f4d;
+}
+header #logo {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 80px;
+}
+header #logo img {
+  width: 100%;
 }
 /****************************************************************************************************
 *																									*
@@ -1530,8 +1493,7 @@ header #moby-button:hover .fa {
 /***********************************									
 *         Login / Register 				
 ***********************************/
-#login-page form,
-#register-page form {
+.forms-page form {
   width: 50%;
   min-width: 450px;
   position: relative;
@@ -1549,12 +1511,10 @@ header #moby-button:hover .fa {
   -o-box-shadow: 0 0 16px #747474;
   box-shadow: 0 0 16px #747474;
 }
-#login-page form .input-container,
-#register-page form .input-container {
+.forms-page form .input-container {
   position: relative;
 }
-#login-page form .input-container input,
-#register-page form .input-container input {
+.forms-page form .input-container input {
   padding: 5px 10px;
   margin: 5px 0;
   background: #ffffff;
@@ -1566,8 +1526,7 @@ header #moby-button:hover .fa {
   -o-border-radius: 4px;
   border-radius: 4px;
 }
-#login-page form .input-container textarea,
-#register-page form .input-container textarea {
+.forms-page form .input-container textarea {
   padding: 5px 10px;
   margin: 5px 0;
   background: #ffffff;
@@ -1581,9 +1540,7 @@ header #moby-button:hover .fa {
   resize: none;
   height: 200px;
 }
-#login-page form .input-container span,
-#register-page form .input-container span {
-  display: none;
+.forms-page form .input-container .field-validation-error > span {
   color: #5a271a;
   font-size: 12px;
   text-align: center;
@@ -1600,7 +1557,7 @@ header #moby-button:hover .fa {
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
   width: 120px;
-  padding: 6px;
+  padding: 10px;
   left: calc(100% - 40px);
   border: 1px solid #5a271a;
   background: #d4cde5;
@@ -1612,8 +1569,7 @@ header #moby-button:hover .fa {
   z-index: 10;
   cursor: pointer;
 }
-#login-page form .input-container span::before,
-#register-page form .input-container span::before {
+.forms-page form .input-container .field-validation-error > span::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -1626,34 +1582,30 @@ header #moby-button:hover .fa {
   border: 6px solid transparent;
   border-right-color: #5a271a;
 }
-#login-page form .input-container span:hover::after,
-#register-page form .input-container span:hover::after {
+.forms-page form .input-container .field-validation-error > span:hover::after {
   content: "x";
   font-size: 16px;
   position: absolute;
   top: 0;
   right: 5px;
 }
-#login-page form .checkbox input,
-#register-page form .checkbox input {
+.forms-page form .checkbox {
+  margin: 10px 0 5px;
+}
+.forms-page form .checkbox input {
   position: relative;
   top: 4px;
   width: 18px;
   height: 18px;
 }
-#login-page form .submit,
-#register-page form .submit {
+.forms-page form .submit {
   text-align: center;
   margin: 15px 0;
 }
-#login-page form .submit a,
-#register-page form .submit a,
-#login-page form .submit button,
-#register-page form .submit button,
-#login-page form .submit span,
-#register-page form .submit span,
-#login-page form .submit input,
-#register-page form .submit input {
+.forms-page form .submit a,
+.forms-page form .submit button,
+.forms-page form .submit span,
+.forms-page form .submit input {
   color: #f1f1f1;
   font-size: 14px;
   background: #3f507f;
@@ -1669,82 +1621,59 @@ header #moby-button:hover .fa {
   -o-transition: all 0.4s;
   transition: all 0.4s;
 }
-#login-page form .submit a:hover,
-#register-page form .submit a:hover,
-#login-page form .submit button:hover,
-#register-page form .submit button:hover,
-#login-page form .submit span:hover,
-#register-page form .submit span:hover,
-#login-page form .submit input:hover,
-#register-page form .submit input:hover {
+.forms-page form .submit a:hover,
+.forms-page form .submit button:hover,
+.forms-page form .submit span:hover,
+.forms-page form .submit input:hover {
   cursor: pointer;
   background: #5065a1;
 }
-#login-page form .submit.color2 a,
-#register-page form .submit.color2 a,
-#login-page form .submit.color2 button,
-#register-page form .submit.color2 button,
-#login-page form .submit.color2 span,
-#register-page form .submit.color2 span {
+.forms-page form .submit.color2 a,
+.forms-page form .submit.color2 button,
+.forms-page form .submit.color2 span {
   color: #f1f1f1;
   background: #0f1f4d;
 }
-#login-page form .submit.color2 a:hover,
-#register-page form .submit.color2 a:hover,
-#login-page form .submit.color2 button:hover,
-#register-page form .submit.color2 button:hover,
-#login-page form .submit.color2 span:hover,
-#register-page form .submit.color2 span:hover {
+.forms-page form .submit.color2 a:hover,
+.forms-page form .submit.color2 button:hover,
+.forms-page form .submit.color2 span:hover {
   background: #173078;
 }
-#login-page form .submit.color3 a,
-#register-page form .submit.color3 a,
-#login-page form .submit.color3 button,
-#register-page form .submit.color3 button,
-#login-page form .submit.color3 span,
-#register-page form .submit.color3 span {
+.forms-page form .submit.color3 a,
+.forms-page form .submit.color3 button,
+.forms-page form .submit.color3 span {
   color: #f1f1f1;
   background: #5271cc;
 }
-#login-page form .submit.color3 a:hover,
-#register-page form .submit.color3 a:hover,
-#login-page form .submit.color3 button:hover,
-#register-page form .submit.color3 button:hover,
-#login-page form .submit.color3 span:hover,
-#register-page form .submit.color3 span:hover {
+.forms-page form .submit.color3 a:hover,
+.forms-page form .submit.color3 button:hover,
+.forms-page form .submit.color3 span:hover {
   background: #3656b5;
 }
-#login-page form .submit.width a,
-#register-page form .submit.width a,
-#login-page form .submit.width button,
-#register-page form .submit.width button,
-#login-page form .submit.width span,
-#register-page form .submit.width span {
+.forms-page form .submit.width a,
+.forms-page form .submit.width button,
+.forms-page form .submit.width span {
   display: block;
   width: 200px;
   padding: 15px;
   margin: 0 auto;
 }
-#login-page form h2,
-#register-page form h2 {
+.forms-page form h2 {
   text-align: center;
   font-size: 32px;
   font-variant: small-caps;
   padding: 10px 0 20px 0;
 }
-#login-page form .cancel,
-#register-page form .cancel {
+.forms-page form .cancel {
   position: absolute;
   top: 0;
   right: 0;
 }
-#login-page form .cancel a,
-#register-page form .cancel a {
+.forms-page form .cancel a {
   display: block;
   padding: 20px;
 }
-#login-page form .cancel a .fa,
-#register-page form .cancel a .fa {
+.forms-page form .cancel a .fa {
   color: #0f1f4d;
   font-size: 26px;
   -webkit-transition: all 0.3s;
@@ -1753,37 +1682,23 @@ header #moby-button:hover .fa {
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-#login-page form .cancel a:hover .fa,
-#register-page form .cancel a:hover .fa {
+.forms-page form .cancel a:hover .fa {
   color: #5a271a;
   font-size: 32px;
 }
-#login-page form .register,
-#register-page form .register,
-#login-page form .login,
-#register-page form .login,
-#login-page form .checkbox,
-#register-page form .checkbox {
+.forms-page form .register,
+.forms-page form .login,
+.forms-page form .checkbox {
   text-align: center;
 }
-#login-page .message,
-#register-page .message {
+.forms-page .error {
   position: relative;
   display: block;
-  padding: 5px;
-  text-align: center;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-}
-#login-page .message span,
-#register-page .message span {
-  position: relative;
   color: #5a271a;
   font-size: 14px;
+  text-align: center;
   font-weight: 700;
+  padding: 5px;
 }
 /****************************************************************************************************
 *																									*
@@ -1869,9 +1784,11 @@ footer .copyright p {
   header #header-nav .menu > li#home {
     display: block;
   }
-  header #account-nav {
-    left: 40px;
-    right: auto;
+  header #account-nav .menu {
+    width: 70px;
+  }
+  header #logo {
+    width: 70px;
   }
   header #moby-button {
     display: block;
@@ -1903,7 +1820,7 @@ footer .copyright p {
 }
 @media screen and (max-width: 650px) {
   body {
-    height: Calc(100% - 174px);
+    height: Calc(100% - 110px);
   }
   /****************************************************************************************************
 	*																									*
@@ -1987,8 +1904,7 @@ footer .copyright p {
   /***********************************									
 	*			Login / Register 				
 	***********************************/
-  #login-page form,
-  #register-page form {
+  .forms-page form {
     width: 90%;
     min-width: 90%;
   }
@@ -2055,25 +1971,13 @@ footer .copyright p {
 @media screen and (max-width: 450px) {
   /****************************************************************************************************
 	*																									*
-	*												HEADER MAIN									
-	*																									*
-	****************************************************************************************************/
-  header #account-nav {
-    left: 20px;
-  }
-  header #moby-button {
-    padding-right: 0;
-  }
-  /****************************************************************************************************
-	*																									*
 	*											INTERIOR PAGES 										
 	*																									*
 	****************************************************************************************************/
   /***********************************									
 	*			Login / Register 				
 	***********************************/
-  #login-page form,
-  #register-page form {
+  .forms-page form {
     padding: 10px 30px;
   }
 }

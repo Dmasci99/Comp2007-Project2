@@ -19,8 +19,10 @@
     .image {
         position: relative;
         width: 100%;
+        max-width: 205px;
         overflow: hidden;
-        padding: 2px;
+        padding: 1px;
+        margin: 0 auto;
         img {
             max-width: 100%;
         }
@@ -46,7 +48,7 @@
     .games {
         width: 100%;
         text-align: center;
-        .row {
+        .group {
             width: 100%;
             padding: 40px 0;
             .box-shadow(0, 0, 10px, @grey);
@@ -88,12 +90,12 @@
                     }
                 }
             }
-        }//.row
+        }//.group
         .game {
             position: relative;
             display: inline-block;
             width: 30%;
-            margin: 10px 1%;
+            margin: 20px 1%;
             vertical-align: top;
             .image {
                 .fa {
@@ -215,13 +217,13 @@
     ***********************************/
     #store-page {
         .games {
-            .row {
+            .group {
                 padding: 25px 0;
                 h2 {
                     margin-bottom: 10px;
                     padding-bottom: 10px;
                 }
-            }//.row
+            }//.group
             .game {
                 display: block;
                 width: 100%;

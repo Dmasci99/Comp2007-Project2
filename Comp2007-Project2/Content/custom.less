@@ -447,7 +447,6 @@ body {
 *			   Header 				
 ***********************************/
 header {
-	// .gradient-blue;
 	position: absolute;
 	background: fade(@silver, 85%);
 	border-top: 5px solid @darkBlue;
@@ -588,7 +587,7 @@ header {
 		right: 20px;
 		.translateY;
 		.menu {
-			width: 100px;
+			width: 80px;
 			background: transparent;
 			text-align: center;
 			&.loggedin {
@@ -634,7 +633,7 @@ header {
 						border-bottom-left-radius: 0;
 						border-left: 0;
 					}
-					&.dashboard {
+					&.cart {
 						width: 50%;
 						float: left;
 						color: @darkerBlue;
@@ -651,67 +650,14 @@ header {
 						}
 					}					
 				}//.menu li a
-				.sub-menu {
-					opacity: 0;
-					visibility: hidden;
-					position: absolute;
-					top: calc(~"100% - 1px");
-					left: 0;
-					padding: 10px 0;
-					width: 51%;
-					background: fade(@silver, 80%);
-					border: 2px solid @darkBlue;
-					border-top: none;
-					border-bottom-left-radius: 4px;
-					border-bottom-right-radius: 4px;
-					&::before {
-						opacity: 0;
-						content: "";
-						position: absolute;
-						top: 0px;
-						left: 50%;
-						.translateX;
-						width: 0;
-						border-top: 5px solid @darkBlue;
-						border-left: 5px solid transparent;
-						border-right: 5px solid transparent;
-					}
-					li {
-						a {
-							color: @black;
-							display: block;
-							padding: 10px;
-							font-size: 13px;
-							font-variant: small-caps;
-							.normal;
-							&:hover {
-								.bold;
-								background: fade(@silver, 80%);
-							}
-						}
-					}
-				}//.sub-menu
-				&:hover {
-					a.dashboard {
-						border-bottom-left-radius: 0;	
-						background: darken(@silver, 5%);
-					}
-					.sub-menu {
-						opacity: 1;
-						visibility: visible;
-						&::before {
-							opacity: 1;
-						}
-					}
-				}
 			}//.menu li
 		}//.menu
 	}//#account-nav
 	#moby-button {	
 		display: none;
-		float: right;
 		padding: 20px;
 		cursor: pointer;
+        text-align: center;
 		.fa {
 			color: @darkBlue;
 			font-size: 42px;
@@ -723,6 +669,16 @@ header {
 			}
 		}
 	}//#moby-button	
+	#logo {
+		position: absolute;
+		top: 50%;
+		left: 15px;
+		.translateY;
+		width: 80px;
+		img {
+			width: 100%;
+		}
+	}//#logo
 }//header
 
 /****************************************************************************************************
@@ -1055,8 +1011,7 @@ header {
 /***********************************									
 *         Login / Register 				
 ***********************************/
-#login-page,
-#register-page {
+.forms-page {
 	form {
 		width: 50%;
 		min-width: 450px;
@@ -1086,8 +1041,7 @@ header {
 				resize: none;
 				height: 200px;
 			}
-            span { //Validator Error Messages
-                display: none;
+            .field-validation-error > span { //Validator Error Messages
                 color: @red;
                 font-size: 12px;
                 text-align: center;
@@ -1096,7 +1050,7 @@ header {
                 top: 65%;
                 .translateY;
                 width: 120px;
-                padding: 6px;
+                padding: 10px;
                 left: calc(~"100% - 40px");
                 border: 1px solid @red;
                 background: @silver;
@@ -1122,6 +1076,7 @@ header {
             }//Validator Error Messages
 		}//.input-container
 		.checkbox {
+            margin: 10px 0 5px;
 			input {
 				position: relative;
 				top: 4px;
@@ -1162,20 +1117,16 @@ header {
             text-align: center;
          }
 	}//form
-	.message {
+	.error {
 		position: relative;
 		display: block;
-		padding: 5px;
+		color: @red;
+		font-size: 14px;
 		text-align: center;
-		.round(4px);
-		span {
-			position: relative;
-			color: @red;
-			font-size: 14px;
-			.bold;
-		}//span
-	}//.message
-}//#login-page / #register-page 
+		.bold;
+		padding: 5px;
+	}//.error
+}//.forms-page
 
 /****************************************************************************************************
 *																									*

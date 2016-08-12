@@ -137,9 +137,12 @@ jQuery(document).ready(function ($) {
     /*************************************************
 	*             FORM VALIDATOR MESSAGES
 	*************************************************/
-    //Allow user to close a Validator Error Message by clicking on it - Forms(Register/Login/Profile)
-    $('.input-container span').click(function () {
+    //Allow user to close a Validator Error Message by clicking on it - Forms(Register/Login)
+    $('.input-container .message').click(function () {
         $(this).css('visibility', 'hidden');
+    });
+    $('.submit.button input').click(function () {
+        $('.input-container .message').css('visibility', 'visible');
     });
 
 });
