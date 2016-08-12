@@ -37,11 +37,11 @@ namespace Comp2007_Project2.Models
             if (cartItem == null)
             {
                 // Create a new cart item if no cart item exists
-                cartItem = new OrderDetail
+                cartItem = new OrderItem
                 {
                     GameId = game.GameId,
-                    OrderDetailId = ShoppingCartId,  //**Can NOT set and int to a string**  was CartId = ShoppingCartId ???
-                    Quantity = 1,
+                    OrderItemId = ShoppingCartId,  
+                    Count = 1,
                     DateCreated = DateTime.Now
                 };
                 storeDB.Carts.Add(cartItem);
