@@ -25,18 +25,20 @@
 			.menu {
 				display: none;
                 > li {
-                    &#home,
-                    &#login,
-                    &#register {
+                    &#home {
                         display: block;
                     }
                 }
 			}//menu
 		}//nav#header-nav
-		#account-nav {
-			left: 40px;
-			right: auto;
-		}
+        #account-nav {
+            .menu {
+                width: 70px;
+            }
+        }
+        #logo {
+            width: 70px;
+        }
 		#moby-button {	
 			display: block;			
 		}//#moby-button	
@@ -273,19 +275,6 @@
 }//500px
 
 @media screen and (max-width: 450px) {	
-	/****************************************************************************************************
-	*																									*
-	*												HEADER MAIN									
-	*																									*
-	****************************************************************************************************/
-	header {
-		#account-nav {
-			left: 20px;
-		}
-		#moby-button {
-			padding-right: 0;				
-		}//#moby-button	
-	}//header
 	/****************************************************************************************************
 	*																									*
 	*											INTERIOR PAGES 										

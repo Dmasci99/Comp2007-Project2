@@ -33,18 +33,29 @@
             <!-- Mobile Menu -->
             <span id="moby-button"><i class="fa fa-bars"></i></span>
             <div class="clear-float"></div><!-- clear-float -->
+            <!-- Logo -->
+            <div id="logo">
+                <img src="~/Assets/images/ezGamesLogo.png" alt="EzGames Logo" title="EzGames" />
+            </div>
             <!-- Main Menu -->
             <nav id="header-nav">
                 <ul class="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li id="home">@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Store", "Index", "Store")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Login", "Login", "Account")</li>
-                    <li>@Html.ActionLink("Register", "Register", "Account")</li>
                     <div class="clear-float"></div><!--clear-float-->
                 </ul>
             </nav><!--.header-nav-->
+            <!-- Account Menu -->
+            <nav id="account-nav">
+                <ul class="menu">
+                    <li class="public"><a class="login" href="/Account/Login">Login</a></li>
+                    <li class="public"><a class="register" href="/Account/Register">Register</a></li>
+                    @*<li class="private"><a class="cart" href="/Store/Cart"><i class="fa fa-shopping-cart"></i></a></li>*@
+                    @*<li class="private"><a class="logout" href="/Account/LogOff"><i class="fa fa-sign-out"></i></a></li>*@
+                </ul>
+            </nav><!-- account-nav -->
 
             <div class="clear-float"></div><!--clear-float-->
         </div>

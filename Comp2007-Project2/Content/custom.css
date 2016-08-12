@@ -884,9 +884,9 @@ header #account-nav .menu > li > a.active.logout {
 }
 header #moby-button {
   display: none;
-  float: right;
   padding: 20px;
   cursor: pointer;
+  text-align: center;
 }
 header #moby-button .fa {
   color: #3f507f;
@@ -1829,14 +1829,14 @@ footer .copyright p {
   header #header-nav .menu {
     display: none;
   }
-  header #header-nav .menu > li#home,
-  header #header-nav .menu > li#login,
-  header #header-nav .menu > li#register {
+  header #header-nav .menu > li#home {
     display: block;
   }
-  header #account-nav {
-    left: 40px;
-    right: auto;
+  header #account-nav .menu {
+    width: 70px;
+  }
+  header #logo {
+    width: 70px;
   }
   header #moby-button {
     display: block;
@@ -2018,17 +2018,6 @@ footer .copyright p {
   }
 }
 @media screen and (max-width: 450px) {
-  /****************************************************************************************************
-	*																									*
-	*												HEADER MAIN									
-	*																									*
-	****************************************************************************************************/
-  header #account-nav {
-    left: 20px;
-  }
-  header #moby-button {
-    padding-right: 0;
-  }
   /****************************************************************************************************
 	*																									*
 	*											INTERIOR PAGES 										
