@@ -1,43 +1,55 @@
 ﻿@model Comp2007_Project2.ViewModels.ShoppingCartViewModel
 
 @{
-    ViewBag.Title = "Shopping Cart";
+    ViewBag.Title = "Review Cart";
 }
 
-<h3>
-    <em>Review</em> your cart:
-</h3>
-<p class="button">
-    @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout")  <!---STILL NEED TO MAKE THE CHECKOUT BUTTON-->
-</p>
-<div id="update-message">
+<div class="interior-page" id="cart-page">
+    <div class="container">
+
+        <div id="update-message"></div>
+
+        <div class="checkout top">
+            <div class="button">
+                @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout")
+            </div>
+            <div class="total">$@Model.CartTotal</div>
+        </div>
+        <div class="clear-float"></div>
+
+        <div class="items">
+            @foreach (var item in Model.CartItems)
+            {
+                <div class="item">
+                    <div class="left">
+
+                    </div>
+                    <div class="center info">
+                        <div class="name">@item.Game.Name</div>
+                        <div class="desc">@item.Game.Description</div>
+                    </div>
+                    <div class="right options">
+                        <div class="row remove">
+                            <span><i class="fa fa-trash-o"></i></span>
+                        </div>
+                        <div class="row quantity">
+                            <span>@item.Count</span>
+                        </div>
+                        <div class="row price">
+                            <span>$@item.Game.Price</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="checkout bottom">
+            <div class="total">$@Model.CartTotal</div>
+            <div class="button">
+                @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout")
+            </div>
+        </div><div class="clear-float"></div>
+
+    </div>
 </div>
-<table>
-    <tr>
-        <th> Game </th>
-        <th> Price </th>
-        <th> Quantity </th>
-        <th></th>
-    </tr>
-    @foreach (var item in
-        Model.CartItems)
-    {
-        <tr id="row-@item.RecordId">
-            <td>
-                @Html.ActionLink(item.Game.Name,"Details", "Store", new { id = item.GameId }, null)
-            </td>
-            <td> @item.Game.Price</td>
-            <td id="item-count-@item.RecordId"> @item.Count</td>
-            <td>
-                <a href="#" class="RemoveLink" data-id="@item.RecordId"> Remove from cart</a>
-            </td>
-        </tr>
-    }
-    <tr>
-        <td>Total</td>
-        <td></td>
-        <td></td>
-        <td id="cart-total"> @Model.CartTotal </td>
-    </tr>
-</table>
 
