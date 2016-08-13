@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -25,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -171,43 +173,92 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\Game.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Item.cs" />
-    <Compile Include="Models\ItemLabel.cs" />
-    <Compile Include="Models\ItemType.cs" />
+    <Compile Include="Models\Label.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MenuEntities.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\Platform.cs" />
     <Compile Include="Models\SampleData.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Models\StoreEntities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ShoppingCartRemoveViewModel.cs" />
+    <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\images\contact-header.jpg" />
     <Content Include="Assets\images\dashboard.jpg" />
+    <Content Include="Assets\images\ezGamesLogo.png" />
     <Content Include="Assets\images\home-showcase.png" />
-    <Content Include="Assets\images\logo.png" />
-    <Content Include="Assets\images\menu\burger.jpg" />
-    <Content Include="Assets\images\menu\cheesecake.jpg" />
-    <Content Include="Assets\images\menu\curry.jpg" />
-    <Content Include="Assets\images\menu\fajitas.jpg" />
-    <Content Include="Assets\images\menu\margarita.jpg" />
-    <Content Include="Assets\images\menu\messyfish.jpg" />
-    <Content Include="Assets\images\menu\nachos.jpg" />
-    <Content Include="Assets\images\menu\salmon.jpg" />
     <Content Include="Assets\images\placeholder.gif" />
     <Content Include="Assets\images\slide1.jpg" />
     <Content Include="Assets\images\slide2.jpg" />
     <Content Include="Assets\images\slide3.jpg" />
     <Content Include="Assets\images\slide4.jpg" />
+    <Content Include="Assets\images\store\AotFull.JPG" />
+    <Content Include="Assets\images\store\AotIcon.jpg" />
+    <Content Include="Assets\images\store\BattlebornFull.JPG" />
+    <Content Include="Assets\images\store\BattlebornIcon.jpg" />
+    <Content Include="Assets\images\store\DisneyArtFull.JPG" />
+    <Content Include="Assets\images\store\DisneyArtIcon.jpg" />
+    <Content Include="Assets\images\store\FairyFencerFull.JPG" />
+    <Content Include="Assets\images\store\FairyFencerIcon.jpg" />
+    <Content Include="Assets\images\store\FfxvFull.JPG" />
+    <Content Include="Assets\images\store\FfxvIcon.jpg" />
+    <Content Include="Assets\images\store\Forza6Full.JPG" />
+    <Content Include="Assets\images\store\Forza6Icon.jpg" />
+    <Content Include="Assets\images\store\HaloWarsFull.jpg" />
+    <Content Include="Assets\images\store\HaloWarsIcon.jpg" />
+    <Content Include="Assets\images\store\MirrorsEdgeFull.JPG" />
+    <Content Include="Assets\images\store\MirrorsEdgeIcon.jpg" />
+    <Content Include="Assets\images\store\MonopolyFull.JPG" />
+    <Content Include="Assets\images\store\MonopolyIcon.jpg" />
+    <Content Include="Assets\images\store\MonsterHunterFull.JPG" />
+    <Content Include="Assets\images\store\MonsterHunterIcon.jpg" />
+    <Content Include="Assets\images\store\NoMansSkyFull.JPG" />
+    <Content Include="Assets\images\store\NoMansSkyIcon.jpg" />
+    <Content Include="Assets\images\store\OverwatchFull.JPG" />
+    <Content Include="Assets\images\store\OverwatchIcon.jpg" />
+    <Content Include="Assets\images\store\PkmnMoonFull.JPG" />
+    <Content Include="Assets\images\store\PkmnMoonIcon.jpg" />
+    <Content Include="Assets\images\store\PkmnSunFull.JPG" />
+    <Content Include="Assets\images\store\PkmnSunIcon.jpg" />
+    <Content Include="Assets\images\store\RecoreFull.JPG" />
+    <Content Include="Assets\images\store\RecoreIcon.jpg" />
+    <Content Include="Assets\images\store\SaoFull.JPG" />
+    <Content Include="Assets\images\store\SaoIcon.jpg" />
+    <Content Include="Assets\images\store\ShovelKnightFull.JPG" />
+    <Content Include="Assets\images\store\ShovelKnightIcon.jpg" />
+    <Content Include="Assets\images\store\StarWars3dsFull.JPG" />
+    <Content Include="Assets\images\store\StarWars3dsIcon.jpg" />
+    <Content Include="Assets\images\store\StarWarsFull.JPG" />
+    <Content Include="Assets\images\store\StarWarsIcon.jpg" />
+    <Content Include="Assets\images\store\TheDivisionFull.JPG" />
+    <Content Include="Assets\images\store\TheDivisionIcon.jpg" />
+    <Content Include="Assets\images\store\TrackmaniaFull.JPG" />
+    <Content Include="Assets\images\store\TrackmaniaIcon.jpg" />
+    <Content Include="Assets\images\store\UnchartedFull.JPG" />
+    <Content Include="Assets\images\store\UnchartedIcon.jpg" />
+    <Content Include="Assets\images\store\ZeroFull.JPG" />
+    <Content Include="Assets\images\store\ZeroIcon.jpg" />
+    <Content Include="Assets\images\store\ZestiriaFull.JPG" />
+    <Content Include="Assets\images\store\ZestiriaIcon.jpg" />
     <Content Include="Content\custom.css" />
-    <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -220,7 +271,7 @@
     <Content Include="Content\custom.less" />
     <Content Include="Content\partials\moby.less" />
     <Content Include="Content\partials\responsive.less" />
-    <Content Include="Content\partials\menu.less" />
+    <Content Include="Content\partials\games.less" />
     <None Include="Scripts\jquery-2.2.4.intellisense.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\jquery-2.2.4.js" />
@@ -251,8 +302,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
@@ -260,24 +309,37 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Menu\Create.cshtml" />
-    <Content Include="Views\Menu\Delete.cshtml" />
-    <Content Include="Views\Menu\Details.cshtml" />
-    <Content Include="Views\Menu\Edit.cshtml" />
-    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Store\Delete.cshtml" />
+    <Content Include="Views\Store\Details.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="tsconfig.json" />
+    <Content Include="Views\Checkout\AddressAndPayment.cshtml" />
+    <Content Include="Views\Checkout\Complete.cshtml" />
+    <Content Include="Views\Account\Logout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\app.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
@@ -299,6 +361,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
+      <UserProperties tsconfig_1json__JSONSchema="http://json.schemastore.org/tsconfig" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

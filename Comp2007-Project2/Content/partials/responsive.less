@@ -1,99 +1,19 @@
 /**
 * Authors : Emma Hilborn (200282755),
             Alex Friesen (200302342),
-            Dan Masci (200299037)
+            Dan Masci (200299037),
+            Karen Springford(200299681)
 * Class : Enterprise Computing
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : Comp2007-Project2.azurewebsites.net
+* Website Name : EzGames2.azurewebsites.net
 */
 
 /**
 * The follwing stylesheet is imported into style.less. This is used specifically for responsive
 * design throughout the entirety of the application (excluding Menu-specific).
 */
-
-@media screen and (max-width: 1160px) {
-	/****************************************************************************************************
-	*																									*
-	*											INTERIOR PAGES 										
-	*																									*
-	****************************************************************************************************/
-	/***********************************									
-	* 		  Projects Gallery				
-	***********************************/
-	.interior-page {
-		.gallery {
-			.projects {
-				.project {
-					.text {
-						opacity: 1;
-						visibility: visible;
-						p {
-							top: 0;
-						}
-						.button {
-							top: 10px;
-						}		
-					}//.text		
-				}//.project
-			}//.projects
-		}//gallery
-	}//.interior-page
-	/***********************************									
-	*			About Me 				
-	***********************************/
-	#about-page {
-		.content-nav {
-			.container;
-			.options {
-				position: relative;
-				top: 0;
-				.translateY(0);
-				left: 0;
-				.option {
-					float: left;
-					position: relative;
-					text-align: left;
-					width: 50px;
-					left: 0;
-					padding: 15px 0px;
-					margin: 0 3px;
-					span {
-						position: absolute;
-						opacity: 0;
-						left: 50px;
-						width: 100%;
-					}
-					.fa {
-						position: relative;	
-						left: 40px;
-					}
-					&:hover {
-						left: 0;
-						width: 200px;
-						span {
-							opacity: 1;
-						}
-					}
-					&.active {				
-						width: 50px;
-						left: 0;
-					}
-				}//.option
-				.clear-float {
-					display: block;
-				}
-			}//.options	
-		}//.content-nav		
-	}//#about-page
-}//1160px
-
-@media screen and (max-width: 1025px) {
-
-
-}//1025px
 
 @media screen and (max-width: 980px) {
 	/****************************************************************************************************
@@ -112,67 +32,18 @@
                 }
 			}//menu
 		}//nav#header-nav
-		#account-nav {
-			left: 40px;
-			right: auto;
-		}
+        #account-nav {
+            .menu {
+                width: 70px;
+            }
+        }
+        #logo {
+            width: 70px;
+        }
 		#moby-button {	
 			display: block;			
 		}//#moby-button	
 	}//header
-	/****************************************************************************************************
-	*																									*
-	*											INTERIOR PAGES 										
-	*																									*
-	****************************************************************************************************/
-	/***********************************									
-	*			Services 				
-	***********************************/
-	#services-page {
-		.container.content-nav {		
-			padding: 0;
-			.options {
-				.round(0);
-				.option {		
-					float: left;
-					position: relative;	
-					cursor: pointer;
-					text-align: center;
-					padding: 30px 40px;
-					.trans(all,0.3s);
-					span {
-						color: @silver;
-						position: relative;
-						text-transform: uppercase;
-						.trans(all,0.3s);
-						&::after {
-							opacity: 0;
-							content: "";
-							position: absolute;
-							top: 140%;
-							left: 50%;
-							.translateX;
-							width: 0;
-							height: 2px;
-							background: darken(@silver, 15%);
-							.trans(all,0.3s);
-						}
-					}//span
-					&:hover,
-					&.active {
-						span {
-							color: darken(@silver, 15%);
-							&::after {
-								opacity: 1;
-								width: 125%;
-							}
-						}
-					}//span:hover
-				}//.option
-			}//.options
-		}//.container
-	}//#services-page
-
 }//980px
 
 @media screen and (max-width: 850px) {
@@ -184,23 +55,28 @@
 	    .left {
             float: none;
             width: 100%;
+            padding-right: 0;
+            text-align: center;
+            max-width: 500px;
+            margin: 10px auto;
 	    }
         .right {
             float: none;
             width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
-            .info {
-                padding: 0 20px;
-                text-align: center;
-            }
+            padding-left: 0;
+            text-align: center;
+            max-width: 500px;
+            margin: 10px auto;
+        }
+        .bottom {
+
         }
     }//#contact-page
 }//850px
 
 @media screen and (max-width: 650px) {
 	body {
-		height: Calc(~"100% - 174px");
+		height: Calc(~"100% - 110px");
 	}
 	/****************************************************************************************************
 	*																									*
@@ -300,51 +176,14 @@
 		}
 	}//.interior-page
 	/***********************************									
-	*			About Me 				
-	***********************************/
-	#about-page {
-		.content-nav {
-			.options {
-				display: inline-block;
-				position: relative;
-				left: 50%;
-				.translateX;
-				.option {
-
-				}
-			}//.options
-		}//.content-nav
-	}//#about-page
-	/***********************************									
-	*			Services 				
-	***********************************/
-	#services-page {
-		padding-top: 0;		
-		.container.content-nav {
-			padding-top: 0;		
-			.options {
-				padding: 10px 0;
-				.option {		
-					float: none;
-					width: 100%;
-					padding: 10px 0;					
-				}//.option
-			}//.options
-		}//.container
-	}//#services-page
-	/***********************************									
 	*			Login / Register 				
 	***********************************/
-	#login-page,
-	#register-page,
-	#add-contact,
-	#update-contact,
-	#update-todo {
+	.forms-page {
 		form {
 			width: 90%;
 			min-width: 90%;
 		}
-	}//#login / register
+	}//.forms-page
 	/****************************************************************************************************
 	*																									*
 	*												FOOTER MAIN									
@@ -438,60 +277,15 @@
 @media screen and (max-width: 450px) {	
 	/****************************************************************************************************
 	*																									*
-	*												HEADER MAIN									
-	*																									*
-	****************************************************************************************************/
-	header {
-		#account-nav {
-			left: 20px;
-		}
-		#moby-button {
-			padding-right: 0;				
-		}//#moby-button	
-	}//header
-	/****************************************************************************************************
-	*																									*
 	*											INTERIOR PAGES 										
 	*																									*
 	****************************************************************************************************/
 	/***********************************									
-	*			About Me 				
-	***********************************/
-	#about-page {
-		.content-nav {
-			.container;
-			.options {
-				.option {					
-					span {
-						position: absolute;
-						opacity: 0;
-						left: 50px;
-						width: 100%;
-					}
-					&:hover {
-						width: 50px;
-						span {
-							opacity: 0
-						}
-					}
-				}//.option
-				.clear-float {
-					display: block;
-				}
-			}//.options	
-		}//.content-nav		
-	}//#about-page
-	/***********************************									
 	*			Login / Register 				
 	***********************************/
-	#login-page,
-	#register-page,	
-	#add-contact,
-	#update-contact,
-	#update-todo {
+	.forms-page {
 		form {
 			padding: 10px 30px;
 		}
-	}//#login / register
-
+	}//.forms-page
 }//450px

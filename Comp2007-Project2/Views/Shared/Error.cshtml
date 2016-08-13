@@ -1,9 +1,15 @@
 ﻿@model System.Web.Mvc.HandleErrorInfo
 
 @{
-    ViewBag.Title = "Error";
+    ViewBag.Title = "Oops!";
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+<div class="interior-page" id="error-page">
+    <div class="container">
+        <p>
+            Oops! The page you are looking for doesn't exist.<br />
+            Please try again or go <a href="/">Home</a>.
+        </p>
+    </div>
+</div>
 

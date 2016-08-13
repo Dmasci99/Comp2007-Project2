@@ -1,12 +1,13 @@
 /**
 * Authors : Emma Hilborn (200282755),
             Alex Friesen (200302342),
-            Dan Masci (200299037)
+            Dan Masci (200299037),
+            Karen Springford(200299681)
 * Class : Enterprise Computing
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : Comp2007-Project2.azurewebsites.net 
+* Website Name : EzGames2.azurewebsites.net 
 */
 /**
 * The follwing stylesheet is the "MASTER". It is a Less file that gets auto-compiled into
@@ -15,7 +16,7 @@
 * Summer Co-op; customized to this site. 
 *
 * moby.less/moby.js are files from Dan's coworker. It is not our creation. You can see/download 
-* it on Github here: https://github.com/joshsanger/moby.js. It controls the Mobile Menu (when 
+* it on Github here: https://github.com/joshsanger/moby.js. It controls the mobile Store page (when 
 * you get below 640px width). Customization still required.
 */
 /**
@@ -153,24 +154,26 @@
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : Comp2007-Project2.azurewebsites.net
+* Website Name : EzGames2.azurewebsites.net
 *
 * This is a partial LESS file that has all styles that are
-* to do with the Menu and Detail pages (includes responsive).
+* to do with the Store and Detail pages (includes responsive).
 */
 /***********************************									
 *			 Menu Global			
 ***********************************/
-.menu-page .image {
+.store-page .image {
   position: relative;
   width: 100%;
+  max-width: 205px;
   overflow: hidden;
-  padding: 2px;
+  padding: 1px;
+  margin: 0 auto;
 }
-.menu-page .image img {
+.store-page .image img {
   max-width: 100%;
 }
-.menu-page .image .label {
+.store-page .image .label {
   position: absolute;
   width: 100px;
   top: 30px;
@@ -187,16 +190,16 @@
   padding: 2px 6px;
 }
 /***********************************									
-*	       Menu List Page 				
+*	       Game List Page 				
 ***********************************/
-#menu-page {
+#store-page {
   padding: 0;
 }
-#menu-page .items {
+#store-page .games {
   width: 100%;
   text-align: center;
 }
-#menu-page .items .row {
+#store-page .games .group {
   width: 100%;
   padding: 40px 0;
   -webkit-box-shadow: 0 0 10px #747474;
@@ -205,14 +208,14 @@
   -o-box-shadow: 0 0 10px #747474;
   box-shadow: 0 0 10px #747474;
 }
-#menu-page .items .row h2 {
+#store-page .games .group h2 {
   position: relative;
   font-size: 28px;
   text-transform: uppercase;
   margin-bottom: 20px;
   padding-bottom: 20px;
 }
-#menu-page .items .row h2::after {
+#store-page .games .group h2::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -226,31 +229,31 @@
   height: 2px;
   background: #5271cc;
 }
-#menu-page .items .row .container {
+#store-page .games .group .container {
   display: inline-block;
 }
-#menu-page .items .row:nth-child(even) {
+#store-page .games .group:nth-child(even) {
   background: #f1f1f1;
 }
-#menu-page .items .row:nth-child(odd) {
+#store-page .games .group:nth-child(odd) {
   background: #f6f6f6;
 }
-#menu-page .items .row a {
+#store-page .games .group a {
   color: #0f1f4d;
 }
-#menu-page .items .row a:hover .image .fa {
+#store-page .games .group a:hover .image .fa {
   font-size: 22px;
   opacity: 1;
   visibility: visible;
 }
-#menu-page .items .item {
+#store-page .games .game {
   position: relative;
   display: inline-block;
   width: 30%;
-  margin: 10px 1%;
+  margin: 20px 1%;
   vertical-align: top;
 }
-#menu-page .items .item .image .fa {
+#store-page .games .game .image .fa {
   opacity: 0;
   visibility: hidden;
   position: absolute;
@@ -269,21 +272,32 @@
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-#menu-page .items .item .name {
+#store-page .games .game .name {
   font-weight: bold;
   font-variant: small-caps;
   font-size: 20px;
   padding: 5px 10px;
 }
-#menu-page .items .item .name .price {
+#store-page .games .game .name .price {
   font-weight: normal;
   font-size: 14px;
 }
-#menu-page .items .item .desc {
+#store-page .games .game .desc {
   padding: 0 10px;
 }
+#store-page .games .game .add-to-cart a {
+  position: relative;
+  top: 2px;
+  display: block;
+  width: 203px;
+  color: #d4cde5;
+  background: #3d4766;
+  font-size: 12px;
+  padding: 5px;
+  margin: 0 auto;
+}
 /***********************************									
-*	      Menu Details Page 				
+*	      Game Details Page 				
 ***********************************/
 #details-page {
   padding-top: 20px;
@@ -314,7 +328,7 @@
 }
 #details-page .right {
   float: right;
-  width: 40%;
+  width: 60%;
 }
 #details-page .right .info {
   font-size: 16px;
@@ -333,9 +347,144 @@
 #details-page .right .info .price {
   margin-bottom: 10px;
 }
+#details-page .right .info .desc {
+  margin-bottom: 10px;
+}
 #details-page .left {
   float: left;
-  width: 60%;
+  width: 40%;
+  padding: 0 40px;
+}
+#details-page .left .image {
+  max-width: 100%;
+}
+/***********************************									
+*	      Cart Summary Page 				
+***********************************/
+#cart-page .go-back {
+  float: left;
+  width: 122px;
+  margin-top: 5px;
+}
+#cart-page .go-back .button {
+  text-align: center;
+  display: block;
+}
+#cart-page .go-back .button a {
+  font-size: 12px;
+  color: #ffffff;
+  padding: 5px 10px;
+  background: #3d4766;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#cart-page .go-back .button a:hover {
+  background: #505d86;
+}
+#cart-page .checkout {
+  float: right;
+  width: 122px;
+  text-align: center;
+  border: 2px solid #0f1f4d;
+  border-left-width: 1px;
+}
+#cart-page .checkout.top {
+  border-bottom: none;
+}
+#cart-page .checkout.bottom {
+  border-top: none;
+}
+#cart-page .checkout > div {
+  display: block;
+  margin: 5px 0;
+}
+#cart-page .checkout .button {
+  text-align: center;
+  display: block;
+  margin-bottom: 10px;
+}
+#cart-page .checkout .button a {
+  font-size: 12px;
+  color: #ffffff;
+  padding: 5px 10px;
+  background: #3d4766;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#cart-page .checkout .button a:hover {
+  background: #505d86;
+}
+#cart-page .items .item {
+  position: relative;
+  border: 2px solid #0f1f4d;
+}
+#cart-page .items .item .left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+}
+#cart-page .items .item .center {
+  text-align: center;
+  width: calc(100% - 120px);
+  padding: 10px 20px;
+}
+#cart-page .items .item .center .name {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#cart-page .items .item .center .desc {
+  font-size: 14px;
+}
+#cart-page .items .item .right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  border-left: 1px solid #0f1f4d;
+  height: 100%;
+}
+#cart-page .items .item .right .row {
+  position: relative;
+  border-bottom: 1px solid #0f1f4d;
+  height: 33.33%;
+}
+#cart-page .items .item .right .row:nth-child(3) {
+  border-bottom: none;
+}
+#cart-page .items .item .right .row span {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+/***********************************									
+*	 Checkout Confirmation Page 				
+***********************************/
+#checkout-complete-page {
+  text-align: center;
 }
 /********************************************************
 *														*
@@ -349,8 +498,9 @@
   #details-page .right {
     float: none;
     width: 100%;
+    max-width: 600px;
     text-align: center;
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
   }
   #details-page .right .info {
     font-size: 18px;
@@ -364,25 +514,72 @@
   #details-page .left {
     float: none;
     width: 100%;
-    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
   }
 }
 @media screen and (max-width: 750px) {
   /***********************************									
     *	       Menu List Page 				
     ***********************************/
-  #menu-page .items .row {
+  #store-page .games .group {
     padding: 25px 0;
   }
-  #menu-page .items .row h2 {
+  #store-page .games .group h2 {
     margin-bottom: 10px;
     padding-bottom: 10px;
   }
-  #menu-page .items .item {
+  #store-page .games .game {
     display: block;
     width: 100%;
     max-width: 350px;
     margin: 10px auto 30px auto;
+  }
+}
+@media screen and (max-width: 500px) {
+  /***********************************									
+    *	      Cart Summary Page 				
+    ***********************************/
+  #cart-page .go-back {
+    width: 33.33%;
+    max-width: 122px;
+  }
+  #cart-page .checkout {
+    width: 33.33%;
+    border: none;
+  }
+  #cart-page .items .item .center {
+    width: 100%;
+  }
+  #cart-page .items .item .right {
+    position: relative;
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #0f1f4d;
+    height: auto;
+  }
+  #cart-page .items .item .right .row {
+    position: relative;
+    border-bottom: none;
+    border-right: 1px solid #0f1f4d;
+    width: 33.33%;
+    height: auto;
+    float: left;
+    text-align: center;
+    padding: 5px;
+  }
+  #cart-page .items .item .right .row:nth-child(3) {
+    border-right: none;
+  }
+  #cart-page .items .item .right .row span {
+    position: relative;
+    top: 0;
+    left: 0;
+    -webkit-transform: translateX(0) translateY(0);
+    -moz-transform: translateX(0) translateY(0);
+    -ms-transform: translateX(0) translateY(0);
+    -o-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
   }
 }
 /****************************************************************************************************
@@ -807,7 +1004,7 @@ header #account-nav {
   transform: translateY(-50%);
 }
 header #account-nav .menu {
-  width: 100px;
+  width: 80px;
   background: transparent;
   text-align: center;
 }
@@ -862,7 +1059,7 @@ header #account-nav .menu > li > a.logout {
   border-bottom-left-radius: 0;
   border-left: 0;
 }
-header #account-nav .menu > li > a.dashboard {
+header #account-nav .menu > li > a.profile {
   width: 50%;
   float: left;
   color: #0f1f4d;
@@ -880,64 +1077,11 @@ header #account-nav .menu > li > a:hover.logout,
 header #account-nav .menu > li > a.active.logout {
   background: #0f1f4d;
 }
-header #account-nav .menu > li .sub-menu {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  top: calc(100% - 1px);
-  left: 0;
-  padding: 10px 0;
-  width: 51%;
-  background: rgba(212, 205, 229, 0.8);
-  border: 2px solid #3f507f;
-  border-top: none;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-header #account-nav .menu > li .sub-menu::before {
-  opacity: 0;
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
-  width: 0;
-  border-top: 5px solid #3f507f;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-}
-header #account-nav .menu > li .sub-menu li a {
-  color: #000000;
-  display: block;
-  padding: 10px;
-  font-size: 13px;
-  font-variant: small-caps;
-  font-weight: 400;
-}
-header #account-nav .menu > li .sub-menu li a:hover {
-  font-weight: 700;
-  background: rgba(212, 205, 229, 0.8);
-}
-header #account-nav .menu > li:hover a.dashboard {
-  border-bottom-left-radius: 0;
-  background: #c6bcdc;
-}
-header #account-nav .menu > li:hover .sub-menu {
-  opacity: 1;
-  visibility: visible;
-}
-header #account-nav .menu > li:hover .sub-menu::before {
-  opacity: 1;
-}
 header #moby-button {
   display: none;
-  float: right;
   padding: 20px;
   cursor: pointer;
+  text-align: center;
 }
 header #moby-button .fa {
   color: #3f507f;
@@ -950,6 +1094,20 @@ header #moby-button .fa {
 }
 header #moby-button:hover .fa {
   color: #0f1f4d;
+}
+header #logo {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 80px;
+}
+header #logo img {
+  width: 100%;
 }
 /****************************************************************************************************
 *																									*
@@ -1485,252 +1643,52 @@ header #moby-button:hover .fa {
 /***********************************									
 *			About Me 				
 ***********************************/
-#about-page .content-nav .options {
-  position: fixed;
-  top: calc(50% + 18px);
+#about-page .left {
+  width: 35%;
+  position: absolute;
+  top: 45%;
+  left: 20px;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
-  left: 0;
-  z-index: 100;
 }
-#about-page .content-nav .options .option {
-  text-align: right;
-  position: relative;
-  width: 150px;
-  left: -100px;
-  display: block;
-  background: #d4cde5;
-  padding: 15px 10px;
-  margin: 3px 0;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-  cursor: pointer;
+#about-page .left .logo {
+  width: 100%;
 }
-#about-page .content-nav .options .option span {
-  color: #ffffff;
-  position: relative;
-  right: 50px;
+#about-page .left .logo img {
+  max-width: 100%;
 }
-#about-page .content-nav .options .option .fa {
-  position: absolute;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
-  color: #ffffff;
-  font-size: 21px;
-  padding-right: 30px;
-}
-#about-page .content-nav .options .option:hover {
-  left: 0;
-  background: #3f507f;
-}
-#about-page .content-nav .options .option.active {
-  background: #3f507f;
-  width: 155px;
-  left: -100px;
-}
-#about-page .content-nav .options .clear-float {
-  display: none;
-}
-/***********************************									
-*			Projects 				
-***********************************/
-/***********************************									
-*			Services 				
-***********************************/
-#services-page {
-  padding: 30px 0 60px 0;
-}
-#services-page .container.content-nav {
-  padding: 30px 20px;
-}
-#services-page .container.content-nav .options {
-  position: relative;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-  border-radius: 6px;
-  border: 2px solid #0f1f4d;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3d5899+0,283d66+100 */
-  background: #3d5899;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #3d5899 0%, #283d66 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3d5899), color-stop(100%, #283d66));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #3d5899 0%, #283d66 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #3d5899 0%, #283d66 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #3d5899 0%, #283d66 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #3d5899 0%, #283d66 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d5899', endColorstr='#283d66', GradientType=0);
-  /* IE6-9 */
-}
-#services-page .container.content-nav .options .option {
-  float: left;
-  position: relative;
-  cursor: pointer;
+#about-page .right {
+  width: 65%;
+  float: right;
+  padding-left: 40px;
   text-align: center;
-  padding: 30px 40px;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-#services-page .container.content-nav .options .option span {
-  color: #d4cde5;
-  position: relative;
-  text-transform: uppercase;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-#services-page .container.content-nav .options .option span::after {
-  opacity: 0;
-  content: "";
-  position: absolute;
-  top: 140%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
-  width: 0;
-  height: 2px;
-  background: #a99bcb;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-#services-page .container.content-nav .options .option:hover span,
-#services-page .container.content-nav .options .option.active span {
-  color: #a99bcb;
-}
-#services-page .container.content-nav .options .option:hover span::after,
-#services-page .container.content-nav .options .option.active span::after {
-  opacity: 1;
-  width: 125%;
 }
 /***********************************									
 *			Contact Page				
 ***********************************/
 #contact-page .left {
   float: left;
-  width: 60%;
-}
-#contact-page .left .map {
-  -webkit-box-shadow: 0 0 10px #747474;
-  -moz-box-shadow: 0 0 10px #747474;
-  -ms-box-shadow: 0 0 10px #747474;
-  -o-box-shadow: 0 0 10px #747474;
-  box-shadow: 0 0 10px #747474;
-}
-#contact-page .left .map iframe {
-  width: 100%;
-  max-width: 100%;
+  width: 50%;
+  padding-right: 40px;
 }
 #contact-page .right {
   float: right;
-  width: 40%;
+  width: 50%;
+  padding-left: 40px;
 }
-#contact-page .right .info {
-  font-size: 16px;
-  color: #0f1f4d;
-  line-height: 1.4em;
-  padding-left: 30px;
-}
-#contact-page .right .info span {
-  display: block;
-}
-#contact-page .right .info .underline {
-  position: relative;
-  padding-bottom: 10px;
-  display: inline-block;
-}
-#contact-page .right .info .underline::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
+#contact-page .bottom {
   width: 100%;
-  height: 2px;
-  background: #0f1f4d;
-}
-#contact-page .right .info .name {
-  font-size: 28px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  line-height: 1em;
-}
-#contact-page .right .info .phone {
-  margin: 10px 0;
-}
-#contact-page .right .info .social {
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-#contact-page .right .info .social .fa {
-  color: #d4cde5;
-  display: inline-block;
-  background: #0f1f4d;
-  -webkit-border-radius: 9999px;
-  -moz-border-radius: 9999px;
-  -ms-border-radius: 9999px;
-  -o-border-radius: 9999px;
-  border-radius: 9999px;
-  margin: 4px;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-#contact-page .right .info .social .fa.fa-facebook {
-  padding: 7px 11px;
-  margin-left: 0;
-}
-#contact-page .right .info .social .fa.fa-twitter {
-  padding: 7px 8px;
-}
-#contact-page .right .info .social .fa.fa-instagram {
-  padding: 7px 9px;
-}
-#contact-page .right .info .social .fa:hover {
-  color: #f1f1f1;
-  background: #3d4766;
-}
-#contact-page .right .info .directions {
-  color: #000000;
-}
-#contact-page .right .info .directions span {
-  padding: 5px 0;
+  max-width: 500px;
+  margin: 20px auto;
+  text-align: center;
 }
 /***********************************									
 *         Login / Register 				
 ***********************************/
-#login-page form,
-#register-page form,
-#add-contact form,
-#update-contact form,
-#update-todo form {
+.forms-page form {
   width: 50%;
   min-width: 450px;
   position: relative;
@@ -1740,7 +1698,7 @@ header #moby-button:hover .fa {
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
   border-radius: 6px;
-  padding: 10px 60px;
+  padding: 10px 60px 30px 60px;
   background: #ffffff;
   -webkit-box-shadow: 0 0 16px #747474;
   -moz-box-shadow: 0 0 16px #747474;
@@ -1748,21 +1706,10 @@ header #moby-button:hover .fa {
   -o-box-shadow: 0 0 16px #747474;
   box-shadow: 0 0 16px #747474;
 }
-#login-page form .checkbox input,
-#register-page form .checkbox input,
-#add-contact form .checkbox input,
-#update-contact form .checkbox input,
-#update-todo form .checkbox input {
+.forms-page form .input-container {
   position: relative;
-  top: 4px;
-  width: 18px;
-  height: 18px;
 }
-#login-page form .input input,
-#register-page form .input input,
-#add-contact form .input input,
-#update-contact form .input input,
-#update-todo form .input input {
+.forms-page form .input-container input {
   padding: 5px 10px;
   margin: 5px 0;
   background: #ffffff;
@@ -1774,11 +1721,7 @@ header #moby-button:hover .fa {
   -o-border-radius: 4px;
   border-radius: 4px;
 }
-#login-page form .input textarea,
-#register-page form .input textarea,
-#add-contact form .input textarea,
-#update-contact form .input textarea,
-#update-todo form .input textarea {
+.forms-page form .input-container textarea {
   padding: 5px 10px;
   margin: 5px 0;
   background: #ffffff;
@@ -1792,34 +1735,72 @@ header #moby-button:hover .fa {
   resize: none;
   height: 200px;
 }
-#login-page form .submit,
-#register-page form .submit,
-#add-contact form .submit,
-#update-contact form .submit,
-#update-todo form .submit {
+.forms-page form .input-container .field-validation-error > span {
+  color: #5a271a;
+  font-size: 12px;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  position: absolute;
+  top: 65%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 120px;
+  padding: 10px;
+  left: calc(100% - 40px);
+  border: 1px solid #5a271a;
+  background: #d4cde5;
+  -webkit-box-shadow: 0 0 5px #000000;
+  -moz-box-shadow: 0 0 5px #000000;
+  -ms-box-shadow: 0 0 5px #000000;
+  -o-box-shadow: 0 0 5px #000000;
+  box-shadow: 0 0 5px #000000;
+  z-index: 10;
+  cursor: pointer;
+}
+.forms-page form .input-container .field-validation-error > span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: -13px;
+  border: 6px solid transparent;
+  border-right-color: #5a271a;
+}
+.forms-page form .input-container .field-validation-error > span:hover::after {
+  content: "x";
+  font-size: 16px;
+  position: absolute;
+  top: 0;
+  right: 5px;
+}
+.forms-page form .checkbox {
+  margin: 10px 0 5px;
+}
+.forms-page form .checkbox input {
+  position: relative;
+  top: 4px;
+  width: 18px;
+  height: 18px;
+}
+.forms-page form .submit {
   text-align: center;
   margin: 15px 0;
 }
-#login-page form .submit a,
-#register-page form .submit a,
-#add-contact form .submit a,
-#update-contact form .submit a,
-#update-todo form .submit a,
-#login-page form .submit button,
-#register-page form .submit button,
-#add-contact form .submit button,
-#update-contact form .submit button,
-#update-todo form .submit button,
-#login-page form .submit span,
-#register-page form .submit span,
-#add-contact form .submit span,
-#update-contact form .submit span,
-#update-todo form .submit span,
-#login-page form .submit input,
-#register-page form .submit input,
-#add-contact form .submit input,
-#update-contact form .submit input,
-#update-todo form .submit input {
+.forms-page form .submit a,
+.forms-page form .submit button,
+.forms-page form .submit span,
+.forms-page form .submit input {
   color: #f1f1f1;
   font-size: 14px;
   background: #3f507f;
@@ -1835,348 +1816,59 @@ header #moby-button:hover .fa {
   -o-transition: all 0.4s;
   transition: all 0.4s;
 }
-#login-page form .submit a:hover,
-#register-page form .submit a:hover,
-#add-contact form .submit a:hover,
-#update-contact form .submit a:hover,
-#update-todo form .submit a:hover,
-#login-page form .submit button:hover,
-#register-page form .submit button:hover,
-#add-contact form .submit button:hover,
-#update-contact form .submit button:hover,
-#update-todo form .submit button:hover,
-#login-page form .submit span:hover,
-#register-page form .submit span:hover,
-#add-contact form .submit span:hover,
-#update-contact form .submit span:hover,
-#update-todo form .submit span:hover,
-#login-page form .submit input:hover,
-#register-page form .submit input:hover,
-#add-contact form .submit input:hover,
-#update-contact form .submit input:hover,
-#update-todo form .submit input:hover {
+.forms-page form .submit a:hover,
+.forms-page form .submit button:hover,
+.forms-page form .submit span:hover,
+.forms-page form .submit input:hover {
   cursor: pointer;
   background: #5065a1;
 }
-#login-page form .submit.color2 a,
-#register-page form .submit.color2 a,
-#add-contact form .submit.color2 a,
-#update-contact form .submit.color2 a,
-#update-todo form .submit.color2 a,
-#login-page form .submit.color2 button,
-#register-page form .submit.color2 button,
-#add-contact form .submit.color2 button,
-#update-contact form .submit.color2 button,
-#update-todo form .submit.color2 button,
-#login-page form .submit.color2 span,
-#register-page form .submit.color2 span,
-#add-contact form .submit.color2 span,
-#update-contact form .submit.color2 span,
-#update-todo form .submit.color2 span {
+.forms-page form .submit.color2 a,
+.forms-page form .submit.color2 button,
+.forms-page form .submit.color2 span {
   color: #f1f1f1;
   background: #0f1f4d;
 }
-#login-page form .submit.color2 a:hover,
-#register-page form .submit.color2 a:hover,
-#add-contact form .submit.color2 a:hover,
-#update-contact form .submit.color2 a:hover,
-#update-todo form .submit.color2 a:hover,
-#login-page form .submit.color2 button:hover,
-#register-page form .submit.color2 button:hover,
-#add-contact form .submit.color2 button:hover,
-#update-contact form .submit.color2 button:hover,
-#update-todo form .submit.color2 button:hover,
-#login-page form .submit.color2 span:hover,
-#register-page form .submit.color2 span:hover,
-#add-contact form .submit.color2 span:hover,
-#update-contact form .submit.color2 span:hover,
-#update-todo form .submit.color2 span:hover {
+.forms-page form .submit.color2 a:hover,
+.forms-page form .submit.color2 button:hover,
+.forms-page form .submit.color2 span:hover {
   background: #173078;
 }
-#login-page form .submit.color3 a,
-#register-page form .submit.color3 a,
-#add-contact form .submit.color3 a,
-#update-contact form .submit.color3 a,
-#update-todo form .submit.color3 a,
-#login-page form .submit.color3 button,
-#register-page form .submit.color3 button,
-#add-contact form .submit.color3 button,
-#update-contact form .submit.color3 button,
-#update-todo form .submit.color3 button,
-#login-page form .submit.color3 span,
-#register-page form .submit.color3 span,
-#add-contact form .submit.color3 span,
-#update-contact form .submit.color3 span,
-#update-todo form .submit.color3 span {
+.forms-page form .submit.color3 a,
+.forms-page form .submit.color3 button,
+.forms-page form .submit.color3 span {
   color: #f1f1f1;
   background: #5271cc;
 }
-#login-page form .submit.color3 a:hover,
-#register-page form .submit.color3 a:hover,
-#add-contact form .submit.color3 a:hover,
-#update-contact form .submit.color3 a:hover,
-#update-todo form .submit.color3 a:hover,
-#login-page form .submit.color3 button:hover,
-#register-page form .submit.color3 button:hover,
-#add-contact form .submit.color3 button:hover,
-#update-contact form .submit.color3 button:hover,
-#update-todo form .submit.color3 button:hover,
-#login-page form .submit.color3 span:hover,
-#register-page form .submit.color3 span:hover,
-#add-contact form .submit.color3 span:hover,
-#update-contact form .submit.color3 span:hover,
-#update-todo form .submit.color3 span:hover {
+.forms-page form .submit.color3 a:hover,
+.forms-page form .submit.color3 button:hover,
+.forms-page form .submit.color3 span:hover {
   background: #3656b5;
 }
-#login-page form .submit.width a,
-#register-page form .submit.width a,
-#add-contact form .submit.width a,
-#update-contact form .submit.width a,
-#update-todo form .submit.width a,
-#login-page form .submit.width button,
-#register-page form .submit.width button,
-#add-contact form .submit.width button,
-#update-contact form .submit.width button,
-#update-todo form .submit.width button,
-#login-page form .submit.width span,
-#register-page form .submit.width span,
-#add-contact form .submit.width span,
-#update-contact form .submit.width span,
-#update-todo form .submit.width span {
+.forms-page form .submit.width a,
+.forms-page form .submit.width button,
+.forms-page form .submit.width span {
   display: block;
   width: 200px;
   padding: 15px;
   margin: 0 auto;
 }
-#login-page form .buttons,
-#register-page form .buttons,
-#add-contact form .buttons,
-#update-contact form .buttons,
-#update-todo form .buttons {
-  text-align: center;
-  margin: 15px 0;
-}
-#login-page form .buttons a,
-#register-page form .buttons a,
-#add-contact form .buttons a,
-#update-contact form .buttons a,
-#update-todo form .buttons a,
-#login-page form .buttons button,
-#register-page form .buttons button,
-#add-contact form .buttons button,
-#update-contact form .buttons button,
-#update-todo form .buttons button,
-#login-page form .buttons span,
-#register-page form .buttons span,
-#add-contact form .buttons span,
-#update-contact form .buttons span,
-#update-todo form .buttons span,
-#login-page form .buttons input,
-#register-page form .buttons input,
-#add-contact form .buttons input,
-#update-contact form .buttons input,
-#update-todo form .buttons input {
-  color: #f1f1f1;
-  font-size: 14px;
-  background: #3f507f;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  padding: 15px 40px;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  transition: all 0.4s;
-}
-#login-page form .buttons a:hover,
-#register-page form .buttons a:hover,
-#add-contact form .buttons a:hover,
-#update-contact form .buttons a:hover,
-#update-todo form .buttons a:hover,
-#login-page form .buttons button:hover,
-#register-page form .buttons button:hover,
-#add-contact form .buttons button:hover,
-#update-contact form .buttons button:hover,
-#update-todo form .buttons button:hover,
-#login-page form .buttons span:hover,
-#register-page form .buttons span:hover,
-#add-contact form .buttons span:hover,
-#update-contact form .buttons span:hover,
-#update-todo form .buttons span:hover,
-#login-page form .buttons input:hover,
-#register-page form .buttons input:hover,
-#add-contact form .buttons input:hover,
-#update-contact form .buttons input:hover,
-#update-todo form .buttons input:hover {
-  cursor: pointer;
-  background: #5065a1;
-}
-#login-page form .buttons.color2 a,
-#register-page form .buttons.color2 a,
-#add-contact form .buttons.color2 a,
-#update-contact form .buttons.color2 a,
-#update-todo form .buttons.color2 a,
-#login-page form .buttons.color2 button,
-#register-page form .buttons.color2 button,
-#add-contact form .buttons.color2 button,
-#update-contact form .buttons.color2 button,
-#update-todo form .buttons.color2 button,
-#login-page form .buttons.color2 span,
-#register-page form .buttons.color2 span,
-#add-contact form .buttons.color2 span,
-#update-contact form .buttons.color2 span,
-#update-todo form .buttons.color2 span {
-  color: #f1f1f1;
-  background: #0f1f4d;
-}
-#login-page form .buttons.color2 a:hover,
-#register-page form .buttons.color2 a:hover,
-#add-contact form .buttons.color2 a:hover,
-#update-contact form .buttons.color2 a:hover,
-#update-todo form .buttons.color2 a:hover,
-#login-page form .buttons.color2 button:hover,
-#register-page form .buttons.color2 button:hover,
-#add-contact form .buttons.color2 button:hover,
-#update-contact form .buttons.color2 button:hover,
-#update-todo form .buttons.color2 button:hover,
-#login-page form .buttons.color2 span:hover,
-#register-page form .buttons.color2 span:hover,
-#add-contact form .buttons.color2 span:hover,
-#update-contact form .buttons.color2 span:hover,
-#update-todo form .buttons.color2 span:hover {
-  background: #173078;
-}
-#login-page form .buttons.color3 a,
-#register-page form .buttons.color3 a,
-#add-contact form .buttons.color3 a,
-#update-contact form .buttons.color3 a,
-#update-todo form .buttons.color3 a,
-#login-page form .buttons.color3 button,
-#register-page form .buttons.color3 button,
-#add-contact form .buttons.color3 button,
-#update-contact form .buttons.color3 button,
-#update-todo form .buttons.color3 button,
-#login-page form .buttons.color3 span,
-#register-page form .buttons.color3 span,
-#add-contact form .buttons.color3 span,
-#update-contact form .buttons.color3 span,
-#update-todo form .buttons.color3 span {
-  color: #f1f1f1;
-  background: #5271cc;
-}
-#login-page form .buttons.color3 a:hover,
-#register-page form .buttons.color3 a:hover,
-#add-contact form .buttons.color3 a:hover,
-#update-contact form .buttons.color3 a:hover,
-#update-todo form .buttons.color3 a:hover,
-#login-page form .buttons.color3 button:hover,
-#register-page form .buttons.color3 button:hover,
-#add-contact form .buttons.color3 button:hover,
-#update-contact form .buttons.color3 button:hover,
-#update-todo form .buttons.color3 button:hover,
-#login-page form .buttons.color3 span:hover,
-#register-page form .buttons.color3 span:hover,
-#add-contact form .buttons.color3 span:hover,
-#update-contact form .buttons.color3 span:hover,
-#update-todo form .buttons.color3 span:hover {
-  background: #3656b5;
-}
-#login-page form .buttons.width a,
-#register-page form .buttons.width a,
-#add-contact form .buttons.width a,
-#update-contact form .buttons.width a,
-#update-todo form .buttons.width a,
-#login-page form .buttons.width button,
-#register-page form .buttons.width button,
-#add-contact form .buttons.width button,
-#update-contact form .buttons.width button,
-#update-todo form .buttons.width button,
-#login-page form .buttons.width span,
-#register-page form .buttons.width span,
-#add-contact form .buttons.width span,
-#update-contact form .buttons.width span,
-#update-todo form .buttons.width span {
-  display: block;
-  width: 200px;
-  padding: 15px;
-  margin: 0 auto;
-}
-#login-page form .buttons a,
-#register-page form .buttons a,
-#add-contact form .buttons a,
-#update-contact form .buttons a,
-#update-todo form .buttons a,
-#login-page form .buttons button,
-#register-page form .buttons button,
-#add-contact form .buttons button,
-#update-contact form .buttons button,
-#update-todo form .buttons button,
-#login-page form .buttons span,
-#register-page form .buttons span,
-#add-contact form .buttons span,
-#update-contact form .buttons span,
-#update-todo form .buttons span {
-  display: block;
-  width: 200px;
-  padding: 15px;
-  margin: 0 auto;
-}
-#login-page form .buttons .update,
-#register-page form .buttons .update,
-#add-contact form .buttons .update,
-#update-contact form .buttons .update,
-#update-todo form .buttons .update,
-#login-page form .buttons .delete,
-#register-page form .buttons .delete,
-#add-contact form .buttons .delete,
-#update-contact form .buttons .delete,
-#update-todo form .buttons .delete {
-  width: 100px;
-  display: inline-block;
-  margin: 5px;
-}
-#login-page form .buttons .delete:hover,
-#register-page form .buttons .delete:hover,
-#add-contact form .buttons .delete:hover,
-#update-contact form .buttons .delete:hover,
-#update-todo form .buttons .delete:hover {
-  background: #5a271a;
-}
-#login-page form h2,
-#register-page form h2,
-#add-contact form h2,
-#update-contact form h2,
-#update-todo form h2 {
+.forms-page form h2 {
   text-align: center;
   font-size: 32px;
   font-variant: small-caps;
-  padding: 10px 0 20px 0;
+  padding: 10px 10px 20px;
 }
-#login-page form .exit,
-#register-page form .exit,
-#add-contact form .exit,
-#update-contact form .exit,
-#update-todo form .exit {
+.forms-page form .cancel {
   position: absolute;
   top: 0;
   right: 0;
 }
-#login-page form .exit a,
-#register-page form .exit a,
-#add-contact form .exit a,
-#update-contact form .exit a,
-#update-todo form .exit a {
+.forms-page form .cancel a {
   display: block;
   padding: 20px;
 }
-#login-page form .exit a .fa,
-#register-page form .exit a .fa,
-#add-contact form .exit a .fa,
-#update-contact form .exit a .fa,
-#update-todo form .exit a .fa {
+.forms-page form .cancel a .fa {
   color: #0f1f4d;
   font-size: 26px;
   -webkit-transition: all 0.3s;
@@ -2185,327 +1877,23 @@ header #moby-button:hover .fa {
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-#login-page form .exit a:hover .fa,
-#register-page form .exit a:hover .fa,
-#add-contact form .exit a:hover .fa,
-#update-contact form .exit a:hover .fa,
-#update-todo form .exit a:hover .fa {
+.forms-page form .cancel a:hover .fa {
   color: #5a271a;
   font-size: 32px;
 }
-#login-page .message,
-#register-page .message,
-#add-contact .message,
-#update-contact .message,
-#update-todo .message {
+.forms-page form .register,
+.forms-page form .login,
+.forms-page form .checkbox {
+  text-align: center;
+}
+.forms-page .error {
   position: relative;
   display: block;
+  color: #5a271a;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 700;
   padding: 5px;
-  text-align: center;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-}
-#login-page .message span,
-#register-page .message span,
-#add-contact .message span,
-#update-contact .message span,
-#update-todo .message span {
-  position: relative;
-  color: #5a271a;
-  font-size: 14px;
-  font-weight: 700;
-}
-#login-page .message::before,
-#register-page .message::before,
-#add-contact .message::before,
-#update-contact .message::before,
-#update-todo .message::before {
-  content: "";
-  position: absolute;
-  left: -14px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  border: 7px solid transparent;
-  border-left-color: #5a271a;
-}
-#login-page .message::after,
-#register-page .message::after,
-#add-contact .message::after,
-#update-contact .message::after,
-#update-todo .message::after {
-  content: "";
-  position: absolute;
-  right: -14px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  border: 7px solid transparent;
-  border-right-color: #5a271a;
-}
-/****************************************************************************************************
-*																									*
-*											BACKEND PAGES 										
-*																									*
-****************************************************************************************************/
-/***********************************									
-*			Backend Header				
-***********************************/
-/***********************************									
-*			Backend Pages				
-***********************************/
-/***********************************									
-*		Contacts Dashboard				
-***********************************/
-#contacts-dashboard .add-contact {
-  font-size: 26px;
-  position: absolute;
-  top: 0;
-  right: 20px;
-  padding: 6px 24px;
-  color: #d4cde5;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-#contacts-dashboard .add-contact:hover {
-  background: #0f1f4d;
-  color: #ffffff;
-}
-#contacts-dashboard .contact-table table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  border: 2px solid #0f1f4d;
-}
-#contacts-dashboard .contact-table table thead {
-  background: #3f507f;
-}
-#contacts-dashboard .contact-table table thead th {
-  color: #d4cde5;
-  font-size: 18px;
-  font-weight: 700;
-  border: 1px solid #0f1f4d;
-  text-align: center;
-  padding: 10px;
-}
-#contacts-dashboard .contact-table table tbody td {
-  color: #0f1f4d;
-  border: 1px solid #0f1f4d;
-  text-align: center;
-  padding: 10px;
-}
-#contacts-dashboard .contact-table table tbody tr {
-  border: 1px solid #0f1f4d;
-}
-#contacts-dashboard .contact-table table tbody tr:nth-child(even) {
-  background: #d4cde5;
-}
-#contacts-dashboard .contact-table table .update,
-#contacts-dashboard .contact-table table .delete {
-  width: 10px;
-  border: 0;
-}
-#contacts-dashboard .contact-table table .update {
-  padding: 0;
-}
-#contacts-dashboard .contact-table table .update .fa {
-  position: relative;
-  top: 3px;
-  padding: 10px;
-  color: #629916;
-}
-#contacts-dashboard .contact-table table .update:hover {
-  background: rgba(98, 153, 22, 0.15);
-}
-#contacts-dashboard .contact-table table .update:hover .fa {
-  font-weight: 700;
-}
-#contacts-dashboard .contact-table table .delete {
-  padding: 0;
-}
-#contacts-dashboard .contact-table table .delete .fa {
-  position: relative;
-  top: 3px;
-  padding: 10px;
-  color: #5a271a;
-}
-#contacts-dashboard .contact-table table .delete:hover {
-  background: rgba(90, 39, 26, 0.15);
-}
-#contacts-dashboard .contact-table table .delete:hover .fa {
-  font-weight: 700;
-}
-/***********************************									
-*		   Todo List				
-***********************************/
-#todo-list .todo-header {
-  background: #0f1f4d;
-  padding: 20px 20px 10px 20px;
-  color: #d4cde5;
-}
-#todo-list .todo-header .todo-remaining {
-  padding-top: 10px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 700;
-}
-#todo-list .todo-header .todo-search input {
-  padding: 5px 10px;
-  font-size: 14px;
-  width: 100%;
-}
-#todo-list .todo-header .todo-search input::-webkit-input-placeholder {
-  color: #747474;
-  opacity: 1;
-}
-#todo-list .todo-header .todo-search input:-moz-placeholder {
-  color: #747474;
-  opacity: 1;
-}
-#todo-list .todo-header .todo-search input::-moz-placeholder {
-  color: #747474;
-  opacity: 1;
-}
-#todo-list .todo-header .todo-search input:-ms-input-placeholder {
-  color: #747474;
-  opacity: 1;
-}
-#todo-list .todos {
-  border: 2px solid #0f1f4d;
-  padding: 10px 0;
-}
-#todo-list .todos .todo {
-  position: relative;
-  display: block;
-  margin: 2px 0;
-}
-#todo-list .todos .todo .todo-complete {
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  z-index: 100;
-  cursor: pointer;
-}
-#todo-list .todos .todo .todo-name {
-  position: relative;
-  display: block;
-}
-#todo-list .todos .todo .todo-name span {
-  display: block;
-  color: #0f1f4d;
-  padding: 10px;
-  margin: 0 40px;
-}
-#todo-list .todos .todo .todo-name span.completed {
-  text-decoration: line-through;
-}
-#todo-list .todos .todo .todo-name span:hover {
-  background: #d4cde5;
-  cursor: pointer;
-}
-#todo-list .todos .todo .todo-name textarea {
-  margin: 0 30px 0 40px;
-  width: calc(100% - 80px);
-  padding: 10px;
-  font-size: 16px;
-  padding-right: 55px;
-  resize: none;
-  height: 38px;
-}
-#todo-list .todos .todo .todo-name .icons {
-  position: absolute;
-  right: 60px;
-  top: calc(50% - 3px);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-#todo-list .todos .todo .todo-name .icons .fa {
-  padding: 0 2px;
-}
-#todo-list .todos .todo .todo-name .icons .fa:hover {
-  font-weight: 700;
-  cursor: pointer;
-}
-#todo-list .todos .todo .todo-edit {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 15px;
-  z-index: 100;
-}
-#todo-list .todos .todo .todo-edit .fa {
-  position: relative;
-  display: inline-block;
-  font-size: 18px;
-}
-#todo-list .todos .todo .todo-edit .fa:hover {
-  font-weight: 700;
-  cursor: pointer;
-}
-#todo-list .todos .todo .todo-edit a {
-  color: #000000;
-}
-#todo-list .todos .todo-add {
-  position: relative;
-}
-#todo-list .todos .todo-add .fa {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 18px;
-  cursor: pointer;
-}
-#todo-list .todos .todo-add .fa:hover {
-  font-weight: 700;
-}
-#todo-list .todos .todo-add input {
-  margin: 0 40px;
-  width: calc(100% - 80px);
-  padding: 10px;
-  font-size: 16px;
-  background: #d4cde5;
-}
-#todo-list .todos .todo-add input::-webkit-input-placeholder {
-  color: #0f1f4d;
-  opacity: 1;
-}
-#todo-list .todos .todo-add input:-moz-placeholder {
-  color: #0f1f4d;
-  opacity: 1;
-}
-#todo-list .todos .todo-add input::-moz-placeholder {
-  color: #0f1f4d;
-  opacity: 1;
-}
-#todo-list .todos .todo-add input:-ms-input-placeholder {
-  color: #0f1f4d;
-  opacity: 1;
 }
 /****************************************************************************************************
 *																									*
@@ -2573,85 +1961,12 @@ footer .copyright p {
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : Comp2007-Project2.azurewebsites.net
+* Website Name : EzGames2.azurewebsites.net
 */
 /**
 * The follwing stylesheet is imported into style.less. This is used specifically for responsive
 * design throughout the entirety of the application (excluding Menu-specific).
 */
-@media screen and (max-width: 1160px) {
-  /****************************************************************************************************
-	*																									*
-	*											INTERIOR PAGES 										
-	*																									*
-	****************************************************************************************************/
-  /***********************************									
-	* 		  Projects Gallery				
-	***********************************/
-  .interior-page .gallery .projects .project .text {
-    opacity: 1;
-    visibility: visible;
-  }
-  .interior-page .gallery .projects .project .text p {
-    top: 0;
-  }
-  .interior-page .gallery .projects .project .text .button {
-    top: 10px;
-  }
-  /***********************************									
-	*			About Me 				
-	***********************************/
-  #about-page .content-nav {
-    max-width: 960px;
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-    padding: 0 20px;
-  }
-  #about-page .content-nav .options {
-    position: relative;
-    top: 0;
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0);
-    left: 0;
-  }
-  #about-page .content-nav .options .option {
-    float: left;
-    position: relative;
-    text-align: left;
-    width: 50px;
-    left: 0;
-    padding: 15px 0px;
-    margin: 0 3px;
-  }
-  #about-page .content-nav .options .option span {
-    position: absolute;
-    opacity: 0;
-    left: 50px;
-    width: 100%;
-  }
-  #about-page .content-nav .options .option .fa {
-    position: relative;
-    left: 40px;
-  }
-  #about-page .content-nav .options .option:hover {
-    left: 0;
-    width: 200px;
-  }
-  #about-page .content-nav .options .option:hover span {
-    opacity: 1;
-  }
-  #about-page .content-nav .options .option.active {
-    width: 50px;
-    left: 0;
-  }
-  #about-page .content-nav .options .clear-float {
-    display: block;
-  }
-}
 @media screen and (max-width: 980px) {
   /****************************************************************************************************
 	*																									*
@@ -2664,81 +1979,14 @@ footer .copyright p {
   header #header-nav .menu > li#home {
     display: block;
   }
-  header #account-nav {
-    left: 40px;
-    right: auto;
+  header #account-nav .menu {
+    width: 70px;
+  }
+  header #logo {
+    width: 70px;
   }
   header #moby-button {
     display: block;
-  }
-  /****************************************************************************************************
-	*																									*
-	*											INTERIOR PAGES 										
-	*																									*
-	****************************************************************************************************/
-  /***********************************									
-	*			Services 				
-	***********************************/
-  #services-page .container.content-nav {
-    padding: 0;
-  }
-  #services-page .container.content-nav .options {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    -o-border-radius: 0;
-    border-radius: 0;
-  }
-  #services-page .container.content-nav .options .option {
-    float: left;
-    position: relative;
-    cursor: pointer;
-    text-align: center;
-    padding: 30px 40px;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-  }
-  #services-page .container.content-nav .options .option span {
-    color: #d4cde5;
-    position: relative;
-    text-transform: uppercase;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-  }
-  #services-page .container.content-nav .options .option span::after {
-    opacity: 0;
-    content: "";
-    position: absolute;
-    top: 140%;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: #a99bcb;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-  }
-  #services-page .container.content-nav .options .option:hover span,
-  #services-page .container.content-nav .options .option.active span {
-    color: #a99bcb;
-  }
-  #services-page .container.content-nav .options .option:hover span::after,
-  #services-page .container.content-nav .options .option.active span::after {
-    opacity: 1;
-    width: 125%;
   }
 }
 @media screen and (max-width: 850px) {
@@ -2751,21 +1999,23 @@ footer .copyright p {
   #contact-page .left {
     float: none;
     width: 100%;
+    padding-right: 0;
+    text-align: center;
+    max-width: 500px;
+    margin: 10px auto;
   }
   #contact-page .right {
     float: none;
     width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-  }
-  #contact-page .right .info {
-    padding: 0 20px;
+    padding-left: 0;
     text-align: center;
+    max-width: 500px;
+    margin: 10px auto;
   }
 }
 @media screen and (max-width: 650px) {
   body {
-    height: Calc(100% - 174px);
+    height: Calc(100% - 110px);
   }
   /****************************************************************************************************
 	*																									*
@@ -2847,43 +2097,9 @@ footer .copyright p {
     text-align: center;
   }
   /***********************************									
-	*			About Me 				
-	***********************************/
-  #about-page .content-nav .options {
-    display: inline-block;
-    position: relative;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    transform: translateX(-50%);
-  }
-  /***********************************									
-	*			Services 				
-	***********************************/
-  #services-page {
-    padding-top: 0;
-  }
-  #services-page .container.content-nav {
-    padding-top: 0;
-  }
-  #services-page .container.content-nav .options {
-    padding: 10px 0;
-  }
-  #services-page .container.content-nav .options .option {
-    float: none;
-    width: 100%;
-    padding: 10px 0;
-  }
-  /***********************************									
 	*			Login / Register 				
 	***********************************/
-  #login-page form,
-  #register-page form,
-  #add-contact form,
-  #update-contact form,
-  #update-todo form {
+  .forms-page form {
     width: 90%;
     min-width: 90%;
   }
@@ -2950,53 +2166,13 @@ footer .copyright p {
 @media screen and (max-width: 450px) {
   /****************************************************************************************************
 	*																									*
-	*												HEADER MAIN									
-	*																									*
-	****************************************************************************************************/
-  header #account-nav {
-    left: 20px;
-  }
-  header #moby-button {
-    padding-right: 0;
-  }
-  /****************************************************************************************************
-	*																									*
 	*											INTERIOR PAGES 										
 	*																									*
 	****************************************************************************************************/
   /***********************************									
-	*			About Me 				
-	***********************************/
-  #about-page .content-nav {
-    max-width: 960px;
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-    padding: 0 20px;
-  }
-  #about-page .content-nav .options .option span {
-    position: absolute;
-    opacity: 0;
-    left: 50px;
-    width: 100%;
-  }
-  #about-page .content-nav .options .option:hover {
-    width: 50px;
-  }
-  #about-page .content-nav .options .option:hover span {
-    opacity: 0;
-  }
-  #about-page .content-nav .options .clear-float {
-    display: block;
-  }
-  /***********************************									
 	*			Login / Register 				
 	***********************************/
-  #login-page form,
-  #register-page form,
-  #add-contact form,
-  #update-contact form,
-  #update-todo form {
+  .forms-page form {
     padding: 10px 30px;
   }
 }

@@ -2,12 +2,13 @@
 /**
 * Authors : Emma Hilborn (200282755),
             Alex Friesen (200302342),
-            Dan Masci (200299037)
+            Dan Masci (200299037),
+            Karen Springford (200299681)
 * Class : Enterprise Computing
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : Comp2007-Project2.azurewebsites.net
+* Website Name : EzGames2.azurewebsites.net
 *
 * Layout file for views. Includes Navigation and Interior Header
 * for all pages that don't have "Index" as their ViewBag.Title.
@@ -19,7 +20,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewBag.Title | MasciApps</title>
+    <title>@ViewBag.Title | EZGames</title>
     <!-- CSS / Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
     @Styles.Render("~/Content/css")
@@ -32,15 +33,36 @@
             <!-- Mobile Menu -->
             <span id="moby-button"><i class="fa fa-bars"></i></span>
             <div class="clear-float"></div><!-- clear-float -->
+            <!-- Logo -->
+            <div id="logo">
+                <a href="/"><img src="~/Assets/images/ezGamesLogo.png" alt="EzGames Logo" title="EzGames" /></a>
+            </div>
             <!-- Main Menu -->
             <nav id="header-nav">
                 <ul class="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li id="home">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Store", "Index", "Store")</li>
+                    <li>@Html.ActionLink("Cart", "Index", "ShoppingCart")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Menu", "Index", "Menu")</li>
                     <div class="clear-float"></div><!--clear-float-->
                 </ul>
             </nav><!--.header-nav-->
+            <!-- Account Menu -->
+            <nav id="account-nav">
+                <ul class="menu">
+                @if (!Request.IsAuthenticated)
+                {
+                    <li class="public"><a class="login" href="/Account/Login">Login</a></li>
+                    <li class="public"><a class="register" href="/Account/Register">Register</a></li>
+                }
+                else
+                {
+                    <li class="private"><a class="profile" href="/Manage/ChangePassword"><i class="fa fa-user"></i></a></li>
+                    <li class="private"><a class="logout" href="/Account/Logout"><i class="fa fa-sign-out"></i></a></li>
+                }                    
+                </ul>
+            </nav><!-- account-nav -->
 
             <div class="clear-float"></div><!--clear-float-->
         </div>
@@ -62,14 +84,10 @@
     <!-- Footer -->
     <div class="clear-float"></div>
     <footer class="section">
-        <div class="container">
-
-        </div><!-- container -->
-
         <div class="copyright">
             <div class="container">
-                <p class="" id="copyright">MasciApps 2016</p>
-                <p class="" id="author">Website by Dan Masci</p>
+                <p class="" id="copyright">EZGames 2016</p>
+                <p class="" id="author">Website by EZGames</p>
             </div><!-- container -->
         </div><!--div.copyright-->
     </footer>
@@ -77,6 +95,7 @@
     <!-- JS -->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/js")
+    @Scripts.Render("~/bundles/shoppingCart")
     @RenderSection("scripts", required: false)
 </body>
 </html>

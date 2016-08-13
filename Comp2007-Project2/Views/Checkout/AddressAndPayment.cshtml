@@ -1,0 +1,77 @@
+﻿@model Comp2007_Project2.Models.Order
+
+@{ 
+    ViewBag.Title = "Checkout";
+}
+
+<div class="interior-page forms-page" id="checkout-page">
+    <div class="container">
+        @using (Html.BeginForm())
+        {
+            <h2>Checkout</h2>
+
+            <div class="cancel">
+                <a href="/ShoppingCart"><i class="fa fa-times"></i></a>
+            </div>
+            <div class="input-container">
+                @Html.LabelFor(m => m.FirstName, new { @class = "" })
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "" })
+                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "message" })
+            </div>
+            <div class="input-container">
+                @Html.LabelFor(m => m.LastName, new { @class = "" })
+                @Html.TextBoxFor(m => m.LastName, new { @class = "" })
+                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "message" })
+            </div>
+            <div class="input-container">
+                @Html.LabelFor(m => m.Address, new { @class = "" })
+                @Html.TextBoxFor(m => m.Address, new { @class = "" })
+                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "message" })
+            </div>
+            <div class="input-container">
+                @Html.LabelFor(m => m.City, new { @class = "" })
+                @Html.TextBoxFor(m => m.City, new { @class = "" })
+                @Html.ValidationMessageFor(m => m.City, "", new { @class = "message" })
+            </div>
+            <div class="input-container">
+                @Html.LabelFor(m => m.Province, new { @class = "" })
+                @Html.TextBoxFor(m => m.Province, new { @class = "" })
+                @Html.ValidationMessageFor(m => m.Province, "", new { @class = "message" })
+            </div>
+            <div class="input-container">
+                @Html.LabelFor(m => m.PostalCode, new { @class = "" })
+                @Html.TextBoxFor(m => m.PostalCode, new { @class = "" })
+                @Html.ValidationMessageFor(m => m.PostalCode, "", new { @class = "message" })
+            </div>
+            <div class="input-container">
+                @Html.LabelFor(m => m.Country, new { @class = "" })
+                @Html.TextBoxFor(m => m.Country, new { @class = "" })
+                @Html.ValidationMessageFor(m => m.Country, "", new { @class = "message" })
+            </div>
+            <div class="input-container">
+                @Html.LabelFor(m => m.Phone, new { @class = "" })
+                @Html.TextBoxFor(m => m.Phone, new { @class = "" })
+                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "message" })
+            </div>
+            <div class="input-container">
+                @Html.LabelFor(m => m.Email, new { @class = "" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "message" })
+            </div>
+            <p>
+                We're running a promotion: all Games are free
+                with the promo code: "FREE"
+                *shhh don't tell your gamer friends or else we run out of business*
+            </p>
+            <div class="input-container">
+                @Html.Label("Promo Code")
+                @Html.TextBox("PromoCode")
+            </div>
+            <div class="submit button">
+                <input type="submit" value="Submit Order" />
+            </div>            
+        }
+    </div>
+</div>
+
+

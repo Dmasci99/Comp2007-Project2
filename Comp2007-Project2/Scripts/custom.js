@@ -1,12 +1,13 @@
 ﻿/**
 * Authors : Emma Hilborn (200282755),
             Alex Friesen (200302342),
-            Dan Masci (200299037)
+            Dan Masci (200299037),
+            Karen Springford(200299681)
 * Class : Enterprise Computing
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : Comp2007-Project2.azurewebsites.net
+* Website Name : EzGames2.azurewebsites.net
 */
 
 /**
@@ -16,6 +17,14 @@
 */
 
 jQuery(document).ready(function ($) {
+
+    /*************************************************
+	*					MOBILE MENU
+	*************************************************/
+    $('nav#header-nav').moby({
+        mobyTrigger: $('#moby-button'), // Button that will trigger the Moby menu to open
+    });
+
     /*************************************************
 	*					ROTATOR
 	*************************************************/
@@ -125,5 +134,16 @@ jQuery(document).ready(function ($) {
             }
         }, 7000);
     }//ROTATOR
+    
+    /*************************************************
+	*             FORM VALIDATOR MESSAGES
+	*************************************************/
+    //Allow user to close a Validator Error Message by clicking on it - Forms(Register/Login)
+    $('.input-container .message').click(function () {
+        $(this).css('visibility', 'hidden');
+    });
+    $('.submit.button input').click(function () {
+        $('.input-container .message').css('visibility', 'visible');
+    });
 
 });

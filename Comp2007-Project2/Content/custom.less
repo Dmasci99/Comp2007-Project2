@@ -1,12 +1,13 @@
 /**
 * Authors : Emma Hilborn (200282755),
             Alex Friesen (200302342),
-            Dan Masci (200299037)
+            Dan Masci (200299037),
+            Karen Springford(200299681)
 * Class : Enterprise Computing
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : Comp2007-Project2.azurewebsites.net 
+* Website Name : EzGames2.azurewebsites.net 
 */
 
 /**
@@ -16,7 +17,7 @@
 * Summer Co-op; customized to this site. 
 *
 * moby.less/moby.js are files from Dan's coworker. It is not our creation. You can see/download 
-* it on Github here: https://github.com/joshsanger/moby.js. It controls the Mobile Menu (when 
+* it on Github here: https://github.com/joshsanger/moby.js. It controls the mobile Store page (when 
 * you get below 640px width). Customization still required.
 */
 
@@ -49,7 +50,7 @@
 
 
 @import 'partials/moby.less'; //See top comment (NOT MINE)
-@import 'partials/menu.less'; //Assignment 2 specific
+@import 'partials/games.less'; //Assignment 2 specific
 
 /****************************************************************************************************
 *																									*
@@ -447,7 +448,6 @@ body {
 *			   Header 				
 ***********************************/
 header {
-	// .gradient-blue;
 	position: absolute;
 	background: fade(@silver, 85%);
 	border-top: 5px solid @darkBlue;
@@ -588,7 +588,7 @@ header {
 		right: 20px;
 		.translateY;
 		.menu {
-			width: 100px;
+			width: 80px;
 			background: transparent;
 			text-align: center;
 			&.loggedin {
@@ -634,7 +634,7 @@ header {
 						border-bottom-left-radius: 0;
 						border-left: 0;
 					}
-					&.dashboard {
+					&.profile {
 						width: 50%;
 						float: left;
 						color: @darkerBlue;
@@ -651,67 +651,14 @@ header {
 						}
 					}					
 				}//.menu li a
-				.sub-menu {
-					opacity: 0;
-					visibility: hidden;
-					position: absolute;
-					top: calc(~"100% - 1px");
-					left: 0;
-					padding: 10px 0;
-					width: 51%;
-					background: fade(@silver, 80%);
-					border: 2px solid @darkBlue;
-					border-top: none;
-					border-bottom-left-radius: 4px;
-					border-bottom-right-radius: 4px;
-					&::before {
-						opacity: 0;
-						content: "";
-						position: absolute;
-						top: 0px;
-						left: 50%;
-						.translateX;
-						width: 0;
-						border-top: 5px solid @darkBlue;
-						border-left: 5px solid transparent;
-						border-right: 5px solid transparent;
-					}
-					li {
-						a {
-							color: @black;
-							display: block;
-							padding: 10px;
-							font-size: 13px;
-							font-variant: small-caps;
-							.normal;
-							&:hover {
-								.bold;
-								background: fade(@silver, 80%);
-							}
-						}
-					}
-				}//.sub-menu
-				&:hover {
-					a.dashboard {
-						border-bottom-left-radius: 0;	
-						background: darken(@silver, 5%);
-					}
-					.sub-menu {
-						opacity: 1;
-						visibility: visible;
-						&::before {
-							opacity: 1;
-						}
-					}
-				}
 			}//.menu li
 		}//.menu
 	}//#account-nav
 	#moby-button {	
 		display: none;
-		float: right;
 		padding: 20px;
 		cursor: pointer;
+        text-align: center;
 		.fa {
 			color: @darkBlue;
 			font-size: 42px;
@@ -723,6 +670,16 @@ header {
 			}
 		}
 	}//#moby-button	
+	#logo {
+		position: absolute;
+		top: 50%;
+		left: 15px;
+		.translateY;
+		width: 80px;
+		img {
+			width: 100%;
+		}
+	}//#logo
 }//header
 
 /****************************************************************************************************
@@ -1009,112 +966,26 @@ header {
 *			About Me 				
 ***********************************/
 #about-page {
-	.content-nav {
-		.options {
-			position: fixed;
-			top: calc(~"50% + 18px");
-			.translateY;
-			left: 0;
-			z-index: 100;
-			.option {
-				text-align: right;	
-				position: relative;
-				width: 150px;
-				left: -100px;
-				display: block;
-				background: @silver;
-				padding: 15px 10px;
-				margin: 3px 0;
-				.trans(all,0.3s);
-				cursor: pointer;
-				span {
-					color: @white;
-					position: relative;
-					right: 50px;
-				}
-				.fa {
-					position: absolute;	
-					.translateX;
-					color: @white;
-					font-size: 21px;
-					padding-right: 30px;
-				}
-				&:hover {
-					left: 0;
-					background: @darkBlue;
-				}
-				&.active {
-					background: @darkBlue;				
-					width: 155px;
-					left: -100px;
-				}
-			}//.option
-			.clear-float {
-				display: none;
-			}
-		}//.options
-	}//.content-nav
+    .left {
+        width: 35%;
+        position: absolute;
+        top: 45%;
+        left: 20px;
+        .translateY;
+        .logo {
+            width: 100%;
+            img {
+                max-width: 100%;
+            }
+        }
+    }//.left
+    .right {
+        width: 65%;
+        float: right;
+        padding-left: 40px;
+        text-align: center;
+    }//.right
 }//#about-page
-
-/***********************************									
-*			Projects 				
-***********************************/
-#projects-page {
-
-
-}//#projects-page
-
-/***********************************									
-*			Services 				
-***********************************/
-#services-page {
-	padding: 30px 0 60px 0;
-	.container.content-nav {		
-		padding: 30px 20px;
-		.options {
-			position: relative;
-			.round(6px);
-			border: 2px solid @darkerBlue;
-			.gradient-blue;
-			.option {		
-				float: left;
-				position: relative;	
-				cursor: pointer;
-				text-align: center;
-				padding: 30px 40px;
-				.trans(all,0.3s);
-				span {
-					color: @silver;
-					position: relative;
-					text-transform: uppercase;
-					.trans(all,0.3s);
-					&::after {
-						opacity: 0;
-						content: "";
-						position: absolute;
-						top: 140%;
-						left: 50%;
-						.translateX;
-						width: 0;
-						height: 2px;
-						background: darken(@silver, 15%);
-						.trans(all,0.3s);
-					}
-				}//span
-				&:hover,
-				&.active {
-					span {
-						color: darken(@silver, 15%);
-						&::after {
-							opacity: 1;
-							width: 125%;
-						}
-					}
-				}//span:hover
-			}//.option
-		}//.options
-	}//.container
-}//#services-page
 
 /***********************************									
 *			Contact Page				
@@ -1122,111 +993,37 @@ header {
 #contact-page {
 	.left {
         float: left;
-        width: 60%;
-        .map {
-            .box-shadow(0, 0, 10px, @grey);
-            iframe {
-                width: 100%;
-                max-width: 100%;
-            }
-        }
-	}
+        width: 50%;
+        padding-right: 40px;
+	}//.left
     .right {
         float: right;
-        width: 40%;
-        .info {
-            font-size: 16px;
-            color: @darkerBlue;
-            line-height: 1.4em;
-            padding-left: 30px;
-            span {
-                display: block;
-            }
-            .underline {         
-                position: relative;       
-                padding-bottom: 10px;
-                display: inline-block;
-                &::after {
-                    content: "";
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 2px;
-                    background: @darkerBlue;
-                }
-            }
-            .name {
-                font-size: 28px;
-                text-transform: uppercase;
-                margin-bottom: 20px;
-                line-height: 1em;
-            }
-            .phone {
-                margin: 10px 0;
-            }
-            .social {
-                margin-bottom: 10px;
-                font-weight: bold;
-                .fa {
-                    color: @silver;
-                    display: inline-block;
-                    background: @darkerBlue;
-                    .round;
-                    margin: 4px;
-                    .trans(all,0.3s);
-                    &.fa-facebook {
-                        padding: 7px 11px;
-                        margin-left: 0;
-                    }
-                    &.fa-twitter {
-                        padding: 7px 8px;
-                    }
-                    &.fa-instagram {
-                        padding: 7px 9px;
-                    }
-                    &:hover {
-                        color: @offWhite;
-                        background: @blueGrey;
-                    }
-                }
-            }
-            .directions {
-                color: @black;
-                span {
-                    padding: 5px 0;
-                }
-            }
-        }
-    }
+        width: 50%;        
+        padding-left: 40px;
+    }//.right
+    .bottom {
+        width: 100%;
+        max-width: 500px;
+        margin: 20px auto;
+        text-align: center;
+     }//.bottom
 }//#contact-page
 
 /***********************************									
 *         Login / Register 				
 ***********************************/
-#login-page,
-#register-page,
-#add-contact,
-#update-contact,
-#update-todo {
+.forms-page {
 	form {
 		width: 50%;
 		min-width: 450px;
 		position: relative;
 		margin: 0 auto;
 		.round(6px);
-		padding: 10px 60px;
+		padding: 10px 60px 30px 60px;
 		background: @white;
 		.box-shadow(0, 0, 16px, @grey);
-		.checkbox {
-			input {
-				position: relative;
-				top: 4px;
-				width: 18px;
-				height: 18px;
-			}
-		}//.checkbox
-		.input {
+		.input-container {
+            position: relative;
 			input {
 				padding: 5px 10px;
 				margin: 5px 0;
@@ -1245,30 +1042,59 @@ header {
 				resize: none;
 				height: 200px;
 			}
-		}//.input
+            .field-validation-error > span { //Validator Error Messages
+                color: @red;
+                font-size: 12px;
+                text-align: center;
+                .round(4px);
+                position: absolute;
+                top: 65%;
+                .translateY;
+                width: 120px;
+                padding: 10px;
+                left: calc(~"100% - 40px");
+                border: 1px solid @red;
+                background: @silver;
+                .box-shadow;
+                z-index: 10;
+                cursor: pointer;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    .translateY;
+                    left: -13px;
+                    border: 6px solid transparent;
+                    border-right-color: @red;
+                }
+                &:hover::after {
+                    content: "x";
+                    font-size: 16px;
+                    position: absolute;
+                    top: 0;
+                    right: 5px;
+                }
+            }//Validator Error Messages
+		}//.input-container
+		.checkbox {
+            margin: 10px 0 5px;
+			input {
+				position: relative;
+				top: 4px;
+				width: 18px;
+				height: 18px;
+			}
+		}//.checkbox
 		.submit {
 			.button1;
 		}
-		.buttons {
-			.button1;
-			.width;
-			.update,
-			.delete {
-				width: 100px;
-				display: inline-block;
-				margin: 5px;
-			}
-			.delete:hover {
-				background: @red;
-			}
-		}//.buttons
 		h2 {
 			text-align: center;
 			font-size: 32px;
 			font-variant: small-caps;
-			padding: 10px 0 20px 0;
+			padding: 10px 10px 20px;
 		}
-		.exit {
+		.cancel {
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -1287,267 +1113,21 @@ header {
 					}
 				}
 			}
-		}//.exit
+		}//.cancel
+        .register, .login, .checkbox {
+            text-align: center;
+         }
 	}//form
-	.message {
+	.error {
 		position: relative;
 		display: block;
-		padding: 5px;
+		color: @red;
+		font-size: 14px;
 		text-align: center;
-		.round(4px);
-		span {
-			position: relative;
-			color: @red;
-			font-size: 14px;
-			.bold;
-		}//span
-		&::before {
-			content: "";
-			position: absolute;
-			left: -14px;
-			top: 50%;
-			.translateY;
-			border: 7px solid transparent;
-			border-left-color: @red;
-		}
-		&::after {
-			content: "";
-			position: absolute;
-			right: -14px;
-			top: 50%;
-			.translateY;
-			border: 7px solid transparent;
-			border-right-color: @red;
-		}
-	}//.message
-}//#login-page / #register-page / #add-contact / #update-contact
-
-/****************************************************************************************************
-*																									*
-*											BACKEND PAGES 										
-*																									*
-****************************************************************************************************/
-/***********************************									
-*			Backend Header				
-***********************************/
-.backend-header {
-	
-}//.backend-header
-/***********************************									
-*			Backend Pages				
-***********************************/
-.backend-page {
-
-}//.backend-page
-/***********************************									
-*		Contacts Dashboard				
-***********************************/
-#contacts-dashboard {
-	.add-contact {
-		font-size: 26px;
-		position: absolute;
-		top: 0;
-		right: 20px;
-		padding: 6px 24px;
-		color: @silver;
-		.trans(all,0.3s);
-		&:hover {
-			background: @darkerBlue;
-			color: @white;
-		}
-	}//.add-contact
-	.contact-table {
-		table {
-			width: 100%;
-			border-collapse: collapse;
-			border-spacing: 0;
-			border: 2px solid @darkerBlue;
-			thead {
-				background: @darkBlue;
-				th {
-					color: @silver;
-					font-size: 18px;
-					.bold;
-					border: 1px solid @darkerBlue;
-					text-align: center;
-					padding: 10px;
-				}	
-			}//thead
-			tbody {
-				td {
-					color: @darkerBlue;
-					border: 1px solid @darkerBlue;
-					text-align: center;
-					padding: 10px;
-				}
-				tr {
-					border: 1px solid @darkerBlue;
-					&:nth-child(even){
-						background: @silver;
-					}
-				} 	
-			}//tbody
-			.update,
-			.delete {
-				width: 10px;
-				border: 0;
-			}
-			.update {
-				padding: 0;
-				.fa {
-					position: relative;
-					top: 3px;
-					padding: 10px;
-					color: @green;
-				}
-				&:hover {
-					.fa {
-						.bold;
-					}
-					background: fade(@green, 15%);
-				}
-			}
-			.delete {
-				padding: 0;
-				.fa {
-					position: relative;
-					top: 3px;
-					padding: 10px;
-					color: @red;
-				}
-				&:hover {
-					.fa {
-						.bold;
-					}
-					background: fade(@red, 15%);
-				}
-			}
-		}//table
-	}//.contact-table
-}//#contacts-dashboard
-/***********************************									
-*		   Todo List				
-***********************************/
-#todo-list {
-	.todo-header {
-		background: @darkerBlue;
-		padding: 20px 20px 10px 20px;
-		color: @silver;
-		.todo-remaining {
-			padding-top: 10px;
-			text-align: center;
-			font-size: 20px;
-			.bold;			
-		}//.todo-remaining
-		.todo-search {
-			input {
-				padding: 5px 10px;
-				font-size: 14px;
-				.placeholder(@grey);
-				width: 100%;
-			}
-		}//.todo-search	
-	}//.todo-header
-	.todos {
-		border: 2px solid @darkerBlue;
-		padding: 10px 0;
-		.todo {
-			position: relative;
-			display: block;
-			margin: 2px 0;
-			.todo-complete {
-				position: absolute;
-				left: 15px;
-				top: 50%;
-				.translateY;
-				width: 18px;
-				height: 18px;
-				z-index: 100;
-				cursor: pointer;
-			}//.todo-complete
-			.todo-name {
-				position: relative;
-				display: block;
-				span {
-					display: block;
-					color: @darkerBlue;
-					padding: 10px;
-					margin: 0 40px;
-					&.completed {
-						text-decoration: line-through;
-					}
-					&:hover {
-						background: @silver;
-						cursor: pointer;
-					}
-				}
-				textarea {			
-					margin: 0 30px 0 40px;
-					width: calc(~"100% - 80px");
-					padding: 10px;			
-					font-size: 16px;
-					padding-right: 55px;
-					resize: none;	
-					height: 38px;
-				}
-				.icons {
-					position: absolute;
-					right: 60px;
-					top: calc(~"50% - 3px");
-					.translateY;
-					.fa {
-						padding: 0 2px;
-						&:hover {
-							.bold;
-							cursor: pointer;
-						}
-					}
-				}
-			}//.todo-name
-			.todo-edit {
-				position: absolute;
-				top: 50%;
-				.translateY;
-				right: 15px;
-				z-index: 100;
-				.fa {
-					position: relative;
-					display: inline-block;
-					font-size: 18px;
-					&:hover {						
-						.bold;
-						cursor: pointer;
-					}
-				}//.icon
-				a {
-					color: @black;
-				}
-			}//.todo-edit			
-		}//.todo
-		.todo-add {
-			position: relative;
-			.fa {
-				position: absolute;
-				top: 10px;
-				right: 15px;
-				font-size: 18px;
-				cursor: pointer;
-				&:hover {
-					.bold;
-				}
-			}
-			input {	
-				margin: 0 40px;
-				width: calc(~"100% - 80px");
-				padding: 10px;			
-				font-size: 16px;
-				background: @silver;
-				.placeholder(@darkerBlue);
-			}
-		}//.todo-add
-	}//.todos	
-}//#todos-dashboard
-
+		.bold;
+		padding: 5px;
+	}//.error
+}//.forms-page
 
 /****************************************************************************************************
 *																									*

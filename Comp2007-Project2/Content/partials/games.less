@@ -1,0 +1,411 @@
+/**
+* Authors : Emma Hilborn (200282755),
+            Alex Friesen (200302342),
+            Dan Masci (200299037),
+            Karen Springford(200299681)
+* Class : Enterprise Computing
+* Semester : 4
+* Professor : Tom Tsiliopolous
+* Purpose : Final Team Project - E-Commerce Store
+* Website Name : EzGames2.azurewebsites.net
+*
+* This is a partial LESS file that has all styles that are
+* to do with the Store and Detail pages (includes responsive).
+*/
+
+/***********************************									
+*			 Menu Global			
+***********************************/
+.store-page {
+    .image {
+        position: relative;
+        width: 100%;
+        max-width: 205px;
+        overflow: hidden;
+        padding: 1px;
+        margin: 0 auto;
+        img {
+            max-width: 100%;
+        }
+        .label {
+            position: absolute;
+            width: 100px;
+            top: 30px;
+            left: 30px;
+            .translateAll(1, -50%, -50%, -45deg);
+            color: @silver;
+            font-size: 12px;
+            text-align: center;
+            background: @blueGrey;
+            padding: 2px 6px;
+        }
+    }//.image
+}//.store-page
+/***********************************									
+*	       Game List Page 				
+***********************************/
+#store-page {
+    padding: 0;
+    .games {
+        width: 100%;
+        text-align: center;
+        .group {
+            width: 100%;
+            padding: 40px 0;
+            .box-shadow(0, 0, 10px, @grey);
+            h2 {
+                position: relative;
+                font-size: 28px;
+                text-transform: uppercase;  
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    .translateX;
+                    width: 50px;
+                    height: 2px;
+                    background: @lightBlue;
+                }
+            }
+            .container {
+                display: inline-block;
+            }            
+            &:nth-child(even) {
+                background: @offWhite;
+            }            
+            &:nth-child(odd) {
+                background: lighten(@offWhite, 2%);
+            }
+            a {                
+                color: @darkerBlue;
+                &:hover {
+                    .image {
+                        .fa {
+                            font-size: 22px;
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
+                }
+            }
+        }//.group
+        .game {
+            position: relative;
+            display: inline-block;
+            width: 30%;
+            margin: 20px 1%;
+            vertical-align: top;
+            .image {
+                .fa {
+                    opacity: 0;
+                    visibility: hidden;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    .translateBoth;
+                    color: @silver;
+                    font-size: 2px;
+                    .trans(all,0.3s);
+                }
+            }//.image
+            .name {
+                font-weight: bold;
+                font-variant: small-caps;
+                font-size: 20px;
+                padding: 5px 10px;
+                .price {
+                    font-weight: normal;
+                    font-size: 14px;
+                }
+            }//.name
+            .desc {
+                padding: 0 10px;
+            }//.desc
+            .add-to-cart a {
+                position: relative;
+                top: 2px;
+                display: block;
+                width: 203px;
+                color: @silver;
+                background: @blueGrey;
+                font-size: 12px;
+                padding: 5px;
+                margin: 0 auto;
+            }//.add-to-cart
+        }//.game
+    }//.games
+}//#store-page
+/***********************************									
+*	      Game Details Page 				
+***********************************/
+#details-page {
+    padding-top: 20px;
+    .button {
+        text-align: center;
+        display: block;
+        margin-bottom: 20px;
+        a {
+            font-size: 12px;
+            color: @white;
+            padding: 5px 10px;
+            background: @blueGrey;
+            .round(3px);
+            .trans(all,0.3s);
+            &:hover {
+                background: lighten(@blueGrey, 10%);
+            }
+        }
+    }//.button
+    .right {
+        float: right;
+        width: 60%;
+        .info {
+            font-size: 16px;
+            color: @darkerBlue;
+            line-height: 1.4em;
+            padding-left: 30px;
+            > div {
+                display: block;
+            }
+            .name {
+                position: relative;
+                font-size: 26px;
+                font-variant: small-caps;
+            }
+            .price {
+                margin-bottom: 10px;
+            }
+            .desc {
+                margin-bottom: 10px;
+            }
+        }//.info
+    }//.right
+    .left {
+        float: left;
+        width: 40%;
+        padding: 0 40px;
+        .image {
+            max-width: 100%;
+        }
+    }//.left
+}//#details-page
+/***********************************									
+*	      Cart Summary Page 				
+***********************************/
+#cart-page {
+    .go-back {       
+        float: left; 
+        width: 122px;
+        margin-top: 5px;
+        .button {
+            text-align: center;
+            display: block;
+            a {
+                font-size: 12px;
+                color: @white;
+                padding: 5px 10px;
+                background: @blueGrey;
+                .round(3px);
+                .trans(all,0.3s);
+                &:hover {
+                    background: lighten(@blueGrey, 10%);
+                }
+            }
+        }//.button
+    }//.go-back
+    .checkout {
+        float: right;
+        width: 122px;
+        text-align: center;
+        border: 2px solid @darkerBlue;
+        border-left-width: 1px;
+        &.top {            
+            border-bottom: none;
+        }
+        &.bottom {
+            border-top: none;
+        }
+        > div {
+            display: block;
+            margin: 5px 0;
+        }
+        .button {
+            text-align: center;
+            display: block;
+            margin-bottom: 10px;
+            a {
+                font-size: 12px;
+                color: @white;
+                padding: 5px 10px;
+                background: @blueGrey;
+                .round(3px);
+                .trans(all,0.3s);
+                &:hover {
+                    background: lighten(@blueGrey, 10%);
+                }
+            }
+        }//.button
+    }//.checkout
+    .items {
+        .item {
+            position: relative;
+            border: 2px solid @darkerBlue;
+            .left {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0;
+            }//.left
+            .center {
+                text-align: center;
+                width: calc(~"100% - 120px");
+                padding: 10px 20px;
+                .name {
+                    font-size: 22px;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+                .desc {
+                    font-size: 14px;
+                }
+            }//.center
+            .right {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 120px;
+                border-left: 1px solid @darkerBlue;
+                height: 100%;
+                .row {
+                    position: relative;
+                    border-bottom: 1px solid @darkerBlue;
+                    height: 33.33%;
+                    &:nth-child(3) {
+                        border-bottom: none;
+                    }
+                    span {
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        .translateBoth;
+                    }
+                }
+            }//.right
+        }//.item
+    }//.items
+}//#cart-page
+/***********************************									
+*	 Checkout Confirmation Page 				
+***********************************/
+#checkout-complete-page {
+    text-align: center;
+}
+
+/********************************************************
+*														*
+*	    			   RESPONSIVE
+*   													*
+********************************************************/
+ @media screen and (max-width: 850px) {
+    /***********************************									
+    *	      Menu Details Page 				
+    ***********************************/
+    #details-page {
+        .right {
+            float: none;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            margin: 0 auto 20px;
+            .info {
+                font-size: 18px;
+                color: @darkerBlue;
+                line-height: 1.4em;
+                padding: 0;
+                .price {
+                    margin: 5px 0;
+                }
+            }
+        }
+        .left {
+            float: none;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    }//#details-page
+}//850px
+@media screen and (max-width: 750px) {
+    /***********************************									
+    *	       Menu List Page 				
+    ***********************************/
+    #store-page {
+        .games {
+            .group {
+                padding: 25px 0;
+                h2 {
+                    margin-bottom: 10px;
+                    padding-bottom: 10px;
+                }
+            }//.group
+            .game {
+                display: block;
+                width: 100%;
+                max-width: 350px;
+                margin: 10px auto 30px auto;
+            }//.game
+        }//.games
+    }//#store-page
+}//750px
+@media screen and (max-width: 500px) {
+    /***********************************									
+    *	      Cart Summary Page 				
+    ***********************************/
+    #cart-page {
+        .go-back {
+            width: 33.33%;
+            max-width: 122px;
+        }//.go-back
+        .checkout {
+            width: 33.33%;
+            border: none;
+        }//.checkout
+        .items {
+            .item {
+                .center {
+                    width: 100%;
+                }//.center
+                .right {
+                    position: relative;
+                    width: 100%;
+                    border-left: none; 
+                    border-top: 1px solid @darkerBlue;
+                    height: auto;
+                    .row {
+                        position: relative;
+                        border-bottom: none;
+                        border-right: 1px solid @darkerBlue;
+                        width: 33.33%;
+                        height: auto;
+                        float: left;
+                        text-align: center;
+                        padding: 5px;
+                        &:nth-child(3) {
+                            border-right: none;
+                        }
+                        span {
+                            position: relative;
+                            top: 0;
+                            left: 0;
+                            .translateBoth(0, 0);
+                        }
+                    }
+                }//.right
+            }//.item
+        }//.items
+    }//#cart-page
+}//500px
