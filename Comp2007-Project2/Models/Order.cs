@@ -8,7 +8,6 @@ using System.Web.Mvc;
 
 namespace Comp2007_Project2.Models
 {
-    [Authorize]
     [Bind(Exclude = "OrderId")]
     public class Order
     {
@@ -47,11 +46,11 @@ namespace Comp2007_Project2.Models
         public string Phone { get; set; }
         [Required(ErrorMessage = "Email Address is required")]
         [DisplayName("Email Address")]
-
         [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}",
             ErrorMessage = "Email is is not valid.")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+      
         [ScaffoldColumn(false)]
         public decimal Total { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }

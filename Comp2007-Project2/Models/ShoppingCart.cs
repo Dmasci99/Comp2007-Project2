@@ -10,7 +10,6 @@ namespace Comp2007_Project2.Models
     public class ShoppingCart
     {
         StoreEntities storeDB = new StoreEntities();
-
         string ShoppingCartId { get; set; }
         public const string CartSessionKey = "CartId";
 
