@@ -1,28 +1,42 @@
 ﻿@model Comp2007_Project2.Models.Order
 
-@using (Html.BeginForm())
-{
-
-    <h2>Address And Payment</h2>
-    <fieldset>
-        <legend>Shipping Information</legend>
-        @Html.EditorForModel()
-    </fieldset>
-    <fieldset>
-        <legend>Payment</legend>
-        <p>
-            We're running a promotion: all Games are free
-            with the promo code: "FREE"
-            *shhh don't tell your gamer friends or else we run out of business*
-        </p>
-        <div class="editor-label">
-            @Html.Label("Promo Code")
-        </div>
-        <div class="editor-field">
-            @Html.TextBox("PromoCode")
-        </div>
-    </fieldset>
-
-    <input class="button" type="submit" value="Submit Order" />
+@{ 
+    ViewBag.Title = "Checkout";
 }
+
+<div class="interior-page forms-page" id="checkout-page">
+    <div class="container">
+        @using (Html.BeginForm())
+        {
+            <h2>Checkout</h2>
+
+            <div class="cancel">
+                <a href="/ShoppingCart"><i class="fa fa-times"></i></a>
+            </div>
+            <div class="input-container">
+                @Html.LabelFor(m => m.FirstName, new { @class = "" })
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "" })
+                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "message" })
+            </div>
+            <div class="input-container">
+                @Html.LabelFor(m => m.LastName, new { @class = "" })
+                @Html.TextBoxFor(m => m.LastName, new { @class = "" })
+                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "message" })
+            </div>
+            <p>
+                We're running a promotion: all Games are free
+                with the promo code: "FREE"
+                *shhh don't tell your gamer friends or else we run out of business*
+            </p>
+            <div class="input-container">
+                @Html.Label("Promo Code")
+                @Html.TextBox("PromoCode")
+            </div>
+            <div class="submit button">
+                <input type="submit" value="Submit Order" />
+            </div>            
+        }
+    </div>
+</div>
+
 
