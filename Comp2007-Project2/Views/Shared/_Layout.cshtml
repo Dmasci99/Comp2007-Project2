@@ -43,6 +43,7 @@
                     <li id="home">@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Store", "Index", "Store")</li>
+                    <li>@Html.ActionLink("Cart", "Index", "ShoppingCart")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <div class="clear-float"></div><!--clear-float-->
                 </ul>
@@ -50,10 +51,16 @@
             <!-- Account Menu -->
             <nav id="account-nav">
                 <ul class="menu">
+                @if (!Request.IsAuthenticated)
+                {
                     <li class="public"><a class="login" href="/Account/Login">Login</a></li>
                     <li class="public"><a class="register" href="/Account/Register">Register</a></li>
-                    @*<li class="private"><a class="profile" href="/Manage/Index"><i class="fa fa-user"></i></a></li>*@
-                    @*<li class="private"><a class="logout" href="/Account/LogOff"><i class="fa fa-sign-out"></i></a></li>*@
+                }
+                else
+                {
+                    <li class="private"><a class="profile" href="/Manage/ChangePassword"><i class="fa fa-user"></i></a></li>
+                    <li class="private"><a class="logout" href="/Account/Logout"><i class="fa fa-sign-out"></i></a></li>
+                }                    
                 </ul>
             </nav><!-- account-nav -->
 

@@ -354,6 +354,7 @@
   width: 122px;
   text-align: center;
   border: 2px solid #0f1f4d;
+  border-left-width: 1px;
 }
 #cart-page .checkout.top {
   border-bottom: none;
@@ -391,7 +392,6 @@
 }
 #cart-page .items .item {
   position: relative;
-  margin: 5px 0;
   border: 2px solid #0f1f4d;
 }
 #cart-page .items .item .left {
