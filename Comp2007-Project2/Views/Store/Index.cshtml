@@ -1,21 +1,21 @@
 ﻿@*
-        /**
-        * Authors : Emma Hilborn (200282755),
-                    Alex Friesen (200302342),
-                    Dan Masci (200299037),
-                    Karen Springford(200299681)
+    /**
+    * Authors : Emma Hilborn (200282755),
+                Alex Friesen (200302342),
+                Dan Masci (200299037),
+                Karen Springford(200299681)
 
-        * Class : Enterprise Computing
-        * Semester : 4
-        * Professor : Tom Tsiliopolous
-        * Purpose : Final Team Project - E-Commerce Store
-        * Website Name : EzGames2.azurewebsites.net/Menu
-        *
-        * This is the Main Store Page for our E-Commerce Store. It lists all the games within
-        * their appropriate categories (Platform).
-        *
-        * ITEMS TAKEN FROM EBGAMES WEBSITE
-        */
+    * Class : Enterprise Computing
+    * Semester : 4
+    * Professor : Tom Tsiliopolous
+    * Purpose : Final Team Project - E-Commerce Store
+    * Website Name : EzGames2.azurewebsites.net/Menu
+    *
+    * This is the Main Store Page for our E-Commerce Store. It lists all the games within
+    * their appropriate categories (Platform).
+    *
+    * ITEMS TAKEN FROM EBGAMES WEBSITE
+    */
 *@
 
 
@@ -34,6 +34,9 @@
             @foreach (var game in Model.Where(p => p.Platform.Name.Contains(Platform.Name)))
             {
                 <div class="game @Platform.Name.ToLower().Replace(" ", "-")" id="game@(game.GameId)">
+                    <div class="add-to-cart">
+                        <a href="/ShoppingCart/AddToCart/@game.GameId"><i class="fa fa-plus"> Add to Cart</i></a>
+                    </div>
                     <a href="/Store/Details/@game.GameId">
                         <div class="image">
                             @if (game.Label.Name != "")

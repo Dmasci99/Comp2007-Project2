@@ -122,10 +122,18 @@
             }//.name
             .desc {
                 padding: 0 10px;
-                p {
-
-                }
             }//.desc
+            .add-to-cart a {
+                position: relative;
+                top: 2px;
+                display: block;
+                width: 203px;
+                color: @silver;
+                background: @blueGrey;
+                font-size: 12px;
+                padding: 5px;
+                margin: 0 auto;
+            }//.add-to-cart
         }//.game
     }//.games
 }//#store-page
@@ -149,10 +157,10 @@
                 background: lighten(@blueGrey, 10%);
             }
         }
-    }
+    }//.button
     .right {
         float: right;
-        width: 40%;
+        width: 60%;
         .info {
             font-size: 16px;
             color: @darkerBlue;
@@ -170,14 +178,124 @@
                 margin-bottom: 10px;
             }
             .desc {
+                margin-bottom: 10px;
             }
-        }
-    }
+        }//.info
+    }//.right
     .left {
         float: left;
-        width: 60%;
-    }
+        width: 40%;
+        padding: 0 40px;
+        .image {
+            max-width: 100%;
+        }
+    }//.left
 }//#details-page
+/***********************************									
+*	      Cart Summary Page 				
+***********************************/
+#cart-page {
+    .go-back {       
+        float: left; 
+        .button {
+            text-align: center;
+            display: block;
+            margin-bottom: 20px;
+            a {
+                font-size: 12px;
+                color: @white;
+                padding: 5px 10px;
+                background: @blueGrey;
+                .round(3px);
+                .trans(all,0.3s);
+                &:hover {
+                    background: lighten(@blueGrey, 10%);
+                }
+            }
+        }//.button
+    }//.go-back
+    .checkout {
+        float: right;
+        width: 122px;
+        text-align: center;
+        border: 2px solid @darkerBlue;
+        border-left-width: 1px;
+        &.top {            
+            border-bottom: none;
+        }
+        &.bottom {
+            border-top: none;
+        }
+        > div {
+            display: block;
+            margin: 5px 0;
+        }
+        .button {
+            text-align: center;
+            display: block;
+            margin-bottom: 10px;
+            a {
+                font-size: 12px;
+                color: @white;
+                padding: 5px 10px;
+                background: @blueGrey;
+                .round(3px);
+                .trans(all,0.3s);
+                &:hover {
+                    background: lighten(@blueGrey, 10%);
+                }
+            }
+        }//.button
+    }//.checkout
+    .items {
+        .item {
+            position: relative;
+            border: 2px solid @darkerBlue;
+            .left {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0;
+            }//.left
+            .center {
+                text-align: center;
+                width: calc(~"100% - 120px");
+                padding: 10px 20px;
+                .name {
+                    font-size: 22px;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+                .desc {
+                    font-size: 14px;
+                }
+            }//.center
+            .right {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 120px;
+                border-left: 1px solid @darkerBlue;
+                height: 100%;
+                .row {
+                    position: relative;
+                    border-bottom: 1px solid @darkerBlue;
+                    height: 33.33%;
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                    span {
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        .translateBoth;
+                    }
+                }
+            }//.right
+        }//.item
+    }//.items
+}//#cart-page
 
 /********************************************************
 *														*
@@ -192,22 +310,24 @@
         .right {
             float: none;
             width: 100%;
+            max-width: 600px;
             text-align: center;
-            margin-bottom: 20px;
+            margin: 0 auto 20px;
             .info {
                 font-size: 18px;
                 color: @darkerBlue;
                 line-height: 1.4em;
                 padding: 0;
                 .price {
-                    margin: 5px 0;;
+                    margin: 5px 0;
                 }
             }
         }
         .left {
             float: none;
             width: 100%;
-            text-align: center;
+            max-width: 400px;
+            margin: 0 auto;
         }
     }//#details-page
 }//850px
