@@ -479,6 +479,12 @@
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
 }
+/***********************************									
+*	 Checkout Confirmation Page 				
+***********************************/
+#checkout-complete-page {
+  text-align: center;
+}
 /********************************************************
 *														*
 *	    			   RESPONSIVE
