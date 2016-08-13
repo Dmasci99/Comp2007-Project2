@@ -1,12 +1,13 @@
 /**
 * Authors : Emma Hilborn (200282755),
             Alex Friesen (200302342),
-            Dan Masci (200299037)
+            Dan Masci (200299037),
+            Karen Springford(200299681)
 * Class : Enterprise Computing
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : EzGames1.azurewebsites.net 
+* Website Name : EzGames2.azurewebsites.net 
 */
 /**
 * The follwing stylesheet is the "MASTER". It is a Less file that gets auto-compiled into
@@ -153,7 +154,7 @@
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : EzGames1.azurewebsites.net
+* Website Name : EzGames2.azurewebsites.net
 *
 * This is a partial LESS file that has all styles that are
 * to do with the Store and Detail pages (includes responsive).
@@ -1960,7 +1961,7 @@ footer .copyright p {
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : EzGames1.azurewebsites.net
+* Website Name : EzGames2.azurewebsites.net
 */
 /**
 * The follwing stylesheet is imported into style.less. This is used specifically for responsive
