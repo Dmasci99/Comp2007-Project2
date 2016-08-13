@@ -19,12 +19,12 @@
             <div class="input-container">
                 @Html.LabelFor(m => m.Email, new { @class = "" })
                 @Html.TextBoxFor(m => m.Email, new { @class = "" })
-                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "message" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "" })
             </div>
             <div class="input-container">
                 @Html.LabelFor(m => m.Password, new { @class = "" })
                 @Html.PasswordFor(m => m.Password, new { @class = "" })
-                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "message" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "" })
             </div>
             <div class="checkbox">
                 @Html.CheckBoxFor(m => m.RememberMe)

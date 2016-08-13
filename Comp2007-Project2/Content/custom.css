@@ -533,14 +533,6 @@
   /***********************************									
     *	      Cart Summary Page 				
     ***********************************/
-  #cart-page .heading {
-    border: 2px solid #0f1f4d;
-    border-bottom: none;
-  }
-  #cart-page .footing {
-    border: 2px solid #0f1f4d;
-    border-top: none;
-  }
   #cart-page .go-back {
     width: 33.33%;
     max-width: 122px;
