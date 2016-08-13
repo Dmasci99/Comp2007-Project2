@@ -197,10 +197,11 @@
 #cart-page {
     .go-back {       
         float: left; 
+        width: 122px;
+        margin-top: 5px;
         .button {
             text-align: center;
             display: block;
-            margin-bottom: 20px;
             a {
                 font-size: 12px;
                 color: @white;
@@ -281,7 +282,7 @@
                     position: relative;
                     border-bottom: 1px solid @darkerBlue;
                     height: 33.33%;
-                    &:last-child {
+                    &:nth-child(3) {
                         border-bottom: none;
                     }
                     span {
@@ -353,3 +354,59 @@
         }//.games
     }//#store-page
 }//750px
+@media screen and (max-width: 500px) {
+    /***********************************									
+    *	      Cart Summary Page 				
+    ***********************************/
+    #cart-page {
+        .heading {
+            border: 2px solid @darkerBlue;
+            border-bottom: none;
+        }
+        .footing {
+            border: 2px solid @darkerBlue;
+            border-top: none;
+        }
+        .go-back {
+            width: 33.33%;
+            max-width: 122px;
+        }
+        .checkout {
+            width: 33.33%;
+            border: none;
+        }//.checkout
+        .items {
+            .item {
+                .center {
+                    width: 100%;
+                }//.center
+                .right {
+                    position: relative;
+                    width: 100%;
+                    border-left: none; 
+                    border-top: 1px solid @darkerBlue;
+                    height: auto;
+                    .row {
+                        position: relative;
+                        border-bottom: none;
+                        border-right: 1px solid @darkerBlue;
+                        width: 33.33%;
+                        height: auto;
+                        float: left;
+                        text-align: center;
+                        padding: 5px;
+                        &:nth-child(3) {
+                            border-right: none;
+                        }
+                        span {
+                            position: relative;
+                            top: 0;
+                            left: 0;
+                            .translateBoth(0, 0);
+                        }
+                    }
+                }//.right
+            }//.item
+        }//.items
+    }//#cart-page
+}//500px

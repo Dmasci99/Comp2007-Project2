@@ -362,11 +362,12 @@
 ***********************************/
 #cart-page .go-back {
   float: left;
+  width: 122px;
+  margin-top: 5px;
 }
 #cart-page .go-back .button {
   text-align: center;
   display: block;
-  margin-bottom: 20px;
 }
 #cart-page .go-back .button a {
   font-size: 12px;
@@ -464,7 +465,7 @@
   border-bottom: 1px solid #0f1f4d;
   height: 33.33%;
 }
-#cart-page .items .item .right .row:last-child {
+#cart-page .items .item .right .row:nth-child(3) {
   border-bottom: none;
 }
 #cart-page .items .item .right .row span {
@@ -526,6 +527,60 @@
     width: 100%;
     max-width: 350px;
     margin: 10px auto 30px auto;
+  }
+}
+@media screen and (max-width: 500px) {
+  /***********************************									
+    *	      Cart Summary Page 				
+    ***********************************/
+  #cart-page .heading {
+    border: 2px solid #0f1f4d;
+    border-bottom: none;
+  }
+  #cart-page .footing {
+    border: 2px solid #0f1f4d;
+    border-top: none;
+  }
+  #cart-page .go-back {
+    width: 33.33%;
+    max-width: 122px;
+  }
+  #cart-page .checkout {
+    width: 33.33%;
+    border: none;
+  }
+  #cart-page .items .item .center {
+    width: 100%;
+  }
+  #cart-page .items .item .right {
+    position: relative;
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #0f1f4d;
+    height: auto;
+  }
+  #cart-page .items .item .right .row {
+    position: relative;
+    border-bottom: none;
+    border-right: 1px solid #0f1f4d;
+    width: 33.33%;
+    height: auto;
+    float: left;
+    text-align: center;
+    padding: 5px;
+  }
+  #cart-page .items .item .right .row:nth-child(3) {
+    border-right: none;
+  }
+  #cart-page .items .item .right .row span {
+    position: relative;
+    top: 0;
+    left: 0;
+    -webkit-transform: translateX(0) translateY(0);
+    -moz-transform: translateX(0) translateY(0);
+    -ms-transform: translateX(0) translateY(0);
+    -o-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
   }
 }
 /****************************************************************************************************

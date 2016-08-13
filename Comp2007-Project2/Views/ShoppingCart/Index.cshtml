@@ -9,17 +9,18 @@
 
         <div id="update-message"></div>
 
-        <div class="go-back">
-            <div class="button"><a href="/Store"><i class="fa fa-arrow-circle-left"></i> Go Back</a></div>
-        </div>
-        <div class="checkout top">
-            <div class="button">
-                @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout")
+        <div class="heading">
+            <div class="go-back">
+                <div class="button"><a href="/Store"><i class="fa fa-arrow-circle-left"></i> Go Back</a></div>
             </div>
-            <div class="total">$@Model.CartTotal</div>
+            <div class="checkout top">
+                <div class="button">
+                    @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout")
+                </div>
+                <div class="total">$@Model.CartTotal</div>
+            </div>
+            <div class="clear-float"></div>
         </div>
-        <div class="clear-float"></div>
-
         <div class="items">
             @foreach (var item in Model.CartItems)
             {
@@ -41,18 +42,19 @@
                         <div class="row price">
                             <span>$@item.Game.Price</span>
                         </div>
+                        <div class="clear-float"></div>
                     </div>
                 </div>
             }
         </div>
-
-        <div class="checkout bottom">
-            <div class="total">$@Model.CartTotal</div>
-            <div class="button">
-                @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout")
-            </div>
-        </div><div class="clear-float"></div>
-
+        <div class="footing">
+            <div class="checkout bottom">
+                <div class="total">$@Model.CartTotal</div>
+                <div class="button">
+                    @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout")
+                </div>
+            </div><div class="clear-float"></div>
+        </div>
     </div>
 </div>
 
