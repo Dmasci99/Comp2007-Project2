@@ -132,13 +132,13 @@ namespace Comp2007_Project2.Models
                     GameId = item.GameId,
                     OrderId = order.OrderId,
                     UnitPrice = item.Game.Price,
-                    Quantity = item.Count
+                    Quantity = item.Count,
+                    DateCreated = DateTime.Now
                 };
                 // Set the order total of the shopping cart
                 orderTotal += (item.Count * item.Game.Price);
 
                 storeDB.OrderDetails.Add(orderDetail);
-
             }
             // Set the order's total to the orderTotal count
             order.Total = orderTotal;

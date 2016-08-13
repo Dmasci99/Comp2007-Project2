@@ -41,12 +41,11 @@ namespace Comp2007_Project2.Controllers
                     //Save Order
                     storeDB.Orders.Add(order);
                     storeDB.SaveChanges();
-                    //Process the order - for Part 3
-                    //var cart = ShoppingCart.GetCart(this.HttpContext);
-                    //cart.CreateOrder(order);
+                    //Process the order
+                    var cart = ShoppingCart.GetCart(this.HttpContext);
+                    cart.CreateOrder(order); //create OrderDetails for all cart items
 
-                    return RedirectToAction("Complete",
-                        new { id = order.OrderId });
+                    return RedirectToAction("Complete", new { id = order.OrderId });
                 }
             }
             catch (System.Data.Entity.Core.UpdateException e)
