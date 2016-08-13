@@ -1765,7 +1765,7 @@ header #logo img {
   text-align: center;
   font-size: 32px;
   font-variant: small-caps;
-  padding: 10px 0 20px 0;
+  padding: 10px 10px 20px;
 }
 .forms-page form .cancel {
   position: absolute;
