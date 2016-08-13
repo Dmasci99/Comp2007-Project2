@@ -122,10 +122,18 @@
             }//.name
             .desc {
                 padding: 0 10px;
-                p {
-
-                }
             }//.desc
+            .add-to-cart a {
+                position: relative;
+                top: 2px;
+                display: block;
+                width: 203px;
+                color: @silver;
+                background: @blueGrey;
+                font-size: 12px;
+                padding: 5px;
+                margin: 0 auto;
+            }//.add-to-cart
         }//.game
     }//.games
 }//#store-page
@@ -187,9 +195,25 @@
 *	      Cart Summary Page 				
 ***********************************/
 #cart-page {
-    .container {
-        
-    }
+    .go-back {       
+        float: left; 
+        .button {
+            text-align: center;
+            display: block;
+            margin-bottom: 20px;
+            a {
+                font-size: 12px;
+                color: @white;
+                padding: 5px 10px;
+                background: @blueGrey;
+                .round(3px);
+                .trans(all,0.3s);
+                &:hover {
+                    background: lighten(@blueGrey, 10%);
+                }
+            }
+        }//.button
+    }//.go-back
     .checkout {
         float: right;
         width: 122px;
