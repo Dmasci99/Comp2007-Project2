@@ -43,14 +43,25 @@ namespace Comp2007_Project2.Controllers
                     storeDB.SaveChanges();
                     //Process the order
                     var cart = ShoppingCart.GetCart(this.HttpContext);
-                    cart.CreateOrder(order);
+                     cart.CreateOrder(order);
 
                     return RedirectToAction("Complete",
                         new { id = order.OrderId });
                 }
             }
-            catch
+            catch (System.Data.Entity.Core.UpdateException e)
             {
+                return View(order);
+            }
+
+            catch (System.Data.Entity.Infrastructure.DbUpdateException ex) //DbContext
+            {
+                Console.WriteLine(ex.InnerException);
+                return View(order);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
                 //Invalid - redisplay with errors
                 return View(order);
             }
