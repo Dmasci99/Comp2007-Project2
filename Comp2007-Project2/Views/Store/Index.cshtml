@@ -35,7 +35,7 @@
             {
                 <div class="game @Platform.Name.ToLower().Replace(" ", "-")" id="game@(game.GameId)">
                     <div class="add-to-cart">
-                        <a href="/ShoppingCart/AddToCart/@game.GameId"><i class="fa fa-plus"> Add to Cart</i></a>
+                        <a href="#" class="AddLink" data-id="@game.GameId"><i class="fa fa-plus"> Add to Cart</i></a>
                     </div>
                     <a href="/Store/Details/@game.GameId">
                         <div class="image">

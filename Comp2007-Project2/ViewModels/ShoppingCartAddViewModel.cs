@@ -9,8 +9,8 @@
    * Purpose : Final Team Project - E-Commerce Store
    * Website Name : EzGames2.azurewebsites.net/Store
    *
-   * This is the Shopping Cart Remove. 
-   * It removes the selected games from the cart.
+   * This is the Shopping Cart Add. 
+   * It adds the selected game(s) to the cart.
    *
    * ITEMS TAKEN FROM EBGAMES WEBSITE
    */
@@ -24,9 +24,9 @@ using Comp2007_Project2.Models;
 
 namespace Comp2007_Project2.ViewModels
 {
-    public class ShoppingCartRemoveViewModel
+    public class ShoppingCartAddViewModel
     {
-        //message to the user regarding their removal of the object
+        //message to the user regarding their addition of the game
         public virtual string Message { get; set; }
 
         //new cart total
@@ -38,6 +38,6 @@ namespace Comp2007_Project2.ViewModels
         //what's the current item count
         public virtual int ItemCount { get; set; }
 
-        public virtual int DeleteId { get; set; }
+        public virtual int AddId { get; set; }
     }
 }

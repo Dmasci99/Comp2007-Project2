@@ -24,6 +24,57 @@ jQuery(document).ready(function ($) {
     $('nav#header-nav').moby({
         mobyTrigger: $('#moby-button'), // Button that will trigger the Moby menu to open
     });
+    
+    /*************************************************
+	*       		   SHOPPING CART 
+	*************************************************/
+    /***********************
+    *       DELETE
+    ***********************/
+    $(".RemoveLink").click(function () {
+        // Get the id from the link
+        var recordToDelete = $(this).attr("data-id");
+        if (recordToDelete != '') {
+            // Perform the ajax post
+            $.post("/ShoppingCart/RemoveFromCart/" + recordToDelete,
+                function (data) {
+                    // Successful requests get here
+                    // Update the page elements
+                    if (data.ItemCount == 0) {
+                        $('#item-' + data.DeleteId).fadeOut('slow'); //Remove Item from frontend
+                    } else {
+                        $('#count-' + data.DeleteId).text(data.ItemCount); //Update frontend Item Count
+                    }
+                    //Update Numeric Amounts
+                    updatePage(data);
+                });
+        }
+    });
+    /***********************
+    *         ADD
+    ***********************/
+    $('.AddLink').click(function () {
+        // Get the id from the link
+        var gameToAdd = $(this).attr('data-id');
+        if (gameToAdd != '') {
+            // Perform the ajax post
+            $.post('/ShoppingCart/AddToCart/' + gameToAdd,
+                function (data) {
+                    // Successful requests get here
+                    //Update the page elements
+                    $('#count-' + data.AddId).text(data.itemCount); //Update frontend Item Count
+
+                    //Update Numeric Amounts
+                    updatePage(data);
+            });
+        }
+    });
+    function updatePage(data) {
+        $('.subtotal').text((data.CartTotal).toFixed(2));
+        $('.tax').text((data.CartTotal * 0.15).toFixed(2));
+        $('.total').text((data.CartTotal * 1.15).toFixed(2));
+        $('#update-message').html(data.Message);
+    };
 
     /*************************************************
 	*					ROTATOR

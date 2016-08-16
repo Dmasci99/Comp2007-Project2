@@ -149,7 +149,8 @@
 /**
 * Authors : Emma Hilborn (200282755),
             Alex Friesen (200302342),
-            Dan Masci (200299037)
+            Dan Masci (200299037),
+            Karen Springford(200299681)
 * Class : Enterprise Computing
 * Semester : 4
 * Professor : Tom Tsiliopolous
@@ -363,7 +364,7 @@
 ***********************************/
 #cart-page .go-back {
   float: left;
-  width: 122px;
+  width: 142px;
   margin-top: 5px;
 }
 #cart-page .go-back .button {
@@ -391,7 +392,7 @@
 }
 #cart-page .checkout {
   float: right;
-  width: 122px;
+  width: 142px;
   text-align: center;
   border: 2px solid #0f1f4d;
   border-left-width: 1px;
@@ -405,6 +406,30 @@
 #cart-page .checkout > div {
   display: block;
   margin: 5px 0;
+}
+#cart-page .checkout .tax {
+  position: relative;
+}
+#cart-page .checkout .tax::before {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+#cart-page .checkout .tax::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 5%;
+  width: 90%;
+  border-bottom: 1px solid #0f1f4d;
+  padding-bottom: 2px;
+  margin-bottom: 2px;
 }
 #cart-page .checkout .button {
   text-align: center;
@@ -442,7 +467,7 @@
 }
 #cart-page .items .item .center {
   text-align: center;
-  width: calc(100% - 120px);
+  width: calc(100% - 140px);
   padding: 10px 20px;
 }
 #cart-page .items .item .center .name {
@@ -457,7 +482,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 120px;
+  width: 140px;
   border-left: 1px solid #0f1f4d;
   height: 100%;
 }
@@ -469,7 +494,18 @@
 #cart-page .items .item .right .row:nth-child(3) {
   border-bottom: none;
 }
-#cart-page .items .item .right .row span {
+#cart-page .items .item .right .row .RemoveLink .fa {
+  padding: 5px 40px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#cart-page .items .item .right .row .RemoveLink:hover {
+  color: #a94931;
+}
+#cart-page .items .item .right .row .abs {
   display: block;
   position: absolute;
   top: 50%;
@@ -479,6 +515,40 @@
   -ms-transform: translateX(-50%) translateY(-50%);
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
+  vertical-align: middle;
+}
+#cart-page .items .item .right .row .abs.down {
+  left: 25%;
+}
+#cart-page .items .item .right .row .abs.down .fa {
+  font-size: 12px;
+  padding: 5px 20px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#cart-page .items .item .right .row .abs.down .fa:hover {
+  color: #629916;
+}
+#cart-page .items .item .right .row .abs.up {
+  left: 75%;
+}
+#cart-page .items .item .right .row .abs.up .fa {
+  font-size: 12px;
+  padding: 5px 20px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#cart-page .items .item .right .row .abs.up .fa:hover {
+  color: #629916;
+}
+#cart-page .items .item .right .row a {
+  color: #0f1f4d;
 }
 /***********************************									
 *	 Checkout Confirmation Page 				
@@ -540,6 +610,9 @@
   /***********************************									
     *	      Cart Summary Page 				
     ***********************************/
+  #cart-page {
+    color: #0f1f4d;
+  }
   #cart-page .go-back {
     width: 33.33%;
     max-width: 122px;
@@ -571,7 +644,10 @@
   #cart-page .items .item .right .row:nth-child(3) {
     border-right: none;
   }
-  #cart-page .items .item .right .row span {
+  #cart-page .items .item .right .row .RemoveLink .fa {
+    padding: 0;
+  }
+  #cart-page .items .item .right .row .abs {
     position: relative;
     top: 0;
     left: 0;
@@ -580,6 +656,34 @@
     -ms-transform: translateX(0) translateY(0);
     -o-transform: translateX(0) translateY(0);
     transform: translateX(0) translateY(0);
+  }
+  #cart-page .items .item .right .row .abs.down {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 25px);
+    z-index: 100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+  #cart-page .items .item .right .row .abs.down .fa {
+    padding: 5px 10px;
+  }
+  #cart-page .items .item .right .row .abs.up {
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 25px);
+    z-index: 100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+  #cart-page .items .item .right .row .abs.up .fa {
+    padding: 5px 10px;
   }
 }
 /****************************************************************************************************
@@ -1956,7 +2060,8 @@ footer .copyright p {
 /**
 * Authors : Emma Hilborn (200282755),
             Alex Friesen (200302342),
-            Dan Masci (200299037)
+            Dan Masci (200299037),
+            Karen Springford(200299681)
 * Class : Enterprise Computing
 * Semester : 4
 * Professor : Tom Tsiliopolous

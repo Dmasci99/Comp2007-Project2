@@ -43,20 +43,29 @@ namespace Comp2007_Project2.Controllers
         }
 
         //
-        // GET: /Store/AddToCart/5
+        // AJAX: /ShoppingCart/AddToCart/5
+        [HttpPost]
         public ActionResult AddToCart(int id)
         {
-            // Retrieve the album from the database
-            var addedGame = storeDB.Games
-                .Single(game => game.GameId == id);
-
-            // Add it to the shopping cart
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
-            cart.AddToCart(addedGame);
+            // Retrieve the item from the database
+            Game addedGame = storeDB.Games.Single(game => game.GameId == id);
 
-            // Go back to the main store page for more shopping
-            return RedirectToAction("Index");
+            // Add it to the shopping cart
+            int itemCount = cart.AddToCart(addedGame);
+
+            var results = new ShoppingCartAddViewModel
+            {
+                Message = Server.HtmlEncode(addedGame.Name) +
+                    " has been added to your shopping cart.",
+                CartTotal = cart.GetTotal(),
+                CartCount = cart.GetCount(),
+                ItemCount = itemCount,
+                AddId = id
+            };
+            
+            return Json(results);
         }
 
         //
@@ -65,7 +74,7 @@ namespace Comp2007_Project2.Controllers
         public ActionResult RemoveFromCart(int id)
         {
             // Remove the item from the cart
-            var cart = ShoppingCart.GetCart(this.HttpContext);
+            ShoppingCart cart = ShoppingCart.GetCart(this.HttpContext);
 
             // Get the name of the game to display confirmation
             string gameName = storeDB.Carts.Single(item => item.RecordId == id).Game.Name;

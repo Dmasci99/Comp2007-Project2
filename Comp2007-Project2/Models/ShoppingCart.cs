@@ -26,12 +26,14 @@ namespace Comp2007_Project2.Models
             return GetCart(controller.HttpContext);
         }
 
-        public void AddToCart(Game game)
+        public int AddToCart(Game game)
         {
             // Get the matching cart and game instances
             var cartItem = storeDB.Carts.SingleOrDefault(
                 c => c.OrderItemId == ShoppingCartId   
                 && c.GameId == game.GameId);
+
+            int itemCount = 0;
 
             if (cartItem == null)
             {
@@ -50,9 +52,11 @@ namespace Comp2007_Project2.Models
                 // If the item does exist in the cart, 
                 // then add one to the quantity
                 cartItem.Count++;
+                itemCount = cartItem.Count;
             }
             // Save changes
             storeDB.SaveChanges();
+            return itemCount;
         }
 
         public int RemoveFromCart(int id)
