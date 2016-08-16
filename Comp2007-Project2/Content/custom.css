@@ -7,7 +7,7 @@
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : EzGames2.azurewebsites.net 
+* Website Name : EzGames3.azurewebsites.net 
 */
 /**
 * The follwing stylesheet is the "MASTER". It is a Less file that gets auto-compiled into
@@ -155,7 +155,7 @@
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : EzGames2.azurewebsites.net
+* Website Name : EzGames3.azurewebsites.net
 *
 * This is a partial LESS file that has all styles that are
 * to do with the Store and Detail pages (includes responsive).
@@ -396,6 +396,7 @@
   text-align: center;
   border: 2px solid #0f1f4d;
   border-left-width: 1px;
+  background: #ffffff;
 }
 #cart-page .checkout.top {
   border-bottom: none;
@@ -454,6 +455,9 @@
 }
 #cart-page .checkout .button a:hover {
   background: #505d86;
+}
+#cart-page .items {
+  background: #ffffff;
 }
 #cart-page .items .item {
   position: relative;
@@ -2066,7 +2070,7 @@ footer .copyright p {
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : EzGames2.azurewebsites.net
+* Website Name : EzGames3.azurewebsites.net
 */
 /**
 * The follwing stylesheet is imported into style.less. This is used specifically for responsive

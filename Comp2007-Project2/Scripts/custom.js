@@ -7,7 +7,7 @@
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : EzGames2.azurewebsites.net
+* Website Name : EzGames3.azurewebsites.net
 */
 
 /**
@@ -62,8 +62,9 @@ jQuery(document).ready(function ($) {
                 function (data) {
                     // Successful requests get here
                     //Update the page elements
-                    $('#count-' + data.AddId).text(data.itemCount); //Update frontend Item Count
-
+                    console.log("ItemCount: " + data.ItemCount);
+                    console.log("AddId: " + data.AddId);
+                    $('.count-' + data.AddId).text(data.ItemCount); //Update frontend Item Count
                     //Update Numeric Amounts
                     updatePage(data);
             });

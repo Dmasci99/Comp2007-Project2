@@ -32,9 +32,7 @@ namespace Comp2007_Project2.Models
             var cartItem = storeDB.Carts.SingleOrDefault(
                 c => c.OrderItemId == ShoppingCartId   
                 && c.GameId == game.GameId);
-
-            int itemCount = 0;
-
+            
             if (cartItem == null)
             {
                 // Create a new cart item if no cart item exists
@@ -50,13 +48,12 @@ namespace Comp2007_Project2.Models
             else
             {
                 // If the item does exist in the cart, 
-                // then add one to the quantity
+                // then add one to the quantity                
                 cartItem.Count++;
-                itemCount = cartItem.Count;
             }
             // Save changes
             storeDB.SaveChanges();
-            return itemCount;
+            return cartItem.Count;
         }
 
         public int RemoveFromCart(int id)
