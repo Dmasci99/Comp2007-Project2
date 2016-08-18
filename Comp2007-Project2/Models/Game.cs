@@ -11,7 +11,8 @@ namespace Comp2007_Project2.Models
         public virtual int PlatformId { get; set; }
         public virtual int LabelId { get; set; }
         public virtual string Name { get; set; }
-        public virtual string Description { get; set; }
+        public virtual string ShortDescription { get; set; }
+        public virtual string FullDescription { get; set; }
         public virtual decimal Price { get; set; }
         public virtual string Rating { get; set; }
         public virtual DateTime ReleaseDate { get; set; }
