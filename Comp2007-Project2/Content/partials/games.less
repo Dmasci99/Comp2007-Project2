@@ -124,16 +124,19 @@
             .desc {
                 padding: 0 10px;
             }//.desc
-            .add-to-cart a {
-                position: relative;
-                top: 2px;
-                display: block;
-                width: 203px;
-                color: @silver;
-                background: @blueGrey;
-                font-size: 12px;
-                padding: 5px;
-                margin: 0 auto;
+            .add-to-cart {
+                .AddLink {
+                    position: relative;
+                    top: 2px;
+                    display: block;
+                    width: 203px;
+                    color: @silver;
+                    background: @blueGrey;
+                    font-size: 12px;
+                    padding: 5px;
+                    margin: 0 auto;
+                    cursor: pointer;
+                }//.AddLink
             }//.add-to-cart
         }//.game
     }//.games
@@ -216,6 +219,13 @@
             }
         }//.button
     }//.go-back
+    #update-message {
+        float: left;
+        width: calc(~"100% - 142px - 142px");
+        text-align: center;
+        color: @green;
+        padding: 5px 10px;
+    }//#update-message
     .checkout {
         float: right;
         width: 142px;
@@ -330,6 +340,7 @@
                                 font-size: 12px;
                                 padding: 5px 20px;
                                 .trans(all, 0.3s);
+                                cursor: pointer;
                                 &:hover {
                                     color: @green;
                                 }
@@ -341,15 +352,13 @@
                                 font-size: 12px;
                                 padding: 5px 20px;
                                 .trans(all, 0.3s);
+                                cursor: pointer;
                                 &:hover {
                                     color: @green;
                                 }
                             }                            
                         }
                     }//.abs
-                    a {
-                        color: @darkerBlue;
-                    }
                 }//.row
             }//.right
         }//.item
@@ -428,9 +437,17 @@
             width: 33.33%;
             max-width: 122px;
         }//.go-back
+        #update-message {
+            /*position: absolute;
+            float: none;
+            width: 100%;
+            padding: 0;
+            top: -40px;*/
+        }//#update-message
         .checkout {
             width: 33.33%;
             border: none;
+            background: transparent;
         }//.checkout
         .items {
             .item {

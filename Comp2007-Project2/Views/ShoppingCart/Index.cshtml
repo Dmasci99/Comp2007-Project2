@@ -6,13 +6,12 @@
 
 <div class="interior-page" id="cart-page">
     <div class="container">
-
-        <div id="update-message"></div>
-
+        
         <div class="heading">
             <div class="go-back">
                 <div class="button"><a href="/Store"><i class="fa fa-arrow-circle-left"></i> Go Back</a></div>
             </div>
+            <div id="update-message"></div>
             <div class="checkout top">
                 <div class="button">
                     @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout")
@@ -41,14 +40,26 @@
                             </a>
                         </div>
                         <div class="row quantity">
-                            <div class="abs down"><a href="#" class="RemoveLink" data-id="@item.RecordId"><i class="fa fa-chevron-left"></i></a></div>
+                            <div class="abs down"><div class="RemoveLink" data-id="@item.RecordId"><i class="fa fa-chevron-left"></i></div></div>
                             <div class="abs count-@item.GameId" id="count-@item.RecordId">@item.Count</div>
-                            <div class="abs up"><a href="#" class="AddLink" data-id="@item.GameId"><i class="fa fa-chevron-right"></i></a></div>
+                            <div class="abs up"><div class="AddLink" data-id="@item.GameId"><i class="fa fa-chevron-right"></i></div></div>
                         </div>
                         <div class="row price">
                             <div class="abs">$@item.Game.Price</div>
                         </div>
                         <div class="clear-float"></div>
+                    </div>
+                </div>
+            }
+            @if (Model.CartTotal == 0)
+            {
+                <div class="item">
+                    <div class="center info">
+                        <div>
+                            There are currently no items in your Cart.
+                            <br />
+                            Please visit our <a href="/Store">Product Catalog Page</a>.
+                        </div>
                     </div>
                 </div>
             }

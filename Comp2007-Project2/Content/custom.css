@@ -286,7 +286,7 @@
 #store-page .games .game .desc {
   padding: 0 10px;
 }
-#store-page .games .game .add-to-cart a {
+#store-page .games .game .add-to-cart .AddLink {
   position: relative;
   top: 2px;
   display: block;
@@ -296,6 +296,7 @@
   font-size: 12px;
   padding: 5px;
   margin: 0 auto;
+  cursor: pointer;
 }
 /***********************************									
 *	      Game Details Page 				
@@ -389,6 +390,13 @@
 }
 #cart-page .go-back .button a:hover {
   background: #505d86;
+}
+#cart-page #update-message {
+  float: left;
+  width: calc(100% - 142px - 142px);
+  text-align: center;
+  color: #629916;
+  padding: 5px 10px;
 }
 #cart-page .checkout {
   float: right;
@@ -532,6 +540,7 @@
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
+  cursor: pointer;
 }
 #cart-page .items .item .right .row .abs.down .fa:hover {
   color: #629916;
@@ -547,12 +556,10 @@
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
+  cursor: pointer;
 }
 #cart-page .items .item .right .row .abs.up .fa:hover {
   color: #629916;
-}
-#cart-page .items .item .right .row a {
-  color: #0f1f4d;
 }
 /***********************************									
 *	 Checkout Confirmation Page 				
@@ -621,9 +628,17 @@
     width: 33.33%;
     max-width: 122px;
   }
+  #cart-page #update-message {
+    /*position: absolute;
+            float: none;
+            width: 100%;
+            padding: 0;
+            top: -40px;*/
+  }
   #cart-page .checkout {
     width: 33.33%;
     border: none;
+    background: transparent;
   }
   #cart-page .items .item .center {
     width: 100%;
