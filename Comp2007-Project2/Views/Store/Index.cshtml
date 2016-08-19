@@ -9,7 +9,7 @@
     * Semester : 4
     * Professor : Tom Tsiliopolous
     * Purpose : Final Team Project - E-Commerce Store
-    * Website Name : EzGames2.azurewebsites.net/Store/Index
+    * Website Name : EzGames3.azurewebsites.net/Store/Index
     *
     * This is the Main Store Page for our E-Commerce Store. It lists all the games within
     * their appropriate categories (Platform).
@@ -35,7 +35,7 @@
             {
                 <div class="game @Platform.Name.ToLower().Replace(" ", "-")" id="game@(game.GameId)">
                     <div class="add-to-cart">
-                        <a href="#" class="AddLink" data-id="@game.GameId"><i class="fa fa-plus"> Add to Cart</i></a>
+                        <div class="AddLink" data-id="@game.GameId"><i class="fa fa-plus"> Add to Cart</i></div>
                     </div>
                     <a href="/Store/Details/@game.GameId">
                         <div class="image">
@@ -47,7 +47,7 @@
                             <img src="@game.ImageIconUrl" alt="@game.Name" title="@game.Name" />
                         </div>
                         <div class="name">@game.Name <span class="price">($@(game.Price))</span></div>
-                        <div class="desc">@game.Description</div>
+                        <div class="desc">@game.ShortDescription</div>
                     </a>
                 </div>
             }

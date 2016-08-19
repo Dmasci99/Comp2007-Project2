@@ -1,4 +1,20 @@
-﻿@model int
+﻿@*
+    /**
+    * Authors : Emma Hilborn (200282755),
+                Alex Friesen (200302342),
+                Dan Masci (200299037),
+                Karen Springford(200299681)
+    * Class : Enterprise Computing
+    * Semester : 4
+    * Professor : Tom Tsiliopolous
+    * Purpose : Final Team Project - E-Commerce Store
+    * Website Name : EzGames3.azurewebsites.net/Checkout/Complete
+    *
+    * This is the completed checkout/thank you page for our store - this page will be displayed after a succesful purchase has been made.
+    */
+*@
+
+@model int
 @{
     ViewBag.Title = "Thank You";
 }
@@ -7,6 +23,16 @@
     <div class="container">
         <!-- -->
         <p>Thanks for your order! Your order number is: @Model</p>
+        <p>
+            Any games that are currently released should be shipped within 3-5 business days.
+            Keep an eye on your inbox for an email with your tracking information so you can follow your game(s) to your door!
+        </p>
+        <p>
+            If you pre-ordered a game, expect an email within 3-5 days of the release date, letting you know it's been shipped out and it's on its way!
+        </p>
+        <p>
+            If you have a question or a concern, head over and @Html.ActionLink("contact us", "Contact", "Home")!
+        </p>
         <p>
             How about shopping for some more games in our @Html.ActionLink("store", "Index", "Store")?
         </p>

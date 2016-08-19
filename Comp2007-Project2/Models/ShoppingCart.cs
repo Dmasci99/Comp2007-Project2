@@ -1,4 +1,16 @@
-﻿using System;
+﻿//Authors : Emma Hilborn(200282755),
+//          Alex Friesen(200302342),
+//          Dan Masci(200299037),
+//          Karen Springford(200299681)
+
+//Class : Enterprise Computing
+//Semester : 4
+//Professor : Tom Tsiliopolous
+//Purpose : Final Team Project - E-Commerce Store
+//Website Name : EzGames3.azurewebsites.net
+//This is the model for our shopping cart-related pages/views & functions
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -32,9 +44,7 @@ namespace Comp2007_Project2.Models
             var cartItem = storeDB.Carts.SingleOrDefault(
                 c => c.OrderItemId == ShoppingCartId   
                 && c.GameId == game.GameId);
-
-            int itemCount = 0;
-
+            
             if (cartItem == null)
             {
                 // Create a new cart item if no cart item exists
@@ -50,13 +60,12 @@ namespace Comp2007_Project2.Models
             else
             {
                 // If the item does exist in the cart, 
-                // then add one to the quantity
+                // then add one to the quantity                
                 cartItem.Count++;
-                itemCount = cartItem.Count;
             }
             // Save changes
             storeDB.SaveChanges();
-            return itemCount;
+            return cartItem.Count;
         }
 
         public int RemoveFromCart(int id)

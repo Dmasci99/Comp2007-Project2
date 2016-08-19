@@ -1,4 +1,20 @@
-﻿@model Comp2007_Project2.Models.Order
+﻿@*
+    /**
+    * Authors : Emma Hilborn (200282755),
+                Alex Friesen (200302342),
+                Dan Masci (200299037),
+                Karen Springford(200299681)
+    * Class : Enterprise Computing
+    * Semester : 4
+    * Professor : Tom Tsiliopolous
+    * Purpose : Final Team Project - E-Commerce Store
+    * Website Name : EzGames3.azurewebsites.net/Checkout/AddressAndPayment
+    *
+    * This is the checkout page for our site, prompting users for their checkout information to process their order
+    */
+*@
+
+@model Comp2007_Project2.Models.Order
 
 @{
     ViewBag.Title = "Checkout";
@@ -14,6 +30,13 @@
 
             <div class="cancel">
                 <a href="/ShoppingCart"><i class="fa fa-times"></i></a>
+            </div>
+            <div class="text">
+                <p>
+                    All fields related to billing should be filled with your own information. If the game(s) are for you, please fill your address in 
+                    the shipping information. If the game(s) is/are a gift to someone else, please fill <i>their</i> information into the shipping information 
+                    if you want the game(s) delivered directly.
+                </p>
             </div>
             <div class="input-container">
                 @Html.LabelFor(m => m.FirstName, new { @class = "" })
