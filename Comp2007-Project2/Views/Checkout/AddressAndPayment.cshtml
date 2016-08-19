@@ -1,14 +1,15 @@
 ﻿@model Comp2007_Project2.Models.Order
 
-@{ 
+@{
     ViewBag.Title = "Checkout";
-    
+
 }
 
 <div class="interior-page forms-page" id="checkout-page">
     <div class="container">
         @using (Html.BeginForm())
         {
+            <!-- In here show the order summary and total cost with tax included-->
             <h2>Checkout</h2>
 
             <div class="cancel">
@@ -59,6 +60,11 @@
                 @Html.TextBoxFor(m => m.Email, new { @class = "" })
                 @Html.ValidationMessageFor(m => m.Email, "", new { @class = "message" })
             </div>
+            <!--
+                Add another set of input container for mock payment
+                Radio Button to choose VISA/MasterCard/AmericanExpress/DebitCredit 
+                Card Number, Expire Number, Name on Card, Security Code 
+                -->
             <p>
                 We're running a promotion: all Games are free
                 with the promo code: "FREE"
@@ -70,7 +76,7 @@
             </div>
             <div class="submit button">
                 <input type="submit" value="Submit Order" />
-            </div>            
+            </div>
         }
     </div>
 </div>
