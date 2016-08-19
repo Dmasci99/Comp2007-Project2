@@ -7,7 +7,7 @@
 //Semester : 4
 //Professor : Tom Tsiliopolous
 //Purpose : Final Team Project - E-Commerce Store
-//Website Name : EzGames3.azurewebsites.net/Menu
+//Website Name : EzGames3.azurewebsites.net
 //This is the page containing our store's sample data
 //their appropriate categories (Platform).
 //ALL IMAGES TAKEN FROM EBGAMES WEBSITE

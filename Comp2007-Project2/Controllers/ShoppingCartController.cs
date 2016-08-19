@@ -7,9 +7,9 @@
    * Semester : 4
    * Professor : Tom Tsiliopolous
    * Purpose : Final Team Project - E-Commerce Store
-   * Website Name : EzGames3.azurewebsites.net/Store
+   * Website Name : EzGames3.azurewebsites.net
    *
-   * This is the ShoppingCart Controller. 
+   * This is the ShoppingCart Controller that handles all functionality relating to the shopping cart
    * 
    */
 
