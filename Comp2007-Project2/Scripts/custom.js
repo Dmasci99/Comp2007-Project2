@@ -29,6 +29,24 @@ jQuery(document).ready(function ($) {
 	*       		   SHOPPING CART 
 	*************************************************/
     /***********************
+    *       DELETE
+    ***********************/
+    $(".DeleteLink").click(function () {
+        var gameToDelete = $(this).attr("data-id");
+        console.log(gameToDelete);
+        if (gameToDelete != '') {
+            // Perform the ajax post
+            $.post("/ShoppingCart/DeleteFromCart/" + gameToDelete,
+                function (data) {
+                    // Successful requests get here
+                    // Update the page elements
+                    $('#item-' + data.DeleteId).fadeOut('slow'); //Remove Item from frontend
+                    //Update Numeric Amounts
+                    updatePage(data);
+                });
+        }
+    });
+    /***********************
     *       REMOVE
     ***********************/
     $(".RemoveLink").click(function () {
@@ -65,7 +83,12 @@ jQuery(document).ready(function ($) {
                     $('.count-' + data.AddId).text(data.ItemCount); //Update frontend Item Count
                     //Update Numeric Amounts
                     updatePage(data);
-            });
+                });
+            console.log($(this));
+            console.log(this);
+            if ($(this).hasClass('href')) {
+                window.location.href = "/ShoppingCart";
+            }
         }
     });
     function updatePage(data) {

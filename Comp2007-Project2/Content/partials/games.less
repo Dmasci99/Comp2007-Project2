@@ -154,7 +154,7 @@
                     height: 260px;
                 }
             }
-            &.n3ds {                   
+            &.nintendo-3ds {                   
                 .add-to-cart {
                     top: 150px;
                 }
@@ -283,6 +283,9 @@
                     &:hover {
                         background: lighten(@blueGrey, 10%);
                     }
+                    .fa {
+                        padding-right: 5px;
+                    }
                 }
             }//.button
         }//.go-back
@@ -379,7 +382,9 @@
                     &:nth-child(3) {
                         border-bottom: none;
                     }
-                    .RemoveLink { 
+                    .RemoveLink, 
+                    .DeleteLink { 
+                        cursor: pointer;
                         .fa {
                             padding: 5px 40px;
                             .trans(all, 0.3s);

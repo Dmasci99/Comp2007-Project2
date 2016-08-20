@@ -320,10 +320,10 @@
 #store-page .games .game.ps4 .image {
   height: 260px;
 }
-#store-page .games .game.n3ds .add-to-cart {
+#store-page .games .game.nintendo-3ds .add-to-cart {
   top: 150px;
 }
-#store-page .games .game.n3ds .image {
+#store-page .games .game.nintendo-3ds .image {
   height: 190px;
 }
 #store-page .games .game .image .fa-share-square-o {
@@ -475,6 +475,9 @@
 #cart-page .heading .go-back .button a:hover {
   background: #505d86;
 }
+#cart-page .heading .go-back .button a .fa {
+  padding-right: 5px;
+}
 #cart-page .heading .checkout {
   float: right;
   width: 142px;
@@ -583,7 +586,12 @@
 #cart-page .items .item .right .row:nth-child(3) {
   border-bottom: none;
 }
-#cart-page .items .item .right .row .RemoveLink .fa {
+#cart-page .items .item .right .row .RemoveLink,
+#cart-page .items .item .right .row .DeleteLink {
+  cursor: pointer;
+}
+#cart-page .items .item .right .row .RemoveLink .fa,
+#cart-page .items .item .right .row .DeleteLink .fa {
   padding: 5px 40px;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -591,7 +599,8 @@
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-#cart-page .items .item .right .row .RemoveLink:hover {
+#cart-page .items .item .right .row .RemoveLink:hover,
+#cart-page .items .item .right .row .DeleteLink:hover {
   color: #a94931;
 }
 #cart-page .items .item .right .row .abs {

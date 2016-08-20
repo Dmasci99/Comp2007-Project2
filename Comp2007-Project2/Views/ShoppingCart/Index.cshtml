@@ -6,10 +6,10 @@
 
 <div class="interior-page" id="cart-page">
     <div class="container">
-        
+
         <div class="heading">
             <div class="go-back">
-                <div class="button"><a href="/Store"><i class="fa fa-arrow-circle-left"></i> Go Back</a></div>
+                <div class="button"><a href="/Store"><i class="fa fa-arrow-circle-left"></i> Store</a></div>
             </div>
             <div id="update-message"></div>
             <div class="checkout top">
@@ -25,7 +25,7 @@
         <div class="items">
             @foreach (var item in Model.CartItems)
             {
-                <div class="item" id="item-@item.RecordId">
+                <div class="item item-@item.GameId" id="item-@item.RecordId">
                     <div class="left">
 
                     </div>
@@ -35,9 +35,15 @@
                     </div>
                     <div class="right options">
                         <div class="row remove">
-                            <a href="#" class="RemoveLink" data-id="@item.RecordId">
+                            @*  Our Ajax for DeleteLink is giving a jquery 500 error. No idea why.
+                                Supposedly 500 error is server-side not client-side?
+                                <div class="DeleteLink" data-id="@item.GameId">
+                                    <div class="abs"><i class="fa fa-trash-o"></i></div>
+                                </div>
+                            *@
+                            <div class="RemoveLink" data-id="@item.RecordId">
                                 <div class="abs"><i class="fa fa-trash-o"></i></div>
-                            </a>
+                            </div>
                         </div>
                         <div class="row quantity">
                             <div class="abs down"><div class="RemoveLink" data-id="@item.RecordId"><i class="fa fa-chevron-left"></i></div></div>

@@ -58,7 +58,7 @@ namespace Comp2007_Project2.Controllers
             var results = new ShoppingCartAddViewModel
             {
                 Message = Server.HtmlEncode(addedGame.Name) +
-                    " has been added to your shopping cart.",
+                    " x1 has been added to your shopping cart.",
                 CartTotal = cart.GetTotal(),
                 CartCount = cart.GetCount(),
                 ItemCount = itemCount,
@@ -73,13 +73,13 @@ namespace Comp2007_Project2.Controllers
         [HttpPost]
         public ActionResult RemoveFromCart(int id)
         {
-            // Remove the item from the cart
+            // Grab the cart
             ShoppingCart cart = ShoppingCart.GetCart(this.HttpContext);
 
             // Get the name of the game to display confirmation
             string gameName = storeDB.Carts.Single(item => item.RecordId == id).Game.Name;
 
-            // Remove from cart
+            // Remove from cart - get new count
             int itemCount = cart.RemoveFromCart(id);
 
             // Display the confirmation message
@@ -92,6 +92,34 @@ namespace Comp2007_Project2.Controllers
                 ItemCount = itemCount,
                 DeleteId = id
             };
+            return Json(results);
+        }
+
+        //
+        // AJAX: /ShoppingCart/DeleteFromCart/5
+        [HttpPost]
+        public ActionResult DeleteFromCart(int gameId)
+        {
+            // Grab the cart
+            ShoppingCart cart = ShoppingCart.GetCart(this.HttpContext);
+
+            // Get the name of the game to display confirmation
+            string gameName = storeDB.Games.Single(game => game.GameId == gameId).Name;
+
+            //Delete game from Cart
+            cart.DeleteFromCart(gameId);
+
+            // Display the confirmation message
+            var results = new ShoppingCartRemoveViewModel
+            {
+                Message = Server.HtmlEncode(gameName) +
+                    " has been deleted from your shopping cart.",
+                CartTotal = cart.GetTotal(),
+                CartCount = cart.GetCount(),
+                ItemCount = 0,
+                DeleteId = gameId
+            };
+
             return Json(results);
         }
 

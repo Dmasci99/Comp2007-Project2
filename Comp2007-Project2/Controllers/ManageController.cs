@@ -68,7 +68,7 @@ namespace Comp2007_Project2.Controllers
         {
             return View();
         }
-
+        
         //
         // POST: /Manage/ChangePassword
         [HttpPost]
@@ -87,7 +87,7 @@ namespace Comp2007_Project2.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                return RedirectToAction("Index", "Home");
             }
             AddErrors(result);
             return View(model);

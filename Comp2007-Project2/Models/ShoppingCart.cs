@@ -38,6 +38,11 @@ namespace Comp2007_Project2.Models
             return GetCart(controller.HttpContext);
         }
 
+        /// <summary>
+        /// Increase a Game's quantity in the Shopping Cart by 1.
+        /// </summary>
+        /// <param name="game"></param>
+        /// <returns></returns>
         public int AddToCart(Game game)
         {
             // Get the matching cart and game instances
@@ -68,31 +73,61 @@ namespace Comp2007_Project2.Models
             return cartItem.Count;
         }
 
+        /// <summary>
+        /// Decrease a Game's quantity in the Shopping Cart by 1.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public int RemoveFromCart(int id)
         {
-            // Get the cart
+            // Get the cart Item by id
             var cartItem = storeDB.Carts.Single(
                 cart => cart.OrderItemId == ShoppingCartId
                 && cart.RecordId == id);
 
             int itemCount = 0;
-
             if (cartItem != null)
             {
                 if (cartItem.Count > 1)
                 {
                     cartItem.Count--;
                     itemCount = cartItem.Count;
-                }
+                }                    
                 else
                 {
                     storeDB.Carts.Remove(cartItem);
                 }
+
                 // Save changes
                 storeDB.SaveChanges();
             }
             return itemCount;
         }
+
+        /// <summary>
+        /// Delete a Game from the Shopping Cart.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public void DeleteFromCart(int gameId)
+        {
+            //Grab all cart items with the specific GameId.
+            var items = storeDB.Carts.Where(
+                cart => cart.GameId == gameId
+                );
+
+            //Remove all items of given game.
+            foreach (var item in items)
+            {
+                storeDB.Carts.Remove(item);
+            }
+            // Save changes
+            storeDB.SaveChanges();
+        }
+
+        /// <summary>
+        /// Empty the entire Cart.
+        /// </summary>
         public void EmptyCart()
         {
             var cartItems = storeDB.Carts.Where(
@@ -105,11 +140,21 @@ namespace Comp2007_Project2.Models
             // Save changes
             storeDB.SaveChanges();
         }
+
+        /// <summary>
+        /// Grab all items in the Cart.
+        /// </summary>
+        /// <returns></returns>
         public List<OrderItem> GetCartItems()
         {
             return storeDB.Carts.Where(
                 cart => cart.OrderItemId == ShoppingCartId).ToList();
         }
+
+        /// <summary>
+        /// Get the Cart's total count of items.
+        /// </summary>
+        /// <returns></returns>
         public int GetCount()
         {
             // Get the count of each item in the cart and sum them up
@@ -119,6 +164,11 @@ namespace Comp2007_Project2.Models
             // Return 0 if all entries are null
             return count ?? 0;
         }
+
+        /// <summary>
+        /// Get the Cart's total price.
+        /// </summary>
+        /// <returns></returns>
         public decimal GetTotal()
         {
             // Multiply game price by count of that game to get 
@@ -131,6 +181,12 @@ namespace Comp2007_Project2.Models
 
             return total ?? decimal.Zero;
         }
+
+        /// <summary>
+        /// Create OrderDetail, process Order and empty Cart.
+        /// </summary>
+        /// <param name="order"></param>
+        /// <returns></returns>
         public int CreateOrder(Order order)
         {
             decimal orderTotal = 0;
@@ -164,9 +220,15 @@ namespace Comp2007_Project2.Models
             // Return the OrderId as the confirmation number
             return order.OrderId;
         }
-        // We're using HttpContextBase to allow access to cookies.
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public string GetCartId(HttpContextBase context)
         {
+            // We're using HttpContextBase to allow access to cookies.
             if (context.Session[CartSessionKey] == null)
             {
                 if (!string.IsNullOrWhiteSpace(context.User.Identity.Name))
