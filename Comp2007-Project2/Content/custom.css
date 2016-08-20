@@ -639,6 +639,15 @@
   color: #629916;
 }
 /***********************************									
+*         Checkout Page 				
+***********************************/
+#checkout-page p {
+  text-align: center;
+}
+#checkout-page .message {
+  color: #c95f44;
+}
+/***********************************									
 *	 Checkout Confirmation Page 				
 ***********************************/
 #checkout-complete-page {

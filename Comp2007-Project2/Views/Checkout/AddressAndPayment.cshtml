@@ -31,13 +31,11 @@
             <div class="cancel">
                 <a href="/ShoppingCart"><i class="fa fa-times"></i></a>
             </div>
-            <div class="text">
-                <p>
-                    All fields related to billing should be filled with your own information. If the game(s) are for you, please fill your address in 
-                    the shipping information. If the game(s) is/are a gift to someone else, please fill <i>their</i> information into the shipping information 
-                    if you want the game(s) delivered directly.
-                </p>
-            </div>
+            <p>
+                All fields related to billing should be filled with your own information. If the game(s) are for you, please fill your address in 
+                the shipping information. If the game(s) is/are a gift to someone else, please fill <i>their</i> information into the shipping information 
+                if you want the game(s) delivered directly.
+            </p>
             <div class="input-container">
                 @Html.LabelFor(m => m.FirstName, new { @class = "" })
                 @Html.TextBoxFor(m => m.FirstName, new { @class = "" })
@@ -89,10 +87,16 @@
                 Card Number, Expire Number, Name on Card, Security Code 
                 -->
             <p>
+                <br/><br/>
                 We're running a promotion: all Games are free
                 with the promo code: "FREE"
                 *shhh don't tell your gamer friends or else we run out of business*
             </p>
+            <div class="checkbox">
+                <label><input type="radio" name="payment" value="visa"> Visa</label><br/>
+                <label><input type="radio" name="payment" value="mc"> MasterCard</label><br/>
+                <label><input type="radio" name="payment" value="ae"> American Express</label><br/>
+            </div>
             <div class="input-container">
                 @Html.Label("Promo Code")
                 @Html.TextBox("PromoCode")
