@@ -7,7 +7,7 @@
 //Semester : 4
 //Professor : Tom Tsiliopolous
 //Purpose : Final Team Project - E-Commerce Store
-//Website Name : EzGames3.azurewebsites.net
+//Website Name : ezgames.azurewebsites.net
 //This is the page containing the model for our "game" items
 
 using System;

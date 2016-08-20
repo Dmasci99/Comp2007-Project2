@@ -7,7 +7,7 @@
 //Semester : 4
 //Professor : Tom Tsiliopolous
 //Purpose : Final Team Project - E-Commerce Store
-//Website Name : EzGames3.azurewebsites.net
+//Website Name : ezgames.azurewebsites.net
 //This is the model for handling user identity
 
 using System.Data.Entity;
