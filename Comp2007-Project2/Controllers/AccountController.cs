@@ -7,7 +7,7 @@
 //Semester : 4
 //Professor : Tom Tsiliopolous
 //Purpose : Final Team Project - E-Commerce Store
-//Website Name : EzGames3.azurewebsites.net
+//Website Name : ezgames.azurewebsites.net
 //This is the controller for all items related to user accounts (e.g. registering, logging in, logging out, etc.)
 
 using System;

@@ -7,7 +7,7 @@
    * Semester : 4
    * Professor : Tom Tsiliopolous
    * Purpose : Final Team Project - E-Commerce Store
-   * Website Name : EzGames3.azurewebsites.net/Store
+   * Website Name : ezgames.azurewebsites.net/Store
    *
    * This is the Shopping Cart Remove. 
    * It removes the selected games from the cart.

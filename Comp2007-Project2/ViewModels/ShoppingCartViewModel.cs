@@ -7,7 +7,7 @@
    * Semester : 4
    * Professor : Tom Tsiliopolous
    * Purpose : Final Team Project - E-Commerce Store
-   * Website Name : EzGames3.azurewebsites.net/Store
+   * Website Name : ezgames.azurewebsites.net/Store
    *
    * This is the ShoppingCart View Page. It lists all the games within
    * their cart and the current total cost.
