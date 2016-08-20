@@ -86,7 +86,7 @@ namespace Comp2007_Project2.Controllers
             var results = new ShoppingCartRemoveViewModel
             {
                 Message = Server.HtmlEncode(gameName) +
-                    " has been removed from your shopping cart.",
+                    " x1 has been removed from your shopping cart.",
                 CartTotal = cart.GetTotal(),
                 CartCount = cart.GetCount(),
                 ItemCount = itemCount,

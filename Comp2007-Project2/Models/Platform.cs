@@ -21,8 +21,5 @@ namespace Comp2007_Project2.Models
     {
         public virtual int PlatformId { get; set; }
         public virtual string Name { get; set; }
-        public virtual string Description { get; set; }
-        public virtual string ImageFullUrl { get; set; }
-        public virtual string ImageIconUrl { get; set; }
     }
 }

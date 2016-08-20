@@ -19,6 +19,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Comp2007_Project2.Models;
+using System.Data.SqlClient;
 
 namespace Comp2007_Project2.Controllers
 {
@@ -29,7 +30,23 @@ namespace Comp2007_Project2.Controllers
         // GET: Store
         public ActionResult Index()
         {
-            List<Game> games = db.Games.ToList();
+            List<Game> games = null;
+            do
+            {
+                try
+                {
+                    games = db.Games.ToList();
+                }
+                catch (DataException)
+                {
+                    //Azure/Connection failure
+                }
+                catch (SqlException )
+                {
+                    //Timeout
+                }
+            } while (games == null);
+            
             return View(games);
         }
 

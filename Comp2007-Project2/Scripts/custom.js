@@ -29,7 +29,7 @@ jQuery(document).ready(function ($) {
 	*       		   SHOPPING CART 
 	*************************************************/
     /***********************
-    *       DELETE
+    *       REMOVE
     ***********************/
     $(".RemoveLink").click(function () {
         // Get the id from the link
@@ -62,8 +62,6 @@ jQuery(document).ready(function ($) {
                 function (data) {
                     // Successful requests get here
                     //Update the page elements
-                    console.log("ItemCount: " + data.ItemCount);
-                    console.log("AddId: " + data.AddId);
                     $('.count-' + data.AddId).text(data.ItemCount); //Update frontend Item Count
                     //Update Numeric Amounts
                     updatePage(data);
@@ -76,6 +74,17 @@ jQuery(document).ready(function ($) {
         $('.total').text((data.CartTotal * 1.15).toFixed(2));
         $('#update-message').html(data.Message);
     };
+    /***********************
+    * PRODUCT CATALOG PAGE
+    ***********************/
+    if ($('#store-page').length > 0) {
+        $('.AddLink').click(function () {
+            var target = $(this).parent().find('.quantity');
+            var count = target.text();
+            target.text(++count);
+            target.addClass("active");
+        });
+    }
 
     /*************************************************
 	*					ROTATOR

@@ -25,7 +25,7 @@
 <div class="interior-page store-page" id="details-page">
     <div class="container">
         <div class="button"><a href="/Store#game@(Model.GameId)"><i class="fa fa-arrow-circle-left"></i> Go Back</a></div>
-        <div class="button">@Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = Model.GameId }, "")</div>
+        <div class="button"><div class="AddLink" data-id="@Model.GameId">Add to Cart</i></div></div>
         <div class="right">
             <div class="info">
                 <div class="name">@Model.Name</div>
@@ -33,7 +33,7 @@
                 <div class="desc">@Model.FullDescription</div>
                 <div class="rating"><b>Rating:</b> @Model.Rating</div>
                 <div class="platform"><b>Platform:</b> @Model.Platform.Name</div>
-                <div class="release"><b>Release Date:</b> @Model.ReleaseDate</div>
+                <div class="release"><b>Release Date:</b> @Model.ReleaseDate.ToString("ddd MMM d, yyyy")</div>
             </div>
         </div>
         <div class="left">
