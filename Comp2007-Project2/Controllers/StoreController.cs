@@ -1,4 +1,16 @@
-﻿using System;
+﻿//Authors : Emma Hilborn(200282755),
+//          Alex Friesen(200302342),
+//          Dan Masci(200299037),
+//          Karen Springford(200299681)
+
+//Class : Enterprise Computing
+//Semester : 4
+//Professor : Tom Tsiliopolous
+//Purpose : Final Team Project - E-Commerce Store
+//Website Name : ezgames.azurewebsites.net/Store
+//This is the controller for our store page
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -7,6 +19,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Comp2007_Project2.Models;
+using System.Data.SqlClient;
 
 namespace Comp2007_Project2.Controllers
 {
@@ -17,7 +30,23 @@ namespace Comp2007_Project2.Controllers
         // GET: Store
         public ActionResult Index()
         {
-            List<Game> games = db.Games.ToList();
+            List<Game> games = null;
+            do
+            {
+                try
+                {
+                    games = db.Games.ToList();
+                }
+                catch (DataException)
+                {
+                    //Azure/Connection failure
+                }
+                catch (SqlException )
+                {
+                    //Timeout
+                }
+            } while (games == null);
+            
             return View(games);
         }
 

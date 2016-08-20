@@ -1,4 +1,16 @@
-﻿using System;
+﻿//Authors : Emma Hilborn(200282755),
+//          Alex Friesen(200302342),
+//          Dan Masci(200299037),
+//          Karen Springford(200299681)
+
+//Class : Enterprise Computing
+//Semester : 4
+//Professor : Tom Tsiliopolous
+//Purpose : Final Team Project - E-Commerce Store
+//Website Name : ezgames.azurewebsites.net
+//This is the controller for our "checkout" items (shopping cart & payment processing)
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -42,11 +54,10 @@ namespace Comp2007_Project2.Controllers
                     storeDB.Orders.Add(order);
                     storeDB.SaveChanges();
                     //Process the order - for Part 3
-                    //var cart = ShoppingCart.GetCart(this.HttpContext);
-                    //cart.CreateOrder(order);
+                    var cart = ShoppingCart.GetCart(this.HttpContext);
+                    cart.CreateOrder(order);
 
-                    return RedirectToAction("Complete",
-                        new { id = order.OrderId });
+                    return RedirectToAction("Complete", new { id = order.OrderId });
                 }
             }
             catch (System.Data.Entity.Core.UpdateException e)

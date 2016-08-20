@@ -7,7 +7,7 @@
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : EzGames2.azurewebsites.net 
+* Website Name : ezgames.azurewebsites.net 
 */
 /**
 * The follwing stylesheet is the "MASTER". It is a Less file that gets auto-compiled into
@@ -149,12 +149,13 @@
 /**
 * Authors : Emma Hilborn (200282755),
             Alex Friesen (200302342),
-            Dan Masci (200299037)
+            Dan Masci (200299037),
+            Karen Springford(200299681)
 * Class : Enterprise Computing
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : EzGames2.azurewebsites.net
+* Website Name : ezgames.azurewebsites.net
 *
 * This is a partial LESS file that has all styles that are
 * to do with the Store and Detail pages (includes responsive).
@@ -188,6 +189,7 @@
   text-align: center;
   background: #3d4766;
   padding: 2px 6px;
+  border: 1px solid #d4cde5;
 }
 /***********************************									
 *	       Game List Page 				
@@ -241,7 +243,7 @@
 #store-page .games .group a {
   color: #0f1f4d;
 }
-#store-page .games .group a:hover .image .fa {
+#store-page .games .group a:hover .image .fa-share-square-o {
   font-size: 22px;
   opacity: 1;
   visibility: visible;
@@ -253,7 +255,78 @@
   margin: 20px 1%;
   vertical-align: top;
 }
-#store-page .games .game .image .fa {
+#store-page .games .game .add-to-cart {
+  position: absolute;
+  left: 50%;
+  z-index: 1000;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+#store-page .games .game .add-to-cart .quantity,
+#store-page .games .game .add-to-cart .AddLink,
+#store-page .games .game .add-to-cart .cart {
+  display: inline-block;
+  color: #d4cde5;
+  font-size: 12px;
+  text-align: center;
+  background: #3d4766;
+  border: 2px solid #d4cde5;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  padding: 5px 10px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+#store-page .games .game .add-to-cart .quantity {
+  color: #629916;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#store-page .games .game .add-to-cart .quantity.active {
+  visibility: visible;
+  opacity: 1;
+  position: relative;
+}
+#store-page .games .game .add-to-cart .AddLink:hover,
+#store-page .games .game .add-to-cart .cart:hover {
+  color: #ffffff;
+  background: #0f1f4d;
+}
+#store-page .games .game.xbox-one .add-to-cart {
+  top: 220px;
+}
+#store-page .games .game.xbox-one .image {
+  height: 260px;
+}
+#store-page .games .game.ps4 .add-to-cart {
+  top: 220px;
+}
+#store-page .games .game.ps4 .image {
+  height: 260px;
+}
+#store-page .games .game.nintendo-3ds .add-to-cart {
+  top: 150px;
+}
+#store-page .games .game.nintendo-3ds .image {
+  height: 190px;
+}
+#store-page .games .game .image .fa-share-square-o {
   opacity: 0;
   visibility: hidden;
   position: absolute;
@@ -272,6 +345,9 @@
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
+#store-page .games .game .image img {
+  height: 100%;
+}
 #store-page .games .game .name {
   font-weight: bold;
   font-variant: small-caps;
@@ -285,17 +361,6 @@
 #store-page .games .game .desc {
   padding: 0 10px;
 }
-#store-page .games .game .add-to-cart a {
-  position: relative;
-  top: 2px;
-  display: block;
-  width: 203px;
-  color: #d4cde5;
-  background: #3d4766;
-  font-size: 12px;
-  padding: 5px;
-  margin: 0 auto;
-}
 /***********************************									
 *	      Game Details Page 				
 ***********************************/
@@ -307,7 +372,9 @@
   display: block;
   margin-bottom: 20px;
 }
-#details-page .button a {
+#details-page .button a,
+#details-page .button div {
+  display: inline-block;
   font-size: 12px;
   color: #ffffff;
   padding: 5px 10px;
@@ -322,8 +389,10 @@
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
+  cursor: pointer;
 }
-#details-page .button a:hover {
+#details-page .button a:hover,
+#details-page .button div:hover {
   background: #505d86;
 }
 #details-page .right {
@@ -361,16 +430,33 @@
 /***********************************									
 *	      Cart Summary Page 				
 ***********************************/
-#cart-page .go-back {
+#cart-page .heading {
+  position: relative;
+}
+#cart-page .heading #update-message {
+  position: absolute;
+  top: calc(50% + 15px);
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: calc(100% - 142px);
+  text-align: center;
+  color: #629916;
+  padding: 5px 20px;
+}
+#cart-page .heading .go-back {
   float: left;
-  width: 122px;
+  width: 142px;
   margin-top: 5px;
 }
-#cart-page .go-back .button {
+#cart-page .heading .go-back .button {
   text-align: center;
   display: block;
 }
-#cart-page .go-back .button a {
+#cart-page .heading .go-back .button a {
   font-size: 12px;
   color: #ffffff;
   padding: 5px 10px;
@@ -386,32 +472,60 @@
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-#cart-page .go-back .button a:hover {
+#cart-page .heading .go-back .button a:hover {
   background: #505d86;
 }
-#cart-page .checkout {
+#cart-page .heading .go-back .button a .fa {
+  padding-right: 5px;
+}
+#cart-page .heading .checkout {
   float: right;
-  width: 122px;
+  width: 142px;
   text-align: center;
   border: 2px solid #0f1f4d;
   border-left-width: 1px;
+  background: #ffffff;
 }
-#cart-page .checkout.top {
+#cart-page .heading .checkout.top {
   border-bottom: none;
 }
-#cart-page .checkout.bottom {
+#cart-page .heading .checkout.bottom {
   border-top: none;
 }
-#cart-page .checkout > div {
+#cart-page .heading .checkout > div {
   display: block;
   margin: 5px 0;
 }
-#cart-page .checkout .button {
+#cart-page .heading .checkout .tax {
+  position: relative;
+}
+#cart-page .heading .checkout .tax::before {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+#cart-page .heading .checkout .tax::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 5%;
+  width: 90%;
+  border-bottom: 1px solid #0f1f4d;
+  padding-bottom: 2px;
+  margin-bottom: 2px;
+}
+#cart-page .heading .checkout .button {
   text-align: center;
   display: block;
   margin-bottom: 10px;
 }
-#cart-page .checkout .button a {
+#cart-page .heading .checkout .button a {
   font-size: 12px;
   color: #ffffff;
   padding: 5px 10px;
@@ -427,8 +541,11 @@
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-#cart-page .checkout .button a:hover {
+#cart-page .heading .checkout .button a:hover {
   background: #505d86;
+}
+#cart-page .items {
+  background: #ffffff;
 }
 #cart-page .items .item {
   position: relative;
@@ -442,7 +559,7 @@
 }
 #cart-page .items .item .center {
   text-align: center;
-  width: calc(100% - 120px);
+  width: calc(100% - 140px);
   padding: 10px 20px;
 }
 #cart-page .items .item .center .name {
@@ -457,7 +574,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 120px;
+  width: 140px;
   border-left: 1px solid #0f1f4d;
   height: 100%;
 }
@@ -469,7 +586,24 @@
 #cart-page .items .item .right .row:nth-child(3) {
   border-bottom: none;
 }
-#cart-page .items .item .right .row span {
+#cart-page .items .item .right .row .RemoveLink,
+#cart-page .items .item .right .row .DeleteLink {
+  cursor: pointer;
+}
+#cart-page .items .item .right .row .RemoveLink .fa,
+#cart-page .items .item .right .row .DeleteLink .fa {
+  padding: 5px 40px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#cart-page .items .item .right .row .RemoveLink:hover,
+#cart-page .items .item .right .row .DeleteLink:hover {
+  color: #a94931;
+}
+#cart-page .items .item .right .row .abs {
   display: block;
   position: absolute;
   top: 50%;
@@ -479,6 +613,48 @@
   -ms-transform: translateX(-50%) translateY(-50%);
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
+  vertical-align: middle;
+}
+#cart-page .items .item .right .row .abs.down {
+  left: 25%;
+}
+#cart-page .items .item .right .row .abs.down .fa {
+  font-size: 12px;
+  padding: 5px 20px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+#cart-page .items .item .right .row .abs.down .fa:hover {
+  color: #629916;
+}
+#cart-page .items .item .right .row .abs.up {
+  left: 75%;
+}
+#cart-page .items .item .right .row .abs.up .fa {
+  font-size: 12px;
+  padding: 5px 20px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+#cart-page .items .item .right .row .abs.up .fa:hover {
+  color: #629916;
+}
+/***********************************									
+*         Checkout Page 				
+***********************************/
+#checkout-page p {
+  text-align: center;
+}
+#checkout-page .message {
+  color: #c95f44;
 }
 /***********************************									
 *	 Checkout Confirmation Page 				
@@ -540,13 +716,25 @@
   /***********************************									
     *	      Cart Summary Page 				
     ***********************************/
-  #cart-page .go-back {
+  #cart-page {
+    color: #0f1f4d;
+  }
+  #cart-page .heading {
+    margin-top: 20px;
+  }
+  #cart-page .heading .go-back {
     width: 33.33%;
     max-width: 122px;
   }
-  #cart-page .checkout {
+  #cart-page .heading #update-message {
+    position: absolute;
+    top: -35px;
+    width: 100%;
+  }
+  #cart-page .heading .checkout {
     width: 33.33%;
     border: none;
+    background: transparent;
   }
   #cart-page .items .item .center {
     width: 100%;
@@ -571,7 +759,10 @@
   #cart-page .items .item .right .row:nth-child(3) {
     border-right: none;
   }
-  #cart-page .items .item .right .row span {
+  #cart-page .items .item .right .row .RemoveLink .fa {
+    padding: 0;
+  }
+  #cart-page .items .item .right .row .abs {
     position: relative;
     top: 0;
     left: 0;
@@ -580,6 +771,34 @@
     -ms-transform: translateX(0) translateY(0);
     -o-transform: translateX(0) translateY(0);
     transform: translateX(0) translateY(0);
+  }
+  #cart-page .items .item .right .row .abs.down {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 25px);
+    z-index: 100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+  #cart-page .items .item .right .row .abs.down .fa {
+    padding: 5px 10px;
+  }
+  #cart-page .items .item .right .row .abs.up {
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 25px);
+    z-index: 100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+  #cart-page .items .item .right .row .abs.up .fa {
+    padding: 5px 10px;
   }
 }
 /****************************************************************************************************
@@ -1956,12 +2175,13 @@ footer .copyright p {
 /**
 * Authors : Emma Hilborn (200282755),
             Alex Friesen (200302342),
-            Dan Masci (200299037)
+            Dan Masci (200299037),
+            Karen Springford(200299681)
 * Class : Enterprise Computing
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : EzGames2.azurewebsites.net
+* Website Name : ezgames.azurewebsites.net
 */
 /**
 * The follwing stylesheet is imported into style.less. This is used specifically for responsive

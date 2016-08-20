@@ -7,49 +7,74 @@
 <div class="interior-page" id="cart-page">
     <div class="container">
 
-        <div id="update-message"></div>
-
         <div class="heading">
             <div class="go-back">
-                <div class="button"><a href="/Store"><i class="fa fa-arrow-circle-left"></i> Go Back</a></div>
+                <div class="button"><a href="/Store"><i class="fa fa-arrow-circle-left"></i> Store</a></div>
             </div>
+            <div id="update-message"></div>
             <div class="checkout top">
                 <div class="button">
                     @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout")
                 </div>
-                <div class="total"><b>$@Model.CartTotal</b></div>
+                <div class="subtotal">$@Model.CartTotal</div>
+                <div class="tax">$@(Math.Round(Model.CartTotal * 0.15M, 2))</div>
+                <div class="total"><b>$@(Math.Round(Model.CartTotal * 1.15M, 2))</b></div>
             </div>
             <div class="clear-float"></div>
         </div>
         <div class="items">
             @foreach (var item in Model.CartItems)
             {
-                <div class="item">
+                <div class="item item-@item.GameId" id="item-@item.RecordId">
                     <div class="left">
 
                     </div>
                     <div class="center info">
                         <div class="name">@item.Game.Name</div>
-                        <div class="desc">@item.Game.Description</div>
+                        <div class="desc">@item.Game.ShortDescription</div>
                     </div>
                     <div class="right options">
-                        <div class="row remove">                            
-                            <span><a href="#" class="RemoveLink" data-id="@item.RecordId"><i class="fa fa-trash-o"></i></a></span>
+                        <div class="row remove">
+                            @*  Our Ajax for DeleteLink is giving a jquery 500 error. No idea why.
+                                Supposedly 500 error is server-side not client-side?
+                                <div class="DeleteLink" data-id="@item.GameId">
+                                    <div class="abs"><i class="fa fa-trash-o"></i></div>
+                                </div>
+                            *@
+                            <div class="RemoveLink" data-id="@item.RecordId">
+                                <div class="abs"><i class="fa fa-trash-o"></i></div>
+                            </div>
                         </div>
                         <div class="row quantity">
-                            <span>@item.Count</span>
+                            <div class="abs down"><div class="RemoveLink" data-id="@item.RecordId"><i class="fa fa-chevron-left"></i></div></div>
+                            <div class="abs count-@item.GameId" id="count-@item.RecordId">@item.Count</div>
+                            <div class="abs up"><div class="AddLink" data-id="@item.GameId"><i class="fa fa-chevron-right"></i></div></div>
                         </div>
                         <div class="row price">
-                            <span>$@item.Game.Price</span>
+                            <div class="abs">$@item.Game.Price</div>
                         </div>
                         <div class="clear-float"></div>
                     </div>
                 </div>
             }
+            @if (Model.CartTotal == 0)
+            {
+                <div class="item">
+                    <div class="center info">
+                        <div>
+                            There are currently no items in your Cart.
+                            <br />
+                            Please visit our <a href="/Store">Product Catalog Page</a>.
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
-        <div class="footing">
+        <div class="heading">
             <div class="checkout bottom">
-                <div class="total"><b>$@Model.CartTotal</b></div>
+                <div class="subtotal">$@Model.CartTotal</div>
+                <div class="tax">$@(Math.Round(Model.CartTotal * 0.15M, 2))</div>
+                <div class="total"><b>$@(Math.Round(Model.CartTotal * 1.15M, 2))</b></div>
                 <div class="button">
                     @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout")
                 </div>

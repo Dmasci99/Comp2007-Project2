@@ -1,4 +1,16 @@
-﻿using System;
+﻿//Authors : Emma Hilborn(200282755),
+//          Alex Friesen(200302342),
+//          Dan Masci(200299037),
+//          Karen Springford(200299681)
+
+//Class : Enterprise Computing
+//Semester : 4
+//Professor : Tom Tsiliopolous
+//Purpose : Final Team Project - E-Commerce Store
+//Website Name : ezgames.azurewebsites.net
+//This is the controller for handling account management (e.g. password changes)
+
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -56,7 +68,7 @@ namespace Comp2007_Project2.Controllers
         {
             return View();
         }
-
+        
         //
         // POST: /Manage/ChangePassword
         [HttpPost]
@@ -75,7 +87,7 @@ namespace Comp2007_Project2.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                return RedirectToAction("Index", "Home");
             }
             AddErrors(result);
             return View(model);

@@ -7,7 +7,7 @@
 * Semester : 4
 * Professor : Tom Tsiliopolous
 * Purpose : Final Team Project - E-Commerce Store
-* Website Name : EzGames2.azurewebsites.net
+* Website Name : ezgames.azurewebsites.net
 *
 * This is a partial LESS file that has all styles that are
 * to do with the Store and Detail pages (includes responsive).
@@ -38,6 +38,7 @@
             text-align: center;
             background: @blueGrey;
             padding: 2px 6px;
+            border: 1px solid @silver;
         }
     }//.image
 }//.store-page
@@ -83,7 +84,7 @@
                 color: @darkerBlue;
                 &:hover {
                     .image {
-                        .fa {
+                        .fa-share-square-o {
                             font-size: 22px;
                             opacity: 1;
                             visibility: visible;
@@ -98,8 +99,71 @@
             width: 30%;
             margin: 20px 1%;
             vertical-align: top;
+            .add-to-cart {
+                position: absolute;
+                left: 50%;
+                z-index: 1000;
+                .translateX;
+                .quantity,
+                .AddLink,
+                .cart {
+                    display: inline-block;
+                    color: @silver;
+                    font-size: 12px;
+                    text-align: center;
+                    background: @blueGrey;
+                    border: 2px solid @silver;
+                    .round(2px);
+                    padding: 5px 10px;
+                    .trans(all,0.3s);
+                    cursor: pointer;
+                }//.quantity & .AddLink
+                .quantity {
+                    color: @green;
+                    visibility: hidden;
+                    opacity: 0;
+                    position: absolute;
+                    .trans(all,0.3s);
+                    &.active {
+                        visibility: visible;
+                        opacity: 1;
+                        position: relative;
+                    }
+                }
+                .AddLink,
+                .cart {
+                    &:hover {
+                        color: @white;
+                        background: @darkerBlue;
+                    }
+                }
+            }//.add-to-cart
+            &.xbox-one {
+                .add-to-cart {
+                    top: 220px;
+                }
+                .image {                
+                    height: 260px;
+                }
+            }
+            &.ps4 {     
+                .add-to-cart {
+                    top: 220px;
+                }
+                .image {                
+                    height: 260px;
+                }
+            }
+            &.nintendo-3ds {                   
+                .add-to-cart {
+                    top: 150px;
+                }
+                .image {                
+                    height: 190px;
+                }
+            }
             .image {
-                .fa {
+                .fa-share-square-o {
                     opacity: 0;
                     visibility: hidden;
                     position: absolute;
@@ -109,6 +173,9 @@
                     color: @silver;
                     font-size: 2px;
                     .trans(all,0.3s);
+                }
+                img {
+                    height: 100%;
                 }
             }//.image
             .name {
@@ -124,17 +191,6 @@
             .desc {
                 padding: 0 10px;
             }//.desc
-            .add-to-cart a {
-                position: relative;
-                top: 2px;
-                display: block;
-                width: 203px;
-                color: @silver;
-                background: @blueGrey;
-                font-size: 12px;
-                padding: 5px;
-                margin: 0 auto;
-            }//.add-to-cart
         }//.game
     }//.games
 }//#store-page
@@ -147,13 +203,15 @@
         text-align: center;
         display: block;
         margin-bottom: 20px;
-        a {
+        a, div {
+            display: inline-block;
             font-size: 12px;
             color: @white;
             padding: 5px 10px;
             background: @blueGrey;
             .round(3px);
             .trans(all,0.3s);
+            cursor: pointer;
             &:hover {
                 background: lighten(@blueGrey, 10%);
             }
@@ -196,60 +254,98 @@
 *	      Cart Summary Page 				
 ***********************************/
 #cart-page {
-    .go-back {       
-        float: left; 
-        width: 122px;
-        margin-top: 5px;
-        .button {
+    .heading {
+        position: relative;
+        #update-message {
+            position: absolute;
+            top: calc(~"50% + 15px");
+            left: 0;
+            .translateY;
+            width: calc(~"100% - 142px");
             text-align: center;
-            display: block;
-            a {
-                font-size: 12px;
-                color: @white;
-                padding: 5px 10px;
-                background: @blueGrey;
-                .round(3px);
-                .trans(all,0.3s);
-                &:hover {
-                    background: lighten(@blueGrey, 10%);
+            color: @green;
+            padding: 5px 20px;
+        }//#update-message
+        .go-back {       
+            float: left; 
+            width: 142px;
+            margin-top: 5px;
+            .button {
+                text-align: center;
+                display: block;
+                a {
+                    font-size: 12px;
+                    color: @white;
+                    padding: 5px 10px;
+                    background: @blueGrey;
+                    .round(3px);
+                    .trans(all,0.3s);
+                    &:hover {
+                        background: lighten(@blueGrey, 10%);
+                    }
+                    .fa {
+                        padding-right: 5px;
+                    }
                 }
-            }
-        }//.button
-    }//.go-back
-    .checkout {
-        float: right;
-        width: 122px;
-        text-align: center;
-        border: 2px solid @darkerBlue;
-        border-left-width: 1px;
-        &.top {            
-            border-bottom: none;
-        }
-        &.bottom {
-            border-top: none;
-        }
-        > div {
-            display: block;
-            margin: 5px 0;
-        }
-        .button {
+            }//.button
+        }//.go-back
+        .checkout {
+            float: right;
+            width: 142px;
             text-align: center;
-            display: block;
-            margin-bottom: 10px;
-            a {
-                font-size: 12px;
-                color: @white;
-                padding: 5px 10px;
-                background: @blueGrey;
-                .round(3px);
-                .trans(all,0.3s);
-                &:hover {
-                    background: lighten(@blueGrey, 10%);
-                }
+            border: 2px solid @darkerBlue;
+            border-left-width: 1px;
+            background: @white;
+            &.top {            
+                border-bottom: none;
             }
-        }//.button
-    }//.checkout
+            &.bottom {
+                border-top: none;
+            }
+            > div {
+                display: block;
+                margin: 5px 0;
+            }
+            .tax {
+                position: relative;
+                &::before {
+                    content: "+";
+                    position: absolute;
+                    top: 50%;
+                    left: 5px;
+                    .translateY;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 5%;
+                    width: 90%;    
+                    border-bottom: 1px solid @darkerBlue;
+                    padding-bottom: 2px;
+                    margin-bottom: 2px;
+                }
+            }//.tax
+            .button {
+                text-align: center;
+                display: block;
+                margin-bottom: 10px;
+                a {
+                    font-size: 12px;
+                    color: @white;
+                    padding: 5px 10px;
+                    background: @blueGrey;
+                    .round(3px);
+                    .trans(all,0.3s);
+                    &:hover {
+                        background: lighten(@blueGrey, 10%);
+                    }
+                }
+            }//.button
+        }//.checkout
+    }    
     .items {
+        background: @white;
         .item {
             position: relative;
             border: 2px solid @darkerBlue;
@@ -261,7 +357,7 @@
             }//.left
             .center {
                 text-align: center;
-                width: calc(~"100% - 120px");
+                width: calc(~"100% - 140px");
                 padding: 10px 20px;
                 .name {
                     font-size: 22px;
@@ -276,7 +372,7 @@
                 position: absolute;
                 top: 0;
                 right: 0;
-                width: 120px;
+                width: 140px;
                 border-left: 1px solid @darkerBlue;
                 height: 100%;
                 .row {
@@ -286,24 +382,71 @@
                     &:nth-child(3) {
                         border-bottom: none;
                     }
-                    span {
+                    .RemoveLink, 
+                    .DeleteLink { 
+                        cursor: pointer;
+                        .fa {
+                            padding: 5px 40px;
+                            .trans(all, 0.3s);
+                        }
+                        &:hover {
+                            color: lighten(@red, 20%);
+                        } 
+                    }//.RemoveLink
+                    .abs {
                         display: block;
                         position: absolute;
                         top: 50%;
                         left: 50%;
                         .translateBoth;
-                    }
-                }
+                        vertical-align: middle;
+                        &.down {
+                            left: 25%;
+                            .fa {
+                                font-size: 12px;
+                                padding: 5px 20px;
+                                .trans(all, 0.3s);
+                                cursor: pointer;
+                                &:hover {
+                                    color: @green;
+                                }
+                            }
+                        }
+                        &.up {
+                            left: 75%;
+                            .fa {
+                                font-size: 12px;
+                                padding: 5px 20px;
+                                .trans(all, 0.3s);
+                                cursor: pointer;
+                                &:hover {
+                                    color: @green;
+                                }
+                            }                            
+                        }
+                    }//.abs
+                }//.row
             }//.right
         }//.item
     }//.items
 }//#cart-page
 /***********************************									
+*         Checkout Page 				
+***********************************/
+#checkout-page {
+    p {
+        text-align: center;    
+    }
+    .message {
+        color: lighten(@red, 30%);
+    }
+}//#checkout-page
+/***********************************									
 *	 Checkout Confirmation Page 				
 ***********************************/
 #checkout-complete-page {
     text-align: center;
-}
+}//#checkout-complete-page
 
 /********************************************************
 *														*
@@ -366,14 +509,24 @@
     *	      Cart Summary Page 				
     ***********************************/
     #cart-page {
-        .go-back {
-            width: 33.33%;
-            max-width: 122px;
-        }//.go-back
-        .checkout {
-            width: 33.33%;
-            border: none;
-        }//.checkout
+        color: @darkerBlue;
+        .heading {
+            margin-top: 20px;
+            .go-back {
+                width: 33.33%;
+                max-width: 122px;
+            }//.go-back
+            #update-message {
+                position: absolute;
+                top: -35px;
+                width: 100%;
+            }//#update-message
+            .checkout {
+                width: 33.33%;
+                border: none;
+                background: transparent;
+            }//.checkout
+        }        
         .items {
             .item {
                 .center {
@@ -397,11 +550,36 @@
                         &:nth-child(3) {
                             border-right: none;
                         }
-                        span {
+                        .RemoveLink {
+                            .fa {
+                                padding: 0;
+                            }
+                        }
+                        .abs {
                             position: relative;
                             top: 0;
                             left: 0;
-                            .translateBoth(0, 0);
+                            .translateBoth(0, 0);                            
+                            &.down {
+                                position: absolute;
+                                top: 50%;
+                                left: calc(~"50% - 25px");
+                                z-index: 100;
+                                .translateBoth;
+                                .fa {
+                                    padding: 5px 10px;
+                                }
+                            }
+                            &.up {
+                                position: absolute;
+                                top: 50%;
+                                left: calc(~"50% + 25px");
+                                z-index: 100;
+                                .translateBoth;
+                                .fa {
+                                    padding: 5px 10px;
+                                }                            
+                            }
                         }
                     }
                 }//.right

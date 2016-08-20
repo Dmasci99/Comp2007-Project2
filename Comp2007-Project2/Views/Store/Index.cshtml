@@ -9,7 +9,7 @@
     * Semester : 4
     * Professor : Tom Tsiliopolous
     * Purpose : Final Team Project - E-Commerce Store
-    * Website Name : EzGames2.azurewebsites.net/Store/Index
+    * Website Name : ezgames.azurewebsites.net/Store/Index
     *
     * This is the Main Store Page for our E-Commerce Store. It lists all the games within
     * their appropriate categories (Platform).
@@ -35,7 +35,9 @@
             {
                 <div class="game @Platform.Name.ToLower().Replace(" ", "-")" id="game@(game.GameId)">
                     <div class="add-to-cart">
-                        <a href="/ShoppingCart/AddToCart/@game.GameId"><i class="fa fa-plus"> Add to Cart</i></a>
+                        <div class="quantity">0</div>
+                        <div class="AddLink" data-id="@game.GameId"><i class="fa fa-plus-circle"></i></div>
+                        <a href="/ShoppingCart" class="cart"><i class="fa fa-shopping-cart"></i></a>
                     </div>
                     <a href="/Store/Details/@game.GameId">
                         <div class="image">
@@ -47,7 +49,7 @@
                             <img src="@game.ImageIconUrl" alt="@game.Name" title="@game.Name" />
                         </div>
                         <div class="name">@game.Name <span class="price">($@(game.Price))</span></div>
-                        <div class="desc">@game.Description</div>
+                        <div class="desc">@game.ShortDescription</div>
                     </a>
                 </div>
             }
@@ -56,17 +58,12 @@
 }
 <div class="interior-page store-page" id="store-page">
     <div class="games">
-        <!-- Manually determine order of games -->
-        @*
-            @printItems(platforms.Single(p => p.Name == "XBox One"))
-            @printItems(platforms.Single(p => p.Name == "PS4"))
-            @printItems(platforms.Single(p => p.Name == "3DS"))
-        *@
 
         <!-- DB determines order of games -->
         @foreach (var type in platforms)
         {
             @printItems(type);
         }
+
     </div><!-- games -->
 </div><!-- interior-page -->

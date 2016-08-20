@@ -7,9 +7,9 @@
    * Semester : 4
    * Professor : Tom Tsiliopolous
    * Purpose : Final Team Project - E-Commerce Store
-   * Website Name : EzGames2.azurewebsites.net/Store
+   * Website Name : ezgames.azurewebsites.net
    *
-   * This is the ShoppingCart Controller. 
+   * This is the ShoppingCart Controller that handles all functionality relating to the shopping cart
    * 
    */
 
@@ -43,20 +43,29 @@ namespace Comp2007_Project2.Controllers
         }
 
         //
-        // GET: /Store/AddToCart/5
+        // AJAX: /ShoppingCart/AddToCart/5
+        [HttpPost]
         public ActionResult AddToCart(int id)
         {
-            // Retrieve the album from the database
-            var addedGame = storeDB.Games
-                .Single(game => game.GameId == id);
-
-            // Add it to the shopping cart
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
-            cart.AddToCart(addedGame);
+            // Retrieve the item from the database
+            Game addedGame = storeDB.Games.Single(game => game.GameId == id);
 
-            // Go back to the main store page for more shopping
-            return RedirectToAction("Index");
+            // Add it to the shopping cart
+            int itemCount = cart.AddToCart(addedGame);
+
+            var results = new ShoppingCartAddViewModel
+            {
+                Message = Server.HtmlEncode(addedGame.Name) +
+                    " x1 has been added to your shopping cart.",
+                CartTotal = cart.GetTotal(),
+                CartCount = cart.GetCount(),
+                ItemCount = itemCount,
+                AddId = id
+            };
+            
+            return Json(results);
         }
 
         //
@@ -64,25 +73,53 @@ namespace Comp2007_Project2.Controllers
         [HttpPost]
         public ActionResult RemoveFromCart(int id)
         {
-            // Remove the item from the cart
-            var cart = ShoppingCart.GetCart(this.HttpContext);
+            // Grab the cart
+            ShoppingCart cart = ShoppingCart.GetCart(this.HttpContext);
 
             // Get the name of the game to display confirmation
             string gameName = storeDB.Carts.Single(item => item.RecordId == id).Game.Name;
 
-            // Remove from cart
+            // Remove from cart - get new count
             int itemCount = cart.RemoveFromCart(id);
 
             // Display the confirmation message
             var results = new ShoppingCartRemoveViewModel
             {
                 Message = Server.HtmlEncode(gameName) +
-                    " has been removed from your shopping cart.",
+                    " x1 has been removed from your shopping cart.",
                 CartTotal = cart.GetTotal(),
                 CartCount = cart.GetCount(),
                 ItemCount = itemCount,
                 DeleteId = id
             };
+            return Json(results);
+        }
+
+        //
+        // AJAX: /ShoppingCart/DeleteFromCart/5
+        [HttpPost]
+        public ActionResult DeleteFromCart(int gameId)
+        {
+            // Grab the cart
+            ShoppingCart cart = ShoppingCart.GetCart(this.HttpContext);
+
+            // Get the name of the game to display confirmation
+            string gameName = storeDB.Games.Single(game => game.GameId == gameId).Name;
+
+            //Delete game from Cart
+            cart.DeleteFromCart(gameId);
+
+            // Display the confirmation message
+            var results = new ShoppingCartRemoveViewModel
+            {
+                Message = Server.HtmlEncode(gameName) +
+                    " has been deleted from your shopping cart.",
+                CartTotal = cart.GetTotal(),
+                CartCount = cart.GetCount(),
+                ItemCount = 0,
+                DeleteId = gameId
+            };
+
             return Json(results);
         }
 

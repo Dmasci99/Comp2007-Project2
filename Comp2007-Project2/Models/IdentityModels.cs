@@ -1,4 +1,16 @@
-﻿using System.Data.Entity;
+﻿//Authors : Emma Hilborn(200282755),
+//          Alex Friesen(200302342),
+//          Dan Masci(200299037),
+//          Karen Springford(200299681)
+
+//Class : Enterprise Computing
+//Semester : 4
+//Professor : Tom Tsiliopolous
+//Purpose : Final Team Project - E-Commerce Store
+//Website Name : ezgames.azurewebsites.net
+//This is the model for handling user identity
+
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;

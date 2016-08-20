@@ -22,12 +22,7 @@ namespace Comp2007_Project2
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
-
-            //added bundle for the typescript
-            bundles.Add(new ScriptBundle("~/bundles/shoppingCart").Include(
-                "~/Scripts/app.js"
-                ));
-
+            
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/custom.css",
                       "~/Content/font-awesome.min.css"));
